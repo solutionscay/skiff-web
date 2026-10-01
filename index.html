@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skiff</title>
+<meta name="description" content="A minimalist desktop workspace for coding agents on Linux and macOS.">
+<meta property="og:title" content="Skiff">
+<meta property="og:description" content="A minimalist desktop workspace for coding agents on Linux and macOS.">
+<meta property="og:image" content="social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Harbor, the app's default theme. */
+:root {
+  --bg: #0f1216;
+  --bg-deep: #0b0e12;
+  --bg-panel: #13171c;
+  --bg-raised: #1b2129;
+  --rule: #232a33;
+  --rule-strong: #2f3742;
+  --text: #e6e8eb;
+  --text-2: #c3c9d1;
+  --text-3: #9aa3ae;
+  --text-dim: #7d8794;
+  --accent: #b69cff;
+  --waiting: #ffb454;
+  --working: #6b9cff;
+  --ok: #7ee0cb;
+  --font: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --row: 40px;
+  --max: 1120px;
+}
+* { box-sizing: border-box; border-radius: 0; }
+html { background: var(--bg-deep); }
+body { margin: 0; background: var(--bg-deep); color: var(--text-2); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+a { color: var(--text); text-decoration-color: var(--rule-strong); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--accent); }
+code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+
+/* Top bar: one row, a rule under it. */
+.bar { position: sticky; top: 0; z-index: 2; background: var(--bg-deep); border-bottom: 1px solid var(--rule); }
+.bar .wrap { height: var(--row); display: flex; align-items: center; gap: 24px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 16px; }
+.mark img { width: 26px; height: 26px; }
+.bar nav { margin-left: auto; display: flex; gap: 20px; font-size: 13px; font-weight: 500; }
+.bar nav a { color: var(--text-3); text-decoration: none; }
+.bar nav a:hover { color: var(--text); }
+
+/* Hero */
+.hero { padding: 72px 0 48px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+.hero h1 { margin: 0 0 16px; color: var(--text); font-size: clamp(32px, 5vw, 48px); line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; }
+.hero p { margin: 0 0 8px; max-width: 34em; font-size: 17px; }
+.hero .mascot { width: 200px; height: 200px; }
+.get { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { height: var(--row); padding: 0 18px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule-strong); background: var(--bg-raised); color: var(--text); font: 600 14px var(--font); text-decoration: none; }
+.btn:hover { background: color-mix(in srgb, var(--accent) 22%, var(--bg-raised)); }
+.btn.main { background: var(--accent); border-color: var(--accent); color: var(--bg-deep); box-shadow: inset 0 0 0 1px var(--accent); }
+.btn.main:hover { background: color-mix(in srgb, var(--accent) 86%, white); }
+.btn small { font: 400 12px var(--mono); opacity: 0.7; }
+.ver { margin-top: 12px; font: 12px var(--mono); color: var(--text-dim); }
+
+/* Screenshot: flush, framed by one rule. */
+.shot { border: 1px solid var(--rule-strong); background: var(--bg); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45); }
+.shot img { display: block; width: 100%; height: auto; }
+.caption { margin: 12px 0 0; font-size: 13px; color: var(--text-dim); }
+
+/* Sections */
+section { padding: 72px 0 0; }
+h2 { margin: 0 0 24px; color: var(--text); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+h2::before { content: ""; width: 3px; height: 16px; background: var(--accent); }
+.lead { max-width: 40em; margin: 0 0 32px; font-size: 16px; }
+
+/* Feature grid: cells share 1px rules, no gaps. */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.cell { padding: 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-panel); }
+.cell h3 { margin: 0 0 8px; color: var(--text); font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.cell p { margin: 0; font-size: 14px; color: var(--text-3); }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--accent); }
+.dot.waiting { background: var(--waiting); }
+.dot.working { background: var(--working); }
+.dot.ok { background: var(--ok); }
+
+/* Agents strip */
+.agents { display: flex; flex-wrap: wrap; border: 1px solid var(--rule); background: var(--bg-panel); }
+.agents span { height: var(--row); padding: 0 20px; display: flex; align-items: center; font: 14px var(--mono); color: var(--text); border-right: 1px solid var(--rule); }
+.agents span.more { color: var(--text-dim); font-family: var(--font); border-right: 0; }
+
+/* Install table */
+.dl { width: 100%; border-collapse: collapse; border: 1px solid var(--rule); background: var(--bg-panel); font-size: 14px; }
+.dl td { height: var(--row); padding: 0 16px; border-bottom: 1px solid var(--rule); }
+.dl td:first-child { color: var(--text); font-weight: 600; width: 32%; }
+.dl td:nth-child(2) { color: var(--text-3); }
+.dl td:last-child { text-align: right; white-space: nowrap; }
+.dl a { font: 13px var(--mono); }
+
+footer { margin-top: 96px; border-top: 1px solid var(--rule); }
+footer .wrap { min-height: var(--row); padding-top: 12px; padding-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--text-3); }
+footer .right { margin-left: auto; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 48px; }
+  .hero .mascot { display: none; }
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .bar nav a.wide { display: none; }
+  .dl td:nth-child(2) { display: none; }
+  .agents span { flex: 1 1 33%; justify-content: center; }
+  footer .right { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="./"><img src="skiff.png" alt="">Skiff</a>
+    <nav>
+      <a class="wide" href="#how">How it works</a>
+      <a href="#install">Install</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>A small workspace for coding agents.</h1>
+      <p>Skiff keeps agent sessions organized across projects and Git worktrees, on Linux and macOS.</p>
+      <p>Editing and previews stay in the apps you already use.</p>
+      <div class="get" id="get">
+        <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download</a>
+        <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
+      </div>
+      <div class="ver" id="ver">MIT license · Linux x86_64 · macOS Apple Silicon</div>
+    </div>
+    <img class="mascot" src="skiff.png" width="200" height="200" alt="Skiff mascot: a small boat with a robot at the helm">
+  </div>
+
+  <figure class="shot" style="margin:0">
+    <img src="screenshot.webp" width="1920" height="1080" alt="Skiff on Linux: a project with its session group, changed files and file tree in the sidebar, and three agent sessions side by side">
+  </figure>
+  <p class="caption">One project, one group, three agents side by side. The flag marks the session that finished.</p>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="lead">Add a project (a Git repository), make worktrees in it, and start agent or shell sessions in each worktree. Sessions sit side by side in named groups. Close the window and the agents keep running.</p>
+    <div class="grid">
+      <div class="cell">
+        <h3><span class="dot working"></span>Sessions outlive the window</h3>
+        <p>A daemon, <code>skiffd</code>, owns every terminal. Close the window and the agents keep working. Open it again and each terminal shows its last screen.</p>
+      </div>
+      <div class="cell">
+        <h3><span class="dot waiting"></span>See what needs a look</h3>
+        <p>Each session shows when it waits for you, works or finishes. A finished session gets an unread flag until you go to it.</p>
+      </div>
+      <div class="cell">
+        <h3><span class="dot"></span>Projects and worktrees</h3>
+        <p>Sessions sit under the project and worktree they run in. If an agent goes to work in another worktree, the sidebar shows it there too.</p>
+      </div>
+      <div class="cell">
+        <h3><span class="dot"></span>Groups and layouts</h3>
+        <p>Put related sessions in a named group and split them side by side. Drag a pane by its header to move it.</p>
+      </div>
+      <div class="cell">
+        <h3><span class="dot"></span>Themes as location cues</h3>
+        <p>Give each project and group its own terminal theme. One look tells you where you are.</p>
+      </div>
+      <div class="cell">
+        <h3><span class="dot ok"></span>Changes, not an editor</h3>
+        <p>Each worktree lists its changed files. A double-click shows the diff. Files open in the apps you pick under Settings › Open with.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Agents</h2>
+    <p class="lead">Skiff comes with these agents in Settings. Add any other command line, or start a plain shell.</p>
+    <div class="agents">
+      <span>claude</span><span>codex</span><span>gemini</span><span>grok</span><span>opencode</span><span class="more">+ your own</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Small on purpose</h2>
+    <p class="lead">Skiff has no plugins, no automations and no hooks into agent configs. It writes nothing into an agent's setup. Settings live in one file, <code>projects.toml</code>. The keyboard and the mouse do the same things, and F1 shows every key.</p>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <table class="dl">
+      <tbody id="assets">
+        <tr><td>Linux x86_64</td><td>Debian, Ubuntu</td><td><a data-ext=".deb" href="https://github.com/solutionscay/skiff/releases/latest">.deb</a></td></tr>
+        <tr><td>Linux x86_64</td><td>Fedora, openSUSE</td><td><a data-ext=".rpm" href="https://github.com/solutionscay/skiff/releases/latest">.rpm</a></td></tr>
+        <tr><td>Linux x86_64</td><td>Any distribution</td><td><a data-ext=".AppImage" href="https://github.com/solutionscay/skiff/releases/latest">.AppImage</a></td></tr>
+        <tr><td>macOS Apple Silicon</td><td>Signed and notarized</td><td><a data-ext=".dmg" href="https://github.com/solutionscay/skiff/releases/latest">.dmg</a></td></tr>
+      </tbody>
+    </table>
+    <p class="caption">All releases and notes are on <a href="https://github.com/solutionscay/skiff/releases">GitHub Releases</a>. To build from source, see the <a href="https://github.com/solutionscay/skiff#development">README</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+  </div>
+</footer>
+
+<script>
+// Asset names carry the version, so ask GitHub for the latest release.
+// Without an answer, every link goes to the releases page.
+(async () => {
+  let rel;
+  try {
+    const r = await fetch("https://api.github.com/repos/solutionscay/skiff/releases/latest");
+    if (!r.ok) return;
+    rel = await r.json();
+  } catch { return; }
+  const find = (ext) => (rel.assets || []).find((a) => a.name.endsWith(ext));
+  for (const a of document.querySelectorAll("a[data-ext]")) {
+    const asset = find(a.dataset.ext);
+    if (asset) { a.href = asset.browser_download_url; a.title = asset.name; }
+  }
+  document.getElementById("ver").textContent =
+    `${rel.tag_name} · MIT license · Linux x86_64 · macOS Apple Silicon`;
+  // The main button gets the package for this machine.
+  const ua = navigator.userAgent;
+  const ext = /Mac/.test(ua) ? ".dmg" : /Linux/.test(ua) && !/Android/.test(ua) ? ".AppImage" : null;
+  const asset = ext && find(ext);
+  if (asset) {
+    const btn = document.querySelector("#get .btn.main");
+    btn.href = asset.browser_download_url;
+    btn.innerHTML = `Download <small>${ext === ".dmg" ? "macOS" : "Linux AppImage"}</small>`;
+  }
+})();
+</script>
+</body>
+</html>
