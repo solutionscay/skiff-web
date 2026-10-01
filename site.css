@@ -128,3 +128,8 @@ footer .right { margin-left: auto; }
 .status { min-height: 1.6em; margin: 8px 0 0; font-size: 14px; color: var(--text-3); }
 .status.ok { color: var(--ok); }
 .status.err { color: var(--waiting); }
+
+/* Support page */
+.ways { margin-bottom: 56px; }
+.form-head { margin-top: 0; scroll-margin-top: 64px; }
+#support { scroll-margin-top: 64px; }

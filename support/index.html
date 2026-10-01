@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=2">
+<link rel="stylesheet" href="../site.css?v=3">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 </head>
 <body>
@@ -35,8 +35,25 @@
 <main class="wrap">
   <div class="page-head">
     <h1>Support</h1>
-    <p>Have a question, a bug, or an idea? Send a message and we will reply by email.</p>
+    <p>Report a bug or an idea on GitHub. For questions or anything private, send a message.</p>
   </div>
+
+  <div class="pkgs ways">
+    <div class="pkg">
+      <h3>Bugs and feature requests</h3>
+      <p class="for">Open an issue on GitHub. Issues are public, so other users can find them, add details and follow the fix.</p>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/issues/new">Open an issue</a>
+      <p class="note">Check the <a href="https://github.com/solutionscay/skiff/issues">open issues</a> first. Yours may already be there.</p>
+    </div>
+    <div class="pkg">
+      <h3>Questions and private matters</h3>
+      <p class="for">Install help, how-to questions, or anything you do not want to post in public. We reply by email.</p>
+      <a class="btn" href="#support">Send a message</a>
+      <p class="note">Or email <a href="mailto:support@solutionscay.com">support@solutionscay.com</a>.</p>
+    </div>
+  </div>
+
+  <h2 class="form-head">Send a message</h2>
 
   <form id="support" class="form" action="https://formspree.io/f/xovrdnya" method="POST">
     <label for="category">What do you need help with?</label>
@@ -53,7 +70,7 @@
     <textarea id="description" name="description" rows="6" required placeholder="Tell us what happened and what you expected."></textarea>
 
     <label for="system">Skiff version and system</label>
-    <input type="text" id="system" name="system" placeholder="e.g. 0.4.0, Debian 13 x86_64">
+    <input type="text" id="system" name="system" placeholder="e.g. 1.0.0, Debian 13 x86_64">
 
     <label for="email">Your email</label>
     <input type="email" id="email" name="email" required placeholder="So we can reply">
@@ -63,7 +80,6 @@
 
     <button class="btn main" type="submit">Send message</button>
     <p id="status" class="status" role="status" aria-live="polite"></p>
-    <p class="note">You can also email <a href="mailto:support@solutionscay.com">support@solutionscay.com</a>. For bugs, you can also open an <a href="https://github.com/solutionscay/skiff/issues">issue on GitHub</a>.</p>
   </form>
 </main>
 
