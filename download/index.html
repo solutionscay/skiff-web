@@ -45,34 +45,30 @@
   </div>
 
   <div class="pkgs">
-    <div class="pkg" data-ext=".deb">
+    <div class="pkg">
       <h3>Linux .deb</h3>
       <p class="for">Debian, Ubuntu and their derivatives</p>
-      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .deb</a>
-      <div class="file"></div>
-      <pre>sudo apt install ./<span class="name">Skiff_*_amd64.deb</span></pre>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest/download/Skiff_amd64.deb">Download .deb</a>
+      <pre>sudo apt install ./Skiff_amd64.deb</pre>
     </div>
-    <div class="pkg" data-ext=".rpm">
+    <div class="pkg">
       <h3>Linux .rpm</h3>
       <p class="for">Fedora, openSUSE and other RPM distributions</p>
-      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .rpm</a>
-      <div class="file"></div>
-      <pre>sudo dnf install ./<span class="name">Skiff-*.x86_64.rpm</span></pre>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest/download/Skiff_x86_64.rpm">Download .rpm</a>
+      <pre>sudo dnf install ./Skiff_x86_64.rpm</pre>
       <p class="note">On openSUSE, use <code>sudo zypper install</code> instead.</p>
     </div>
-    <div class="pkg" data-ext=".AppImage">
+    <div class="pkg">
       <h3>Linux AppImage</h3>
       <p class="for">Any distribution. No install step.</p>
-      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download AppImage</a>
-      <div class="file"></div>
-      <pre>chmod +x <span class="name">Skiff_*_amd64.AppImage</span>
-./<span class="name">Skiff_*_amd64.AppImage</span></pre>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest/download/Skiff_amd64.AppImage">Download AppImage</a>
+      <pre>chmod +x Skiff_amd64.AppImage
+./Skiff_amd64.AppImage</pre>
     </div>
-    <div class="pkg" data-ext=".dmg">
+    <div class="pkg">
       <h3>macOS .dmg</h3>
       <p class="for">Apple Silicon. Signed and notarized.</p>
-      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .dmg</a>
-      <div class="file"></div>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest/download/Skiff_aarch64.dmg">Download .dmg</a>
       <p class="note">Open the .dmg and drag Skiff to Applications.</p>
     </div>
   </div>
@@ -92,25 +88,11 @@
 </footer>
 
 <script>
-// Asset names carry the version, so ask GitHub for the latest release.
-// Without an answer, every button goes to the releases page.
-(async () => {
-  let rel;
-  try {
-    const r = await fetch("https://api.github.com/repos/solutionscay/skiff/releases/latest");
-    if (!r.ok) return;
-    rel = await r.json();
-  } catch { return; }
-  document.getElementById("ver").textContent = rel.tag_name;
-  for (const pkg of document.querySelectorAll(".pkg[data-ext]")) {
-    const asset = (rel.assets || []).find((a) => a.name.endsWith(pkg.dataset.ext));
-    if (!asset) continue;
-    pkg.querySelector(".btn").href = asset.browser_download_url;
-    const mb = (asset.size / 1048576).toFixed(0);
-    pkg.querySelector(".file").textContent = `${asset.name} · ${mb} MB`;
-    for (const n of pkg.querySelectorAll(".name")) n.textContent = asset.name;
-  }
-})();
+// The links are fixed. Only the version line asks GitHub.
+fetch("https://api.github.com/repos/solutionscay/skiff/releases/latest")
+  .then((r) => (r.ok ? r.json() : null))
+  .then((rel) => { if (rel) document.getElementById("ver").textContent = rel.tag_name; })
+  .catch(() => {});
 </script>
 </body>
 </html>
