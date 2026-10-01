@@ -62,7 +62,8 @@ code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
 .btn:hover { background: color-mix(in srgb, var(--accent) 22%, var(--bg-raised)); }
 .btn.main { background: var(--accent); border-color: var(--accent); color: var(--bg-deep); box-shadow: inset 0 0 0 1px var(--accent); }
 .btn.main:hover { background: color-mix(in srgb, var(--accent) 86%, white); }
-.btn small { font: 400 12px var(--mono); opacity: 0.7; }
+.btn small { font: 500 12px var(--font); opacity: 0.75; }
+.ver a { color: var(--text-3); }
 .ver { margin-top: 12px; font: 12px var(--mono); color: var(--text-dim); }
 
 /* Screenshot: flush, framed by one rule. */
@@ -139,10 +140,12 @@ footer .right { margin-left: auto; }
       <p>Skiff keeps agent sessions organized across projects and Git worktrees, on Linux and macOS.</p>
       <p>Editing and previews stay in the apps you already use.</p>
       <div class="get" id="get">
-        <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download</a>
-        <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
+        <a class="btn main" data-ext=".deb" href="https://github.com/solutionscay/skiff/releases/latest">.deb <small>Debian, Ubuntu</small></a>
+        <a class="btn main" data-ext=".rpm" href="https://github.com/solutionscay/skiff/releases/latest">.rpm <small>Fedora, openSUSE</small></a>
+        <a class="btn main" data-ext=".AppImage" href="https://github.com/solutionscay/skiff/releases/latest">AppImage <small>Any Linux</small></a>
+        <a class="btn main" data-ext=".dmg" href="https://github.com/solutionscay/skiff/releases/latest">.dmg <small>macOS</small></a>
       </div>
-      <div class="ver" id="ver">MIT license · Linux x86_64 · macOS Apple Silicon</div>
+      <div class="ver"><span id="ver">Latest release</span> · Linux x86_64 · macOS Apple Silicon · <a href="https://github.com/solutionscay/skiff">Source on GitHub</a></div>
     </div>
     <img class="mascot" src="skiff.png" width="200" height="200" alt="Skiff mascot: a small boat with a robot at the helm">
   </div>
@@ -234,17 +237,7 @@ footer .right { margin-left: auto; }
     const asset = find(a.dataset.ext);
     if (asset) { a.href = asset.browser_download_url; a.title = asset.name; }
   }
-  document.getElementById("ver").textContent =
-    `${rel.tag_name} · MIT license · Linux x86_64 · macOS Apple Silicon`;
-  // The main button gets the package for this machine.
-  const ua = navigator.userAgent;
-  const ext = /Mac/.test(ua) ? ".dmg" : /Linux/.test(ua) && !/Android/.test(ua) ? ".AppImage" : null;
-  const asset = ext && find(ext);
-  if (asset) {
-    const btn = document.querySelector("#get .btn.main");
-    btn.href = asset.browser_download_url;
-    btn.innerHTML = `Download <small>${ext === ".dmg" ? "macOS" : "Linux AppImage"}</small>`;
-  }
+  document.getElementById("ver").textContent = rel.tag_name;
 })();
 </script>
 </body>
