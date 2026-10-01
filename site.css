@@ -125,7 +125,17 @@ footer .right { margin-left: auto; }
 .status.ok { color: var(--ok); }
 .status.err { color: var(--waiting); }
 
-/* Support page */
-.ways { margin-bottom: 56px; }
-.form-head { margin-top: 0; scroll-margin-top: 64px; }
-#support { scroll-margin-top: 64px; }
+/* Support page: two equal columns with one rule between. */
+.ways { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); }
+.way { padding: 32px 0 0; min-width: 0; }
+.way:first-child { padding-right: 40px; border-right: 1px solid var(--rule); }
+.way:last-child { padding-left: 40px; }
+.way .lead { margin-bottom: 20px; font-size: 15px; }
+.way .note { margin: 16px 0 0; font-size: 13px; color: var(--text-3); }
+.way .form { max-width: none; }
+.way .form label:first-child { margin-top: 0; }
+@media (max-width: 760px) {
+  .ways { grid-template-columns: 1fr; }
+  .way:first-child { padding: 32px 0 40px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .way:last-child { padding-left: 0; }
+}

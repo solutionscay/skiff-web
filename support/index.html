@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=4">
+<link rel="stylesheet" href="../site.css?v=5">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 </head>
 <body>
@@ -45,23 +45,17 @@
     <p>Report a bug or an idea on GitHub. For questions or anything private, send a message.</p>
   </div>
 
-  <div class="pkgs ways">
-    <div class="pkg">
-      <h3>Bugs and feature requests</h3>
-      <p class="for">Open an issue on GitHub. Issues are public, so other users can find them, add details and follow the fix.</p>
+  <div class="ways">
+    <section class="way">
+      <h2>Open an issue</h2>
+      <p class="lead">For bugs and feature requests. Issues are public, so other users can find them, add details and follow the fix.</p>
       <a class="btn main" href="https://github.com/solutionscay/skiff/issues/new">Open an issue</a>
       <p class="note">Check the <a href="https://github.com/solutionscay/skiff/issues">open issues</a> first. Yours may already be there.</p>
-    </div>
-    <div class="pkg">
-      <h3>Questions and private matters</h3>
-      <p class="for">Install help, how-to questions, or anything you do not want to post in public. We reply by email.</p>
-      <a class="btn" href="#support">Send a message</a>
-      <p class="note">Or email <a href="mailto:support@solutionscay.com">support@solutionscay.com</a>.</p>
-    </div>
-  </div>
+    </section>
 
-  <h2 class="form-head">Send a message</h2>
-
+    <section class="way">
+      <h2>Send a message</h2>
+      <p class="lead">For install help, questions, or anything you do not want to post in public. We reply by email, or write to <a href="mailto:support@solutionscay.com">support@solutionscay.com</a>.</p>
   <form id="support" class="form" action="https://formspree.io/f/xovrdnya" method="POST">
     <label for="category">What do you need help with?</label>
     <select id="category" name="category" required>
@@ -88,6 +82,8 @@
     <button class="btn main" type="submit">Send message</button>
     <p id="status" class="status" role="status" aria-live="polite"></p>
   </form>
+    </section>
+  </div>
 </main>
 
 <footer>
