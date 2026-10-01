@@ -115,3 +115,16 @@ footer .right { margin-left: auto; }
 .pkg pre { margin: 0; padding: 10px 12px; background: var(--bg-deep); border: 1px solid var(--rule); color: var(--text); font: 13px/1.5 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
 .pkg .note { margin: 0; font-size: 13px; color: var(--text-3); }
 @media (max-width: 760px) { .pkgs { grid-template-columns: 1fr; } }
+
+/* Support page */
+.form { max-width: 560px; padding-bottom: 8px; display: flex; flex-direction: column; gap: 6px; }
+.form label { margin-top: 14px; color: var(--text); font-size: 13px; font-weight: 600; }
+.form input, .form select, .form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--rule-strong); background: var(--bg-panel); color: var(--text); font: 15px var(--font); }
+.form textarea { resize: vertical; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--accent); }
+.form .btn { align-self: flex-start; margin-top: 20px; cursor: pointer; }
+.form .btn:disabled { opacity: 0.6; cursor: default; }
+.form .note { margin: 12px 0 0; font-size: 13px; color: var(--text-3); }
+.status { min-height: 1.6em; margin: 8px 0 0; font-size: 14px; color: var(--text-3); }
+.status.ok { color: var(--ok); }
+.status.err { color: var(--waiting); }

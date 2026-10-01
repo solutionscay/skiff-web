@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skiff support</title>
+<meta name="description" content="Get help with Skiff. Report a bug, ask a question, or suggest a feature.">
+<meta property="og:title" content="Skiff support">
+<meta property="og:description" content="Get help with Skiff. Report a bug, ask a question, or suggest a feature.">
+<meta property="og:image" content="../social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../"><img src="../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a class="wide" href="../#how">How it works</a>
+      <a href="../download/">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Support</h1>
+    <p>Have a question, a bug, or an idea? Send a message and we will reply by email.</p>
+  </div>
+
+  <form id="support" class="form" action="https://formspree.io/f/xovrdnya" method="POST">
+    <label for="category">What do you need help with?</label>
+    <select id="category" name="category" required>
+      <option value="">Select a category...</option>
+      <option value="install">Install or update</option>
+      <option value="bug">Something is not working</option>
+      <option value="question">How do I...?</option>
+      <option value="feature">Feature request</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="description">How can we help?</label>
+    <textarea id="description" name="description" rows="6" required placeholder="Tell us what happened and what you expected."></textarea>
+
+    <label for="system">Skiff version and system</label>
+    <input type="text" id="system" name="system" placeholder="e.g. 0.4.0, Debian 13 x86_64">
+
+    <label for="email">Your email</label>
+    <input type="email" id="email" name="email" required placeholder="So we can reply">
+
+    <input type="hidden" name="_subject" value="Skiff - Support Request">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+    <button class="btn main" type="submit">Send message</button>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <p class="note">You can also email <a href="mailto:support@solutionscay.com">support@solutionscay.com</a>. For bugs, you can also open an <a href="https://github.com/solutionscay/skiff/issues">issue on GitHub</a>.</p>
+  </form>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="./">Support</a>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("support");
+const status = document.getElementById("status");
+const btn = form.querySelector("button");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  btn.disabled = true;
+  status.className = "status";
+  status.textContent = "Sending...";
+  try {
+    const r = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+    if (r.ok) {
+      form.reset();
+      status.className = "status ok";
+      status.textContent = "Message received. We usually reply within 1-2 business days.";
+    } else {
+      const j = await r.json().catch(() => null);
+      status.className = "status err";
+      status.textContent = (j && j.errors && j.errors.map((x) => x.message).join(", ")) || "Something went wrong. Please try again.";
+    }
+  } catch {
+    status.className = "status err";
+    status.textContent = "Unable to send. Check your connection and try again.";
+  }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
