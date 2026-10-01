@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Skiff</title>
+<meta name="description" content="Download Skiff for Linux and macOS.">
+<meta property="og:title" content="Download Skiff">
+<meta property="og:description" content="Skiff for Linux x86_64 (.deb, .rpm, AppImage) and macOS on Apple Silicon (.dmg).">
+<meta property="og:image" content="../social-preview.png">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../"><img src="../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a class="wide" href="../#how">How it works</a>
+      <a href="./">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Download Skiff</h1>
+    <p><span id="ver">The latest release</span> for Linux x86_64 and macOS on Apple Silicon.</p>
+  </div>
+
+  <div class="pkgs">
+    <div class="pkg" data-ext=".deb">
+      <h3>Linux .deb</h3>
+      <p class="for">Debian, Ubuntu and their derivatives</p>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .deb</a>
+      <div class="file"></div>
+      <pre>sudo apt install ./<span class="name">Skiff_*_amd64.deb</span></pre>
+    </div>
+    <div class="pkg" data-ext=".rpm">
+      <h3>Linux .rpm</h3>
+      <p class="for">Fedora, openSUSE and other RPM distributions</p>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .rpm</a>
+      <div class="file"></div>
+      <pre>sudo dnf install ./<span class="name">Skiff-*.x86_64.rpm</span></pre>
+      <p class="note">On openSUSE, use <code>sudo zypper install</code> instead.</p>
+    </div>
+    <div class="pkg" data-ext=".AppImage">
+      <h3>Linux AppImage</h3>
+      <p class="for">Any distribution. No install step.</p>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download AppImage</a>
+      <div class="file"></div>
+      <pre>chmod +x <span class="name">Skiff_*_amd64.AppImage</span>
+./<span class="name">Skiff_*_amd64.AppImage</span></pre>
+    </div>
+    <div class="pkg" data-ext=".dmg">
+      <h3>macOS .dmg</h3>
+      <p class="for">Apple Silicon. Signed and notarized.</p>
+      <a class="btn main" href="https://github.com/solutionscay/skiff/releases/latest">Download .dmg</a>
+      <div class="file"></div>
+      <p class="note">Open the .dmg and drag Skiff to Applications.</p>
+    </div>
+  </div>
+
+  <p class="caption">Release notes and older versions are on <a href="https://github.com/solutionscay/skiff/releases">GitHub Releases</a>. To build from source, see the <a href="https://github.com/solutionscay/skiff#development">README</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+  </div>
+</footer>
+
+<script>
+// Asset names carry the version, so ask GitHub for the latest release.
+// Without an answer, every button goes to the releases page.
+(async () => {
+  let rel;
+  try {
+    const r = await fetch("https://api.github.com/repos/solutionscay/skiff/releases/latest");
+    if (!r.ok) return;
+    rel = await r.json();
+  } catch { return; }
+  document.getElementById("ver").textContent = rel.tag_name;
+  for (const pkg of document.querySelectorAll(".pkg[data-ext]")) {
+    const asset = (rel.assets || []).find((a) => a.name.endsWith(pkg.dataset.ext));
+    if (!asset) continue;
+    pkg.querySelector(".btn").href = asset.browser_download_url;
+    const mb = (asset.size / 1048576).toFixed(0);
+    pkg.querySelector(".file").textContent = `${asset.name} · ${mb} MB`;
+    for (const n of pkg.querySelectorAll(".name")) n.textContent = asset.name;
+  }
+})();
+</script>
+</body>
+</html>
