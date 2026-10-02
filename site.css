@@ -52,8 +52,25 @@ code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
 
 /* Screenshot: flush, framed by one rule. */
 .shot { border: 1px solid var(--rule-strong); background: var(--bg); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45); }
-.shot img { display: block; width: 100%; height: auto; }
+.shot img, .shot video { display: block; width: 100%; height: auto; }
 .caption { margin: 12px 0 0; font-size: 13px; color: var(--text-dim); }
+
+/* Wall: the latest screenshots in one row of flush cells. */
+.wall { margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.wall figure, .gallery figure { margin: 0; min-width: 0; }
+a.shot { display: block; }
+a.shot:hover { border-color: var(--accent); }
+.wall figcaption, .gallery figcaption { margin-top: 10px; font-size: 13px; color: var(--text-dim); text-wrap: pretty; }
+.tag { margin-right: 8px; padding: 1px 6px; border: 1px solid var(--rule-strong); font: 12px var(--mono); color: var(--text-3); }
+.more-shots { margin: 20px 0 0; font-size: 14px; }
+
+/* Gallery page: two columns, newest first. */
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+.gallery .date { color: var(--text-dim); font: 12px var(--mono); margin-left: 8px; }
+.gallery p { margin: 4px 0 0; }
+@media (max-width: 860px) {
+  .wall, .gallery { grid-template-columns: 1fr; }
+}
 
 /* Sections */
 section { padding: 72px 0 0; }
