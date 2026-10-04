@@ -159,3 +159,12 @@ footer .right { margin-left: auto; }
   .way:first-child { padding: 32px 0 40px; border-right: 0; border-bottom: 1px solid var(--rule); }
   .way:last-child { padding-left: 0; }
 }
+
+/* Agent pages: numbered steps, a terminal block and questions. */
+.page-head .get { margin-top: 24px; }
+.steps { max-width: 40em; margin: 0; padding-left: 1.4em; font-size: 16px; }
+.steps li { margin: 0 0 10px; padding-left: 4px; }
+.term { max-width: 40em; margin: 0; padding: 14px 16px; background: var(--bg-panel); border: 1px solid var(--rule); color: var(--text); font: 13px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.faq { max-width: 40em; margin: 0; border-top: 1px solid var(--rule); }
+.faq dt { padding-top: 16px; color: var(--text); font-weight: 600; }
+.faq dd { margin: 4px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); color: var(--text-3); }

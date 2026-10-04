@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run multiple Claude Code sessions on Linux and macOS | Skiff</title>
+<meta name="description" content="Skiff is a free, open-source desktop app for Claude Code on Linux and macOS. Run sessions side by side in Git worktrees, see which one waits for approval, and keep them running after you close the window.">
+<meta property="og:title" content="Run multiple Claude Code sessions on Linux and macOS">
+<meta property="og:description" content="A free, open-source desktop app for Claude Code. Sessions side by side in Git worktrees, approval and finished flags, and sessions that keep running after you close the window.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/claude-code/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=2">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/claude-code/">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css?v=9">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../"><img src="../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a href="../download/">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a class="wide" href="../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Run several Claude Code sessions at once.</h1>
+    <p>Claude Code runs in a terminal. Skiff is a desktop app for Linux and macOS that holds many of those terminals. Each session sits under the project and Git worktree it works in, and you can see which one needs you.</p>
+    <div class="get">
+      <a class="btn main" href="../download/">Download Skiff</a>
+      <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
+    </div>
+    <div class="ver">Free · MIT license · Linux x86_64 · macOS Apple Silicon</div>
+  </div>
+
+  <figure class="shot" style="margin:0">
+    <video src="../shots/v1.2.0.mp4" poster="../shots/v1.2.0-poster.webp" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="Skiff on Linux: Claude Code uses the skiff CLI to start two groups of four agents, each pane in its own theme"></video>
+  </figure>
+  <p class="caption"><span class="tag">v1.2.0</span>Claude Code uses the <code>skiff</code> command to start two groups of four agents and give each pane its own theme.</p>
+
+  <section>
+    <h2>What Skiff adds</h2>
+    <p class="lead">Skiff starts the <code>claude</code> command you already have. Claude Code itself does not change.</p>
+    <div class="grid">
+      <div class="cell">
+        <h3>Sessions side by side</h3>
+        <p>Put up to four sessions in a named group and split them left, right, up or down.</p>
+      </div>
+      <div class="cell">
+        <h3>One worktree per task</h3>
+        <p>Make Git worktrees in Skiff and start a Claude Code session in each one, so parallel tasks don't edit the same files.</p>
+      </div>
+      <div class="cell">
+        <h3>A bell when Claude asks</h3>
+        <p>A bell means a session waits for your approval. A flag means it finished its turn while you were in another pane.</p>
+      </div>
+      <div class="cell">
+        <h3>Close the window, keep working</h3>
+        <p>A daemon, <code>skiffd</code>, owns every terminal. Claude keeps going after you close Skiff. Open it again and each terminal shows its last screen.</p>
+      </div>
+      <div class="cell">
+        <h3>Changed files and diffs</h3>
+        <p>Each worktree lists the files Claude changed. Double-click one to see the diff, or open it in your own editor.</p>
+      </div>
+      <div class="cell">
+        <h3>Claude can run the others</h3>
+        <p>The <code>skiff</code> command lets Claude Code start more sessions, type into them and wait for them to finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your setup stays yours</h2>
+    <p class="lead">Skiff installs no hooks and writes nothing into Claude Code's configuration. It runs the CLI you signed in to, with your own plan or API key. You can start Codex, Gemini CLI, Grok, OpenCode or a plain shell next to it.</p>
+  </section>
+
+  <section>
+    <h2>Start in four steps</h2>
+    <ol class="steps">
+      <li>Install Claude Code and sign in. Anthropic's <a href="https://code.claude.com/docs/en/overview">Claude Code docs</a> cover this.</li>
+      <li><a href="../download/">Download Skiff</a> for Linux (<code>.deb</code>, <code>.rpm</code> or AppImage) or macOS on Apple Silicon.</li>
+      <li>Add a project. A project is a Git repository. Make a worktree in it if you want an isolated branch.</li>
+      <li>Start a <code>claude</code> session in the worktree. Add more sessions to the group as the work grows.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Drive it from Claude</h2>
+    <p class="lead">Every Skiff terminal knows its own session, so Claude Code can run commands like these. The <code>skiff</code> command ships with the app. See the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a> for the full list.</p>
+    <pre class="term">skiff new --agent codex --name review
+skiff group add . review --split right
+skiff send review "Review the diff in this worktree" --enter
+skiff wait review --for any-not-working --timeout 600
+skiff peek review</pre>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <dl class="faq">
+      <dt>Does Skiff replace Claude Code?</dt>
+      <dd>No. Skiff runs the Claude Code CLI in its own terminals. You still install and update Claude Code yourself.</dd>
+      <dt>Does it work with my Claude subscription?</dt>
+      <dd>Yes. Skiff starts the same <code>claude</code> command you run in a terminal, so it uses whatever login that command already has.</dd>
+      <dt>Is there a Windows version?</dt>
+      <dd>Not yet. Skiff ships for Linux x86_64 and macOS on Apple Silicon.</dd>
+      <dt>What does it cost?</dt>
+      <dd>Nothing. Skiff is open source under the MIT license.</dd>
+    </dl>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>
