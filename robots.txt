@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skiff.solutionscay.com/sitemap.xml
