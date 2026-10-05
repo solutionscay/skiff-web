@@ -87,7 +87,7 @@
 
   <section>
     <h2>Your setup stays yours</h2>
-    <p class="lead">Skiff installs no hooks and writes nothing into Claude Code's configuration. It runs the CLI you signed in to, with your own plan or API key. You can start Codex, Gemini CLI, Grok, OpenCode or a plain shell next to it.</p>
+    <p class="lead">Skiff installs no hooks and writes nothing into Claude Code's configuration. It runs the CLI you signed in to, with your own plan or API key. You can start <a href="../codex/">Codex</a>, Gemini CLI, Grok, OpenCode or a plain shell next to it.</p>
   </section>
 
   <section>
@@ -105,6 +105,7 @@
     <p class="lead">Every Skiff terminal knows its own session, so Claude Code can run commands like these. The <code>skiff</code> command ships with the app. See the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a> for the full list.</p>
     <pre class="term">skiff new --agent codex --name review
 skiff group add . review --split right
+skiff wait review --for idle --timeout 60
 skiff send review "Review the diff in this worktree" --enter
 skiff wait review --for any-not-working --timeout 600
 skiff peek review</pre>
