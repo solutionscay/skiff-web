@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run Gemini CLI and Antigravity CLI side by side | Skiff</title>
+<meta name="description" content="Skiff is a free, open-source desktop app that runs Google's Antigravity CLI or Gemini CLI next to Claude Code, Codex and other agents on Linux and macOS. Sessions sit in Git worktrees, flag when they need approval, and keep running after you close the window.">
+<meta property="og:title" content="Run Gemini CLI and Antigravity CLI side by side">
+<meta property="og:description" content="A free, open-source desktop app for Google's Antigravity CLI, Gemini CLI and other coding agents. Sessions in Git worktrees, approval and finished flags, and sessions that keep running after you close the window.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/gemini-cli/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=2">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/gemini-cli/">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css?v=9">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../"><img src="../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a href="../download/">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a class="wide" href="../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Run Google's coding agents with the rest.</h1>
+    <p>Antigravity CLI (<code>agy</code>) and Gemini CLI (<code>gemini</code>) both run in a terminal. Skiff is a desktop app for Linux and macOS that runs many terminals at once, next to Claude Code, Codex or any other command line. Each session sits under the project and Git worktree it works in.</p>
+    <div class="get">
+      <a class="btn main" href="../download/">Download Skiff</a>
+      <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
+    </div>
+    <div class="ver">Free · MIT license · Linux x86_64 · macOS Apple Silicon</div>
+  </div>
+
+  <figure class="shot" style="margin:0">
+    <img src="../shots/v0.6.1.webp" width="1920" height="1080" alt="Skiff on Linux: changed files and the file tree in the sidebar, and Claude Code, Codex and Antigravity in a one left, two right group">
+  </figure>
+  <p class="caption"><span class="tag">v0.6.1</span>Claude Code, Codex and Antigravity in one group, with the worktree's changed files in the sidebar.</p>
+
+  <section>
+    <h2>What Skiff adds</h2>
+    <p class="lead">Skiff's Gemini entry starts <code>agy</code> by default. Set its command to <code>gemini</code> in Settings to run Gemini CLI. Either tool runs unchanged.</p>
+    <div class="grid">
+      <div class="cell">
+        <h3>Gemini beside other agents</h3>
+        <p>Put up to four sessions in a named group, from any mix of agents. One can write while another reviews.</p>
+      </div>
+      <div class="cell">
+        <h3>One worktree per task</h3>
+        <p>Make Git worktrees in Skiff and start a session in each one, so parallel tasks don't edit the same files.</p>
+      </div>
+      <div class="cell">
+        <h3>A bell when Gemini asks</h3>
+        <p>Skiff reads the approval prompts of both Antigravity CLI and Gemini CLI from the screen and rings a bell on that session. A flag means it finished while you were elsewhere.</p>
+      </div>
+      <div class="cell">
+        <h3>Close the window, keep working</h3>
+        <p>A daemon, <code>skiffd</code>, owns every terminal. The agent keeps going after you close Skiff. Open it again and each terminal shows its last screen.</p>
+      </div>
+      <div class="cell">
+        <h3>Changed files and diffs</h3>
+        <p>Each worktree lists the files the agent changed. Double-click one to see the diff, or open it in your own editor.</p>
+      </div>
+      <div class="cell">
+        <h3>Agents that start agents</h3>
+        <p>The <code>skiff</code> command lets an agent start more sessions, type into them and wait for them to finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your setup stays yours</h2>
+    <p class="lead">Skiff installs no hooks and writes nothing into the agent's configuration. It runs the CLI you signed in to, with your own Google account or API key.</p>
+  </section>
+
+  <section>
+    <h2>Start in four steps</h2>
+    <ol class="steps">
+      <li>Install Antigravity CLI from <a href="https://antigravity.google/">antigravity.google</a>, or Gemini CLI from <a href="https://geminicli.com/">geminicli.com</a>, and sign in.</li>
+      <li><a href="../download/">Download Skiff</a> for Linux (<code>.deb</code>, <code>.rpm</code> or AppImage) or macOS on Apple Silicon.</li>
+      <li>Add a project. A project is a Git repository. Make a worktree in it if you want an isolated branch. If you use Gemini CLI, set the Gemini command to <code>gemini</code> in Settings.</li>
+      <li>Start a Gemini session in the worktree. Add another agent to the same group when you want a second opinion.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Pair it from the shell</h2>
+    <p class="lead">From any Skiff terminal, these commands start a Gemini session beside the current one and hand it a task. See the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a> for the full list.</p>
+    <pre class="term">skiff new --agent gemini --name gemini-review
+skiff group add . gemini-review --split right
+skiff wait gemini-review --for idle --timeout 60
+skiff send gemini-review "Review the uncommitted changes" --enter
+skiff wait gemini-review --for any-not-working --timeout 600
+skiff peek gemini-review</pre>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <dl class="faq">
+      <dt>Antigravity CLI or Gemini CLI?</dt>
+      <dd>Skiff supports both under its Gemini entry. It starts <code>agy</code> by default. Change the command in Settings to <code>gemini</code> for Gemini CLI, or add the other one as your own agent to run both.</dd>
+      <dt>Does it work with my Google account?</dt>
+      <dd>Yes. Skiff starts the same command you run in a terminal, so it uses whatever login that command already has.</dd>
+      <dt>Can I run other agents at the same time?</dt>
+      <dd>Yes. Skiff also comes with Claude Code, Codex, Grok and OpenCode, and you can add any other command. See <a href="../claude-code/">Claude Code</a> and <a href="../codex/">Codex</a> in Skiff.</dd>
+      <dt>What does it cost?</dt>
+      <dd>Nothing. Skiff is open source under the MIT license.</dd>
+    </dl>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>
