@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../site.css?v=9">
+<link rel="stylesheet" href="../../site.css?v=10">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"TechArticle","headline":"Git worktrees for coding agents: a practical guide","description":"How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.","datePublished":"2026-10-05","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/"}
@@ -62,7 +62,7 @@
 
   <section>
     <h2>The commands</h2>
-    <p class="lead">Run these from the main checkout. The examples put worktrees in a folder next to the repository, named after it, so they stay out of the main checkout's file tree.</p>
+    <p class="lead">You or your agent can run these. In Skiff, File › New worktree… does it for you. Run them from the main checkout. The examples put worktrees in a folder next to the repository, named after it, so they stay out of the main checkout's file tree.</p>
     <pre class="term"># A new branch in a new folder, starting from the current commit
 git worktree add -b fix-login ../myapp-worktrees/fix-login
 

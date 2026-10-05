@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=9">
+<link rel="stylesheet" href="../site.css?v=10">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 </head>
 <body>
@@ -101,14 +101,20 @@
   </section>
 
   <section>
-    <h2>Pair it from the shell</h2>
-    <p class="lead">From any Skiff terminal, these commands start an OpenCode session beside the current one and hand it a task. See the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a> for the full list.</p>
-    <pre class="term">skiff new --agent opencode --name oc-tests
+    <h2>Ask your agent</h2>
+    <p class="lead">You don't type <code>skiff</code> commands yourself. Ask Claude Code or Codex in plain words, from any Skiff terminal:</p>
+    <blockquote class="ask">Open an OpenCode next to me and ask it to write tests for the changed files. Tell me when it's done.</blockquote>
+    <p class="lead">The agent runs the commands, waits for the other session and reports back. It learns how from the <a href="https://github.com/solutionscay/skiff/tree/main/.agents/skills/skiff-cli">skiff-cli skill</a>, a one-time copy into <code>~/.claude/skills/</code> for Claude Code or <code>~/.codex/skills/</code> for Codex. The app does not install it for you.</p>
+    <details class="cmds">
+      <summary>What the agent runs</summary>
+      <pre class="term">skiff new --agent opencode --name oc-tests
 skiff group add . oc-tests --split right
 skiff wait oc-tests --for idle --timeout 60
 skiff send oc-tests "Write tests for the changed files" --enter
 skiff wait oc-tests --for any-not-working --timeout 600
 skiff peek oc-tests</pre>
+      <p class="note">The full list is on the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a>.</p>
+    </details>
   </section>
 
   <section>

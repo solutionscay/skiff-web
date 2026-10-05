@@ -162,9 +162,16 @@ footer .right { margin-left: auto; }
 
 /* Agent pages: numbered steps, a terminal block and questions. */
 .page-head .get { margin-top: 24px; }
-.steps { max-width: 40em; margin: 0; padding-left: 1.4em; font-size: 16px; }
+.steps { max-width: 640px; margin: 0; padding-left: 1.4em; font-size: 16px; }
 .steps li { margin: 0 0 10px; padding-left: 4px; }
-.term { max-width: 40em; margin: 0; padding: 14px 16px; background: var(--bg-panel); border: 1px solid var(--rule); color: var(--text); font: 13px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
-.faq { max-width: 40em; margin: 0; border-top: 1px solid var(--rule); }
+.term { max-width: 640px; margin: 0; padding: 14px 16px; background: var(--bg-panel); border: 1px solid var(--rule); color: var(--text); font: 13px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.faq { max-width: 640px; margin: 0; border-top: 1px solid var(--rule); }
 .faq dt { padding-top: 16px; color: var(--text); font-weight: 600; }
 .faq dd { margin: 4px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); color: var(--text-3); }
+.ask { max-width: 640px; margin: 0 0 32px; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--bg-panel); color: var(--text); font-size: 16px; }
+.cmds { max-width: 640px; border: 1px solid var(--rule); background: var(--bg-panel); }
+.cmds summary { height: var(--row); padding: 0 16px; display: flex; align-items: center; color: var(--text-3); font-size: 14px; cursor: pointer; }
+.cmds summary:hover { color: var(--text); }
+.cmds[open] summary { border-bottom: 1px solid var(--rule); }
+.cmds .term { max-width: none; border: 0; }
+.cmds .note { margin: 0; padding: 10px 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--text-3); }
