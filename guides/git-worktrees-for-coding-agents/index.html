@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git worktrees for coding agents: a practical guide | Skiff</title>
+<meta name="description" content="How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.">
+<meta property="og:title" content="Git worktrees for coding agents: a practical guide">
+<meta property="og:description" content="How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=2">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/">
+<link rel="icon" href="../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css?v=9">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Git worktrees for coding agents: a practical guide","description":"How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.","datePublished":"2026-10-05","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../"><img src="../../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a href="../../download/">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a class="wide" href="../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Git worktrees for coding agents.</h1>
+    <p>Two agents in one checkout edit the same files and switch each other's branches. A git worktree gives each agent its own folder and its own branch, backed by the same repository. This guide covers the commands, the things that catch people out, and the cleanup.</p>
+    <div class="ver">Updated 2026-10-05</div>
+  </div>
+
+  <section>
+    <h2>What a worktree is</h2>
+    <p class="lead">A repository normally has one working folder: the checkout you cloned. <code>git worktree</code> adds more. Each extra worktree is a separate folder with its own checked-out branch, its own staged changes and its own uncommitted files. All of them share one history, so a commit made in any worktree is visible from the others right away, without a push or a fetch.</p>
+    <p class="lead">Git allows a branch to be checked out in only one worktree at a time. That rule is what keeps two agents off the same branch.</p>
+  </section>
+
+  <section>
+    <h2>Why agents need them</h2>
+    <p class="lead">An agent reads files, edits them and runs tests in the folder it starts in. Start two agents in the same checkout and each one sees the other's half-finished edits. Tests fail for reasons neither agent caused, and a <code>git checkout</code> or <code>git stash</code> from one agent changes the files under the other.</p>
+    <p class="lead">Put each agent in its own worktree and those problems go away. Each agent works on its own branch, and you merge the results the same way you merge any branch.</p>
+  </section>
+
+  <section>
+    <h2>The commands</h2>
+    <p class="lead">Run these from the main checkout. The examples put worktrees in a folder next to the repository, named after it, so they stay out of the main checkout's file tree.</p>
+    <pre class="term"># A new branch in a new folder, starting from the current commit
+git worktree add -b fix-login ../myapp-worktrees/fix-login
+
+# Or start the branch from somewhere else, such as origin/main
+git worktree add -b fix-login ../myapp-worktrees/fix-login origin/main
+
+# See every worktree and the branch in each
+git worktree list
+
+# Start an agent in the new worktree
+cd ../myapp-worktrees/fix-login
+claude</pre>
+    <p class="lead" style="margin-top:24px">Start a second agent in a second worktree the same way. Each one only sees its own folder.</p>
+  </section>
+
+  <section>
+    <h2>Bring the work back</h2>
+    <p class="lead">The agent commits on its branch. From the main checkout, merge that branch, or push it and open a pull request.</p>
+    <pre class="term"># In the main checkout
+git merge fix-login
+
+# Or share it for review
+git push -u origin fix-login</pre>
+  </section>
+
+  <section>
+    <h2>Clean up</h2>
+    <p class="lead">Remove the worktree when the branch is merged. Git refuses to remove a worktree with modified or untracked files unless you add <code>--force</code>, so check what is left first.</p>
+    <pre class="term">git worktree remove ../myapp-worktrees/fix-login
+git branch -d fix-login
+
+# If you deleted a worktree folder by hand, clear git's record of it
+git worktree prune</pre>
+  </section>
+
+  <section>
+    <h2>Things that catch people out</h2>
+    <ol class="steps">
+      <li><strong>Dependencies are per folder.</strong> <code>node_modules</code>, virtual environments and build output are not tracked, so a new worktree starts without them. Install them in each worktree before the agent runs tests.</li>
+      <li><strong>Ignored files do not come along.</strong> A <code>.env</code> file or local config in the main checkout is not in the new worktree. Copy what the agent needs.</li>
+      <li><strong>One branch, one worktree.</strong> If <code>git worktree add</code> says a branch "is already used by worktree", another worktree holds it. Use a new branch name.</li>
+      <li><strong>Ports collide.</strong> Two worktrees that each start a dev server on the same port will clash. Give each one its own port.</li>
+      <li><strong>Agents can wander.</strong> An agent can <code>cd</code> into another folder and edit there. Check where it worked before you merge.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Worktrees in Skiff</h2>
+    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. File › New worktree… runs <code>git worktree add -b</code> for you and puts the folder at <code>&lt;repo&gt;-worktrees/&lt;branch&gt;</code>, next to the repository. Skiff lists every worktree git reports, including the ones you made yourself, and each agent session sits under the worktree it runs in.</p>
+    <p class="lead">Each worktree lists its changed files, and a double-click shows the diff. If an agent goes to work in another worktree, the sidebar shows it there too, which covers the last item in the list above.</p>
+    <div class="get">
+      <a class="btn main" href="../../download/">Download Skiff</a>
+      <a class="btn" href="../../claude-code/">Claude Code in Skiff</a>
+      <a class="btn" href="../../codex/">Codex in Skiff</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>
