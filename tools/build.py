@@ -69,6 +69,16 @@ PAGES = [
          ld=article("guides/git-worktrees-for-coding-agents/", "Git worktrees for coding agents: a practical guide",
                     "How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.",
                     "2026-10-05")),
+    dict(path="guides/run-coding-agents-in-parallel/", type="article",
+         title="Run coding agents in parallel: a practical guide | Skiff",
+         og_title="Run coding agents in parallel: a practical guide",
+         desc="How to run Claude Code, Codex and other coding agents in parallel: pick tasks that don't overlap, give each agent a worktree, know which one needs you, and merge the results.",
+         ld=article("guides/run-coding-agents-in-parallel/", "Run coding agents in parallel: a practical guide", "How to run Claude Code, Codex and other coding agents in parallel: pick tasks that don't overlap, give each agent a worktree, know which one needs you, and merge the results.", "2026-10-06")),
+    dict(path="guides/keep-agent-sessions-running/", type="article",
+         title="Keep coding agent sessions running after you close the terminal | Skiff",
+         og_title="Keep coding agent sessions running after you close the terminal",
+         desc="How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.",
+         ld=article("guides/keep-agent-sessions-running/", "Keep coding agent sessions running after you close the terminal", "How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.", "2026-10-06")),
 ]
 
 def a(s):

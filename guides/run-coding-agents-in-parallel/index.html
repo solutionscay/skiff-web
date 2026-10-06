@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run coding agents in parallel: a practical guide | Skiff</title>
+<meta name="description" content="How to run Claude Code, Codex and other coding agents in parallel: pick tasks that don't overlap, give each agent a worktree, know which one needs you, and merge the results.">
+<meta property="og:title" content="Run coding agents in parallel: a practical guide">
+<meta property="og:description" content="How to run Claude Code, Codex and other coding agents in parallel: pick tasks that don't overlap, give each agent a worktree, know which one needs you, and merge the results.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/run-coding-agents-in-parallel/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=2">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/run-coding-agents-in-parallel/">
+<link rel="icon" href="../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css?v=c443ea4d">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Run coding agents in parallel: a practical guide","description":"How to run Claude Code, Codex and other coding agents in parallel: pick tasks that don't overlap, give each agent a worktree, know which one needs you, and merge the results.","datePublished":"2026-10-06","dateModified":"2026-10-06","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/run-coding-agents-in-parallel/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../"><img src="../../skiff.png" alt="">Skiff</a>
+    <nav>
+      <a href="../../download/">Download</a>
+      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a class="wide" href="../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Run coding agents in parallel.</h1>
+    <p>An agent can spend many minutes on one task. While it works, you can start a second agent on something else, or a third that reviews what the first one wrote. This guide covers how to split the work so the agents don't trip over each other, and how to bring the results back.</p>
+    <div class="ver">Updated 2026-10-06</div>
+  </div>
+
+  <section>
+    <h2>Pick tasks that don't overlap</h2>
+    <p class="lead">Parallel agents work best on tasks that touch different parts of the code: a bug in the API and a layout fix in the UI, say. Two agents that both edit the same module will produce two branches that conflict when you merge them. If two tasks need the same files, run them one after the other.</p>
+    <p class="lead">Give each agent a clear finish line. "Make the login tests pass" ends. "Improve the login code" doesn't, and an agent left with an open-ended task keeps going.</p>
+  </section>
+
+  <section>
+    <h2>One agent, one worktree</h2>
+    <p class="lead">Don't run two agents in the same checkout. Each one sees the other's half-finished edits, and tests fail for reasons neither caused. Give each agent its own git worktree: a separate folder on its own branch, backed by the same repository. The <a href="../git-worktrees-for-coding-agents/">worktree guide</a> has the commands and the pitfalls.</p>
+  </section>
+
+  <section>
+    <h2>Ways to run them</h2>
+    <ol class="steps">
+      <li><strong>Terminal tabs or windows.</strong> One agent per tab works for two or three agents. Past that, it gets hard to tell which tab is which and which one is waiting for you.</li>
+      <li><strong>A terminal multiplexer.</strong> tmux or Zellij puts several agents in panes of one window, and the sessions survive a closed terminal. You manage the layout and the worktrees yourself. See <a href="../keep-agent-sessions-running/">keeping agent sessions running</a>.</li>
+      <li><strong>A workspace app.</strong> A desktop app built for agents groups the sessions by project and worktree and shows which one needs you. Skiff, below, is one.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Mix agents on purpose</h2>
+    <p class="lead">Different agents catch different things. A common pattern is a writer and a reviewer: one agent, such as Claude Code, makes the change, and another, such as Codex, reviews the diff in the same worktree before you look at it. Since the reviewer only reads, both can work in one folder.</p>
+  </section>
+
+  <section>
+    <h2>Know which one needs you</h2>
+    <p class="lead">An agent that asks for approval stops until you answer, so a forgotten prompt costs the whole wait. With several agents running, watch for two moments: an agent asking for permission, and an agent finishing its turn. Agents differ in how they signal this. Some ring the terminal bell or change the window title, some show nothing outside their own screen.</p>
+  </section>
+
+  <section>
+    <h2>Bring the work back</h2>
+    <p class="lead">Review each branch on its own and merge them one at a time. Run the tests after each merge, not just at the end, so you know which branch broke them. If two branches conflict, the tasks overlapped. Merge one, then have the agent that owns the other rebase on top and fix the conflict.</p>
+    <p class="lead">Each session uses your plan's usage limits or API tokens, so parallel agents use them faster.</p>
+  </section>
+
+  <section>
+    <h2>Parallel agents in Skiff</h2>
+    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. Sessions sit under the project and worktree they work in, in named groups of up to four panes. A bell marks a session that waits for approval, and a flag marks one that finished while you were elsewhere. Skiff reads them from each agent's screen, without hooks into the agent.</p>
+    <p class="lead">With the <a href="https://github.com/solutionscay/skiff/tree/main/.agents/skills/skiff-cli">skiff-cli skill</a>, an agent can start the reviewer for you: "Open a Codex next to me and ask it to review the uncommitted changes. Tell me what it finds."</p>
+    <div class="get">
+      <a class="btn main" href="../../download/">Download Skiff</a>
+      <a class="btn" href="../../claude-code/">Claude Code in Skiff</a>
+      <a class="btn" href="../../codex/">Codex in Skiff</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>
