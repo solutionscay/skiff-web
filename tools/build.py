@@ -103,7 +103,7 @@ def head(p, up, css):
 <meta property="og:type" content="{p.get("type", "website")}">
 <meta property="og:site_name" content="Skiff">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}social-preview.png?v=2">
+<meta property="og:image" content="{SITE}social-preview.png?v=3">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
 <meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
