@@ -36,6 +36,17 @@ code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
 .bar nav a { color: var(--text-3); text-decoration: none; }
 .bar nav a:hover { color: var(--text); }
 
+/* Narrow screens: the nav folds into a Menu button. No JS. */
+.menu { display: none; margin-left: auto; }
+.menu summary { min-width: 44px; height: 44px; padding: 0 10px; display: flex; align-items: center; gap: 8px; list-style: none; cursor: pointer; color: var(--text-3); font-size: 13px; font-weight: 500; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary::before { content: ""; width: 14px; height: 10px; background: linear-gradient(currentColor 0 0) top / 100% 2px no-repeat, linear-gradient(currentColor 0 0) center / 100% 2px no-repeat, linear-gradient(currentColor 0 0) bottom / 100% 2px no-repeat; }
+.menu[open] summary, .menu summary:hover { color: var(--text); }
+.menu summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.menu nav { position: absolute; top: 100%; left: 0; right: 0; margin: 0; flex-direction: column; gap: 0; background: var(--bg-deep); border-bottom: 1px solid var(--rule); font-size: 15px; }
+.menu nav a { min-height: 44px; padding: 0 16px; display: flex; align-items: center; border-top: 1px solid var(--rule); color: var(--text-2); }
+.menu nav a:hover { background: var(--bg-panel); }
+
 /* Hero */
 .hero { padding: 72px 0 48px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
 .hero h1 { margin: 0 0 16px; color: var(--text); font-size: clamp(32px, 5vw, 48px); line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
@@ -110,7 +121,9 @@ footer .right { margin-left: auto; }
 }
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }
-  .bar nav a.wide { display: none; }
+  .bar .wrap > nav { display: none; }
+  .menu { display: block; }
+  .bar .wrap { padding-right: 6px; }
   .dl td:nth-child(2) { display: none; }
   .agents { display: grid; grid-template-columns: 1fr 1fr; border-width: 1px 0 0 1px; }
   .agents span, .agents span.more { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
