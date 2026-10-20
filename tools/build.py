@@ -119,16 +119,23 @@ def head(p, up, css):
 """
 
 def bar(up):
+    links = f"""<a href="{up}download/">Download</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="{up}support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>"""
     return f"""<header class="bar">
   <div class="wrap">
     <a class="mark" href="{up or './'}"><img src="{up}skiff.png" alt="">Skiff</a>
-    <nav>
-      <a href="{up}download/">Download</a>
-      <a class="wide" href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
-      <a href="https://github.com/solutionscay/skiff">GitHub</a>
-      <a class="wide" href="{up}support/">Support</a>
-      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    <nav aria-label="Main">
+      {links}
     </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        {links.replace(chr(10), chr(10) + "  ")}
+      </nav>
+    </details>
   </div>
 </header>"""
 
@@ -165,7 +172,7 @@ def dirty(rel):
 
 def main():
     check = "--check" in sys.argv
-    css = hashlib.sha256(open(os.path.join(ROOT, "site.css"), "rb").read()).hexdigest()[:8]
+    css = hashlib.sha1(open(os.path.join(ROOT, "site.css"), "rb").read()).hexdigest()[:8]
     stale, urls = [], []
     for p in PAGES:
         rel = p["path"] + "index.html"
