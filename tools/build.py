@@ -62,6 +62,12 @@ PAGES = [
          og_title="Run OpenCode sessions side by side on Linux and macOS",
          desc="Skiff is a free, open-source desktop app that runs OpenCode next to Claude Code, Codex and other agents on Linux and macOS. Sessions sit in Git worktrees, flag when they need approval, and keep running after you close the window.",
          og_desc="A free, open-source desktop app for OpenCode and other coding agents. Sessions in Git worktrees, approval and finished flags, and sessions that keep running after you close the window."),
+    dict(path="guides/", title="Skiff guides: running coding agents",
+         desc="Guides to running Claude Code, Codex and other coding agents: Git worktrees, parallel sessions and sessions that keep running.",
+         ld={"@context": "https://schema.org", "@type": "CollectionPage", "name": "Skiff guides", "url": SITE + "guides/",
+             "publisher": PUBLISHER, "mainEntity": {"@type": "ItemList", "itemListElement": [
+                 {"@type": "ListItem", "position": i + 1, "url": SITE + "guides/" + slug + "/"} for i, slug in enumerate(
+                     ["run-coding-agents-in-parallel", "keep-agent-sessions-running", "git-worktrees-for-coding-agents"])]}}),
     dict(path="guides/git-worktrees-for-coding-agents/", type="article",
          title="Git worktrees for coding agents: a practical guide | Skiff",
          og_title="Git worktrees for coding agents: a practical guide",
@@ -120,6 +126,7 @@ def head(p, up, css):
 
 def bar(up):
     links = f"""<a href="{up}download/">Download</a>
+      <a href="{up}guides/">Guides</a>
       <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
       <a href="https://github.com/solutionscay/skiff">GitHub</a>
       <a href="{up}support/">Support</a>
