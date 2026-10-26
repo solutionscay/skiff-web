@@ -68,21 +68,21 @@
     <img class="mascot" src="skiff.png" width="200" height="200" alt="Skiff mascot: a small boat with a robot at the helm">
   </div>
 
-  <a class="shot" href="shots/v1.7.1-images-library.webp"><img src="shots/v1.7.1-images-library.webp" width="1600" height="900" alt="Skiff v1.7.1 on Linux: a Claude Code pane in the atlas project with the Images library open under its header. A search for &quot;atlas&quot; shows 3 of 5 images. The chart image reads &quot;Inserted&quot;, and its path is in the pane's input line."></a>
-  <p class="caption"><span class="tag">v1.7.1</span>Images. Drop or paste an image on a pane, and Skiff types its path. The library keeps each image. Search it, pin an image or insert its path into a pane.</p>
+  <div class="shot"><video src="shots/skiff-image-drops.mp4" poster="shots/skiff-image-drops-poster.webp" width="1600" height="900" muted loop playsinline controls preload="metadata" aria-label="The Skiff image drops promo: images dropped on a Claude Code session become paths in its prompt. Each image goes to the library. Another session opens the library and inserts an image's path into its own prompt."></video></div>
+  <p class="caption"><span class="tag">Image drops</span>Drop or paste images on any pane, and Skiff types their paths. All sessions share one library. From it you insert, pin or copy the path of an image.</p>
 
   <div class="wall">
     <figure>
-      <div class="shot"><video src="shots/skiff-v2-hosts.mp4" poster="shots/skiff-v2-hosts-poster.webp" width="1600" height="900" muted loop playsinline controls preload="metadata" aria-label="The Skiff v2 promo, not released: add a server in Settings › Hosts, Skiff sets itself up there over SSH, then you drive agents on the server from this computer"></video></div>
-      <figcaption><span class="tag">Skiff v2</span>Skiff v2 is in the works. It is not released. In v2 you add a server in Settings › Hosts, and Skiff sets itself up there over SSH. Agents run on the server. You drive them from this computer.</figcaption>
+      <a class="shot" href="shots/v1.7.1-images-library.webp"><img src="shots/v1.7.1-images-library.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.1 on Linux: a Claude Code pane in the atlas project with the Images library open under its header. A search for &quot;atlas&quot; shows 3 of 5 images. The chart image reads &quot;Inserted&quot;, and its path is in the pane's input line."></a>
+      <figcaption><span class="tag">v1.7.1</span>Images. Drop or paste an image on a pane, and Skiff types its path. The library keeps each image. Search it, pin an image or insert its path into a pane.</figcaption>
     </figure>
     <figure>
       <a class="shot" href="shots/v1.7.1-fleet-skipper.webp"><img src="shots/v1.7.1-fleet-skipper.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.1 on Linux: the platform fleet Skipper in the center pane starts one task in each project of its fleet. Its row is first under the PLATFORM head in the sidebar. The Ledger panel, filtered to platform, shows the hand-off and its four tasks."></a>
       <figcaption><span class="tag">v1.7.1</span>Fleet Skippers. A fleet has its own Skipper for all its projects. Skipper hands it work, and the Ledger shows the tasks in each project.</figcaption>
     </figure>
     <figure>
-      <a class="shot" href="shots/v1.7.1-settings-disk-use.webp"><img src="shots/v1.7.1-settings-disk-use.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.1 on Linux: Settings, Disk use. A table lists files and sizes for Images, Pinned, Results for each Skipper, Closed work, Logs, Other and Total, with Flush images and Flush done work buttons."></a>
-      <figcaption><span class="tag">v1.7.1</span>Disk use. Settings › Disk use counts the files in the Skiff agent's folder. Flush images keeps the pinned images.</figcaption>
+      <div class="shot"><video src="shots/skiff-v2-hosts.mp4" poster="shots/skiff-v2-hosts-poster.webp" width="1600" height="900" muted loop playsinline controls preload="metadata" aria-label="The Skiff v2 promo, not released: add a server in Settings › Hosts, Skiff sets itself up there over SSH, then you drive agents on the server from this computer"></video></div>
+      <figcaption><span class="tag">Skiff v2</span>Skiff v2 is in the works. It is not released. In v2 you add a server in Settings › Hosts, and Skiff sets itself up there over SSH. Agents run on the server. You drive them from this computer.</figcaption>
     </figure>
   </div>
   <p class="more-shots"><a href="gallery/">All screenshots and videos, by version</a></p>
@@ -122,7 +122,7 @@
     <h2>The Skiff agent</h2>
     <p class="lead">The Skiff agent is optional. Turn it on in Settings › Skiff agent. Then one agent session, Skipper by default, runs in its own folder, <code>~/skiff-agent</code>. It sends tasks to sessions in your projects, records them in a SQLite ledger and reports the results to you. The Ledger panel beside its pane sorts the work into Working, Open and Finished. Work moves to Finished when all its tasks are done and reported, or when you tell Skipper to close it. Ctrl+Alt+Shift+L folds the panel to a rail. <code>skiff watch</code> tells Skipper when a session ends a turn, exits or restarts. Its row sits at the top of the side panel. Ctrl+Shift+L shows its pane, and <code>skiff skipper</code> attaches to it from any terminal, an SSH login included. Give it a theme, and while its pane is on screen the side panel and top bar take that theme too.</p>
     <p class="lead">A project or a fleet can have its own Skipper. Turn them on in Settings › Skiff agent › Project and fleet Skippers. Then select Start project Skipper in the project menu, or Start fleet Skipper in the fleet menu. Skipper hands work to them, and each one changes only its own rows in the Ledger. A project has one Skipper at a time, so a fleet Skipper takes over the project Skippers in its fleet. Hide projects in the fleet menu keeps only the fleet Skipper, the sessions that wait and the session on screen under the fleet head. Show projects brings the rest back. See the <a href="https://github.com/solutionscay/skiff/wiki/Skiff-agent">Skiff agent page</a> on the wiki.</p>
-  </section>
+    </section>
 
   <section>
     <h2>Images for your agents</h2>
