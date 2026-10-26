@@ -60,13 +60,13 @@
   </div>
 
   <figure class="shot" style="margin:0">
-    <video src="../shots/v1.2.0.mp4" poster="../shots/v1.2.0-poster.webp" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="Skiff on Linux: Claude Code uses the skiff CLI to start two groups of four agents, each pane in its own theme"></video>
+    <img src="../shots/v1.7.1-claude-code.webp" width="1600" height="900" alt="Skiff v1.7.1 on Linux: Claude Code and Codex side by side in the review group of the atlas rate-limits worktree. Codex waits for approval and shows a bell. The sidebar lists the worktree's changed files.">
   </figure>
-  <p class="caption"><span class="tag">v1.2.0</span>Claude Code uses the <code>skiff</code> command to start two groups of four agents and give each pane its own theme.</p>
+  <p class="caption"><span class="tag">v1.7.1</span>Claude Code and Codex in one group. The bell shows the session that waits for approval.</p>
 
   <section>
     <h2>What Skiff adds</h2>
-    <p class="lead">Skiff starts the <code>claude</code> command you already have. Claude Code itself does not change.</p>
+    <p class="lead">Skiff starts the <code>claude</code> command you already have. It adds one flag to the start line so that Claude Code can read the images you drop or paste on its pane. Claude Code itself does not change.</p>
     <div class="grid">
       <div class="cell">
         <h3>Sessions side by side</h3>
@@ -97,7 +97,7 @@
 
   <section>
     <h2>Your setup stays yours</h2>
-    <p class="lead">Skiff installs no hooks and writes nothing into Claude Code's configuration. It runs the CLI you signed in to, with your own plan or API key. You can start <a href="../codex/">Codex</a>, <a href="../gemini-cli/">Gemini</a>, <a href="../grok-cli/">Grok</a>, <a href="../opencode/">OpenCode</a> or a plain shell next to it.</p>
+    <p class="lead">Skiff installs no hooks and writes nothing into Claude Code's configuration. It runs the CLI you signed in to, with your own plan or API key. You can start <a href="../codex/">Codex</a>, <a href="../gemini-cli/">Gemini</a>, <a href="../grok-cli/">Grok</a>, <a href="../opencode/">OpenCode</a>, Hermes or a plain shell next to it.</p>
   </section>
 
   <section>
@@ -106,7 +106,7 @@
       <li>Install Claude Code and sign in. Anthropic's <a href="https://code.claude.com/docs/en/overview">Claude Code docs</a> cover this.</li>
       <li><a href="../download/">Download Skiff</a> for Linux (<code>.deb</code>, <code>.rpm</code> or AppImage) or macOS on Apple Silicon.</li>
       <li>Add a project. A project is a Git repository. Make a worktree in it if you want an isolated branch.</li>
-      <li>Start a <code>claude</code> session in the worktree. Add more sessions to the group as the work grows.</li>
+      <li>Open the project's ⋯ menu, or click + on the worktree, and start a <code>claude</code> session. Add more sessions to the group as the work grows.</li>
     </ol>
   </section>
 
@@ -117,13 +117,12 @@
     <p class="lead">The agent runs the commands, waits for the other session and reports back. It learns how from the <a href="https://github.com/solutionscay/skiff/tree/main/.agents/skills/skiff-cli">skiff-cli skill</a>. Copy it once into your agent's skills folder, such as <code>~/.claude/skills/</code> for Claude Code or <code>~/.codex/skills/</code> for Codex. The app does not install it for you.</p>
     <details class="cmds">
       <summary>What the agent runs</summary>
-      <pre class="term">skiff new --agent codex --name review
-skiff group add . review --split right
-skiff wait review --for idle --timeout 60
+      <pre class="term">skiff new --agent codex --name review --group .
+skiff wait review --for idle
 skiff send review "Review the diff in this worktree" --enter
-skiff wait review --for any-not-working --timeout 600
+skiff wait review --for idle
 skiff peek review</pre>
-      <p class="note">The full list is on the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a>.</p>
+      <p class="note">In a Skiff pane, a wait stops after 45 seconds. On a timeout, the agent reads the screen and waits again. The full list is on the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a>.</p>
     </details>
   </section>
 

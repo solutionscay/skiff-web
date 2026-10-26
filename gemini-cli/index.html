@@ -60,9 +60,9 @@
   </div>
 
   <figure class="shot" style="margin:0">
-    <img src="../shots/v0.6.1.webp" width="1920" height="1080" alt="Skiff on Linux: changed files and the file tree in the sidebar, and Claude Code, Codex and Antigravity in a one left, two right group">
+    <img src="../shots/v1.7.1-antigravity.webp" width="1600" height="900" alt="Skiff v1.7.1 on Linux: Antigravity CLI writes form copy next to Claude Code in the harbor checkout-form worktree. The sidebar lists the worktree's changed files.">
   </figure>
-  <p class="caption"><span class="tag">v0.6.1</span>Claude Code, Codex and Antigravity in one group, with the worktree's changed files in the sidebar.</p>
+  <p class="caption"><span class="tag">v1.7.1</span>Antigravity CLI next to Claude Code, with the worktree's changed files in the sidebar.</p>
 
   <section>
     <h2>What Skiff adds</h2>
@@ -106,7 +106,7 @@
       <li>Install Antigravity CLI from <a href="https://antigravity.google/">antigravity.google</a>, or Gemini CLI from <a href="https://geminicli.com/">geminicli.com</a>, and sign in.</li>
       <li><a href="../download/">Download Skiff</a> for Linux (<code>.deb</code>, <code>.rpm</code> or AppImage) or macOS on Apple Silicon.</li>
       <li>Add a project. A project is a Git repository. Make a worktree in it if you want an isolated branch. If you use Gemini CLI, set the Gemini command to <code>gemini</code> in Settings.</li>
-      <li>Start a Gemini session in the worktree. Add another agent to the same group when you want a second opinion.</li>
+      <li>Open the project's ⋯ menu, or click + on the worktree, and start a Gemini session. Add another agent to the same group when you want a second opinion.</li>
     </ol>
   </section>
 
@@ -117,13 +117,12 @@
     <p class="lead">The agent runs the commands, waits for the other session and reports back. It learns how from the <a href="https://github.com/solutionscay/skiff/tree/main/.agents/skills/skiff-cli">skiff-cli skill</a>. Copy it once into your agent's skills folder, such as <code>~/.claude/skills/</code> for Claude Code or <code>~/.codex/skills/</code> for Codex. The app does not install it for you.</p>
     <details class="cmds">
       <summary>What the agent runs</summary>
-      <pre class="term">skiff new --agent gemini --name gemini-review
-skiff group add . gemini-review --split right
-skiff wait gemini-review --for idle --timeout 60
+      <pre class="term">skiff new --agent gemini --name gemini-review --group .
+skiff wait gemini-review --for idle
 skiff send gemini-review "Review the uncommitted changes" --enter
-skiff wait gemini-review --for any-not-working --timeout 600
+skiff wait gemini-review --for idle
 skiff peek gemini-review</pre>
-      <p class="note">The full list is on the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a>.</p>
+      <p class="note">In a Skiff pane, a wait stops after 45 seconds. On a timeout, the agent reads the screen and waits again. The full list is on the <a href="https://github.com/solutionscay/skiff/wiki/CLI">CLI page</a>.</p>
     </details>
   </section>
 
@@ -135,7 +134,7 @@ skiff peek gemini-review</pre>
       <dt>Does it work with my Google account?</dt>
       <dd>Yes. Skiff starts the same command you run in a terminal, so it uses whatever login that command already has.</dd>
       <dt>Can I run other agents at the same time?</dt>
-      <dd>Yes. Skiff also comes with Claude Code, Codex, Grok and OpenCode, and you can add any other command. See <a href="../claude-code/">Claude Code</a> and <a href="../codex/">Codex</a> in Skiff.</dd>
+      <dd>Yes. Skiff also comes with Claude Code, Codex, Grok, OpenCode and Hermes, and you can add any other command. See <a href="../claude-code/">Claude Code</a> and <a href="../codex/">Codex</a> in Skiff.</dd>
       <dt>What does it cost?</dt>
       <dd>Nothing. Skiff is open source under the MIT license.</dd>
     </dl>
