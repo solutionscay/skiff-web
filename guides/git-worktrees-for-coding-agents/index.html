@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../../site.css?v=bb2e8186">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Git worktrees for coding agents: a practical guide","description":"How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.","datePublished":"2026-10-05","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Git worktrees for coding agents: a practical guide","description":"How to use git worktrees to run Claude Code, Codex and other coding agents in parallel without edits colliding: the commands, the pitfalls, and how to clean up.","datePublished":"2026-10-05","dateModified":"2026-10-26","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/git-worktrees-for-coding-agents/"}
 </script>
 </head>
 <body>
@@ -121,7 +121,7 @@ git worktree prune</pre>
 
   <section>
     <h2>Worktrees in Skiff</h2>
-    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. File › New worktree… runs <code>git worktree add -b</code> for you and puts the folder at <code>&lt;repo&gt;-worktrees/&lt;branch&gt;</code>, next to the repository. Skiff lists every worktree git reports, including the ones you made yourself, and each agent session sits under the worktree it runs in.</p>
+    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. File › New worktree…, or New worktree… in the project's ⋯ menu, runs <code>git worktree add -b</code> for you and puts the folder at <code>&lt;repo&gt;-worktrees/&lt;branch&gt;</code>, next to the repository. Skiff lists every worktree git reports, including the ones you made yourself, and each agent session sits under the worktree it runs in.</p>
     <p class="lead">Each worktree lists its changed files. Select one to see its diff. If an agent goes to work in another worktree, the sidebar shows it there too, which covers the last item in the list above.</p>
     <div class="get">
       <a class="btn main" href="../../download/">Download Skiff</a>

@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../../site.css?v=bb2e8186">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Keep coding agent sessions running after you close the terminal","description":"How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.","datePublished":"2026-10-06","dateModified":"2026-10-06","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/keep-agent-sessions-running/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Keep coding agent sessions running after you close the terminal","description":"How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.","datePublished":"2026-10-06","dateModified":"2026-10-26","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/keep-agent-sessions-running/"}
 </script>
 </head>
 <body>
@@ -89,9 +89,9 @@ tmux attach -t agents</pre>
 
   <section>
     <h2>Sessions in Skiff</h2>
-    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. A daemon, <code>skiffd</code>, owns every terminal, the way the tmux server does. Close the Skiff window and the agents keep working. Open it again and each terminal shows its current screen.</p>
+    <p class="lead">Skiff is a desktop app for Linux and macOS that runs coding agents side by side. A daemon, <code>skiffd</code>, owns every terminal, the way the tmux server does. Close the Skiff window and the agents keep working. Open it again and each terminal shows its current screen. An update of Skiff moves <code>skiffd</code> to the new version in place, and the agents keep running.</p>
     <p class="lead">The mouse works for everything, and F1 lists every key. Sessions sit under the project and Git worktree they run in, and a bell or a flag shows which one needs you. From any terminal, <code>skiff attach SESSION</code> connects to a running session, and Ctrl+\ detaches again.</p>
-    <p class="lead">Skiff has the same limit as tmux. A reboot stops the processes. When the daemon starts again, Skiff restores the groups and layouts, and each session returns as a shell in its folder, ready for <code>claude --continue</code> or <code>codex resume</code>.</p>
+    <p class="lead">Skiff has the same limit as tmux. A reboot stops the processes. When the daemon starts again, Skiff restores the groups and layouts. Each session comes back as a shell in its folder. Resume in the pane opens the agent's own list of conversations, and you pick the one to continue. Skiff never picks for you.</p>
     <div class="get">
       <a class="btn main" href="../../download/">Download Skiff</a>
       <a class="btn" href="../run-coding-agents-in-parallel/">Run agents in parallel</a>
