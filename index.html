@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Skiff: a desktop workspace for Claude Code, Codex and more</title>
-<meta name="description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Skiff keeps sessions organized by project and Git worktree, and they keep running when you close the window.">
+<meta name="description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.">
 <meta property="og:title" content="Skiff: a desktop workspace for Claude Code, Codex and more">
-<meta property="og:description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Skiff keeps sessions organized by project and Git worktree, and they keep running when you close the window.">
+<meta property="og:description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Skiff">
 <meta property="og:url" content="https://skiff.solutionscay.com/">
@@ -57,7 +57,7 @@
   <div class="hero">
     <div>
       <h1>A small workspace for coding agents.</h1>
-      <p>Run coding agents side by side, in any folder or Git worktree. They keep running when you close the window.</p>
+      <p>Run coding agents side by side, in any folder or Git worktree. Tell Admiral, the built-in coordinator, what you need, and it hands the tasks to agents across your projects. They keep running when you close the window.</p>
       <div class="get" id="get">
         <a class="btn main" href="download/">Download</a>
         <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
@@ -68,11 +68,42 @@
   </div>
 
   <a class="shot" href="shots/v1.7.4-every-folder.webp"><img src="shots/v1.7.4-every-folder.webp" width="1600" height="900" fetchpriority="high" alt="A drawing of the Skiff 1.7.4 window. Asked to fix a login bug, update a pricing page and file the week's notes, Skipper in the center pane makes three hand-offs: to api-server and marketing-site, which are git repos, and to Notes vault, a plain folder. The sidebar shows Notes vault as a project with its own Skipper and files. The Ledger on the right lists the work. Callouts read &quot;One request, three hand-offs&quot;, &quot;Any folder is a project&quot; and &quot;Track it all in the Ledger&quot;."></a>
-  <p class="caption"><span class="tag">New in 1.7.4</span>A project can be any folder, not only a Git repository.</p>
+  <p class="caption"><span class="tag">New in 1.7.5</span>The main Skipper is now called Admiral. Here it turns one request into three hand-offs, one for each project's Skipper.</p>
   <p class="more-shots"><a href="gallery/">All screenshots and videos, by version</a></p>
 
+  <section id="skippers">
+    <h2>Admiral hands out the work</h2>
+    <p class="lead">Admiral coordinates all your projects. A project or a fleet can also have its own Skipper. Each one is an ordinary agent session that drives other sessions with the <code>skiff</code> command. None of them starts by itself: you click it, or a hand-off from Admiral starts it.</p>
+    <div class="grid">
+      <div class="cell">
+        <h3>Admiral</h3>
+        <p>The main Skipper has the top row of the sidebar. Ask it for something, and it starts agent panes and sends each one a task, or hands the job to a project's Skipper. Run <code>skiff skipper</code> to reach it from any terminal, over SSH too.</p>
+      </div>
+      <div class="cell">
+        <h3>Project Skippers</h3>
+        <p>A project can have one Skipper, which runs in the project's folder. It takes a hand-off from Admiral, starts the task panes it needs and reports back once they are done.</p>
+      </div>
+      <div class="cell">
+        <h3>Fleet Skippers</h3>
+        <p>A fleet is a group of projects in the sidebar, and its Skipper covers all of them. If project Skippers already run there, it takes over their work once you confirm.</p>
+      </div>
+      <div class="cell">
+        <h3>The Ledger</h3>
+        <p>Every task goes into a ledger. A panel beside each Skipper's pane shows its share of the work in Working, Open and Finished. Rows that need you turn amber.</p>
+      </div>
+      <div class="cell">
+        <h3>The watcher</h3>
+        <p><code>skiff watch</code> tells a Skipper when one of its panes ends a turn, exits or sits idle with a task. A pane that asks for your approval sends you a desktop notification.</p>
+      </div>
+      <div class="cell">
+        <h3>Instructions and task types</h3>
+        <p>Every Skipper reads <code>AGENTS.md</code>, and each project or fleet adds its own <code>SKIPPER.md</code>. A task type picks the agent, model and instructions for one kind of task.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="features">
-    <h2>What it does</h2>
+    <h2>The workspace</h2>
     <div class="grid">
       <div class="cell">
         <h3>Agents in panes you can see</h3>
@@ -91,14 +122,6 @@
         <p>Git repositories get worktrees, branches and diffs. Other folders show their files.</p>
       </div>
       <div class="cell">
-        <h3>Skipper hands out the work</h3>
-        <p>The built-in coordinator starts agent panes, sends each one a task and reports back. It starts only when you click it.</p>
-      </div>
-      <div class="cell">
-        <h3>Project and fleet Skippers</h3>
-        <p>Give a project or a fleet its own Skipper. The Ledger panel sorts the work into Working, Open and Finished.</p>
-      </div>
-      <div class="cell">
         <h3>Bring your agent</h3>
         <p><a href="claude-code/">Claude Code</a>, <a href="codex/">Codex</a>, <a href="gemini-cli/">Gemini</a>, <a href="grok-cli/">Grok</a>, <a href="opencode/">OpenCode</a>, Hermes and Kimi are built in. Add any other command line.</p>
       </div>
@@ -106,17 +129,13 @@
         <h3>Images become paths</h3>
         <p>Drop or paste an image on a pane, and Skiff types its path. Search, pin and insert it again from the library.</p>
       </div>
-      <div class="cell">
-        <h3>Linux and macOS</h3>
-        <p>Linux x86_64 and macOS on Apple Silicon. MIT license, free and open source.</p>
-      </div>
     </div>
     <p class="more-shots">New to this? Read <a href="guides/run-coding-agents-in-parallel/">how to run coding agents in parallel</a>. All articles are in <a href="guides/">Guides</a>.</p>
   </section>
 
   <section>
     <h2>Install</h2>
-    <p class="lead">Get a <code>.deb</code>, <code>.rpm</code> or AppImage for Linux x86_64, or a <code>.dmg</code> for macOS on Apple Silicon. The <code>skiff</code> command comes with the app. <a href="download/">Go to the downloads</a>.</p>
+    <p class="lead">Get a <code>.deb</code>, <code>.rpm</code> or AppImage for Linux x86_64, or a <code>.dmg</code> for macOS on Apple Silicon. The <code>skiff</code> command comes with the app. Skiff is free and open source under the MIT license. <a href="download/">Go to the downloads</a>.</p>
   </section>
 </main>
 
