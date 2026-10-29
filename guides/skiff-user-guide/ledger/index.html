@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ledger and result files | Skiff user guide</title>
+<meta name="description" content="How to follow the tasks Admiral and the Skippers run in the Ledger panel, and open the result files they write.">
+<meta property="og:title" content="The Ledger and result files">
+<meta property="og:description" content="How to follow the tasks Admiral and the Skippers run in the Ledger panel, and open the result files they write.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/ledger/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/ledger/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"The Ledger and result files","description":"How to follow the tasks Admiral and the Skippers run in the Ledger panel, and open the result files they write.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/ledger/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>The Ledger and result files</h1>
+    <p>The ledger is Admiral's record of tasks: which session got each one, what state it is in, and where its result went. The Ledger panel shows it beside Admiral's pane. Each finished task has a result file you can open.</p>
+    <div class="ver">Chapter 7 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>The Ledger panel</h2>
+    <ol class="steps">
+      <li>Show Admiral's pane with <kbd>Ctrl+Shift+L</kbd>. The Ledger opens at its right. It shows only while that pane is the one pane on screen. A project Skipper's pane and a fleet Skipper's pane have the panel too.</li>
+      <li>The panel has three sections. <span class="path">Working</span>: an agent is on the task now. <span class="path">Open</span>: the task is not closed, and no agent is on it. Rows that need you come first and turn amber. <span class="path">Finished</span>: closed work, newest first.</li>
+      <li>A plan is a head row with its tasks under it. A hand-off to a project Skipper shows the project's initials, with its tasks one step in.</li>
+      <li>Click a row to open its pane, or its result when the task is done. The icons at the right of a row do the same: <span class="path">Open pane</span> and <span class="path">Open result</span>.</li>
+      <li>Click the filter in the panel's head, <span class="path">All projects</span>, to show one fleet or one project. The amber count beside it, <em>1 needs you</em>, is a button: it goes to the first row that needs you.</li>
+      <li>Press <kbd>Ctrl+Shift+Alt+L</kbd> to fold the panel to a rail, and again to open it. The rail keeps the amber count.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-ledger.webp"><img src="../../../shots/guide-ledger.webp" width="1600" height="900" alt="Admiral's pane with the Ledger panel at its right. Under Working: the hand-off Per-key rate limits to the atlas Skipper with two tasks, one of which asks approval and is amber, and the plan Checkout form at 1 of 2. Under Open: Fix flaky CI job, done. Under Finished: two closed tasks. The head reads All projects and 1 needs you."></a>
+      <figcaption>The Ledger beside Admiral. The amber row waits for approval. Done tasks have a result icon.</figcaption>
+    </figure>
+    <h3>Keys in the panel</h3>
+    <table class="ug-keys">
+      <tr><td><kbd>Ctrl+Shift+Right</kbd></td><td>From Admiral's pane, give the keys to the panel. It opens a folded panel.</td></tr>
+      <tr><td><kbd>Up</kbd> / <kbd>Down</kbd></td><td>Light the previous or next row. <kbd>Ctrl+Shift+Up</kbd> and <kbd>Ctrl+Shift+Down</kbd> do the same.</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>Open the lit row: its pane or its result.</td></tr>
+      <tr><td><kbd>Ctrl+Shift+Left</kbd> or <kbd>Esc</kbd></td><td>Give the keys back to Admiral's pane.</td></tr>
+    </table>
+    <p class="ug-note">The panel never changes the ledger. Only Admiral and the Skippers do. Ask Admiral in its pane to close, reopen or drop work.</p>
+  </section>
+
+  <section>
+    <h2>Result files</h2>
+    <p class="lead">When Admiral sends a task, it gives the session a path for its result. The session writes its report there when it is done. Those files are what Admiral reads back to you, and what you open from the Ledger.</p>
+    <ol class="steps">
+      <li>Click a done row, or its <span class="path">Open result</span> icon. The file opens as <span class="path">Settings › Open with › Markdown</span> says. With an empty row, the system's default app opens it.</li>
+      <li>A plan's row opens the plan file in the plan's folder. A task in a plan opens its own result in that folder.</li>
+      <li>The files live in the <span class="path">results</span> folder of the Skiff agent's folder. A project Skipper's results are under <span class="path">projects</span> and the project's name. A fleet Skipper's are under <span class="path">fleets</span>. Right-click the Admiral row and click <span class="path">Show in file manager</span> to get there.</li>
+      <li><span class="path">Settings › Disk use</span> counts the result files, with a row for each Skipper. <span class="path">Flush done work…</span> removes the files of closed work. See <a href="../settings/">chapter 9</a>.</li>
+    </ol>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../drop-images/">← Drop images</a>
+    <a class="next" href="../workspaces/">Next: Workspaces →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

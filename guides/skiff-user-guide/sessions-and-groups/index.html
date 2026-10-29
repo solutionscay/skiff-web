@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessions, groups, tiles and themes | Skiff user guide</title>
+<meta name="description" content="How to start agent sessions in Skiff, put them side by side in groups, lay out the panes, and give projects and sessions their own theme.">
+<meta property="og:title" content="Sessions, groups, tiles and themes">
+<meta property="og:description" content="How to start agent sessions in Skiff, put them side by side in groups, lay out the panes, and give projects and sessions their own theme.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/sessions-and-groups/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/sessions-and-groups/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Sessions, groups, tiles and themes","description":"How to start agent sessions in Skiff, put them side by side in groups, lay out the panes, and give projects and sessions their own theme.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/sessions-and-groups/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Sessions, groups, tiles and themes</h1>
+    <p>A session is one agent or shell in a worktree. The daemon, skiffd, owns it, so it keeps running when you close the window. A group puts up to four sessions side by side in one layout. Themes tell the projects and sessions apart.</p>
+    <div class="ver">Chapter 3 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Create sessions</h2>
+    <ol class="steps">
+      <li>Point at a worktree row in the side panel and click its <span class="path">+</span>. Or make the row current and press <kbd>Ctrl+Shift+T</kbd>.</li>
+      <li>The menu reads <span class="path">START IN</span> and the branch. Click <span class="path">Shell</span> or an agent, or press its digit.</li>
+      <li>The session starts in the worktree and its pane fills the main area. Its row goes under the worktree, with the agent's icon and a name.</li>
+      <li>A project with only its main checkout has no worktree row. Its project menu lists the same choices under <span class="path">START IN MAIN</span>.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-launch-menu.webp"><img src="../../../shots/guide-launch-menu.webp" width="1600" height="900" alt="The launch menu, open from the plus of the rate-limits worktree. Under START IN RATE-LIMITS: Shell, claude, codex, gemini, grok and opencode, numbered 1 to 6. Under NEW GROUP, THEN A SESSION PER PANE: 2 side by side, 2 stacked, 1 left 2 right, 1 over 2, 3 side by side and 2 by 2. At the bottom, Agent settings."></a>
+      <figcaption>The launch menu of a worktree. Digits pick an agent. The layouts under it make a group with empty panes.</figcaption>
+    </figure>
+    <table class="ug-keys">
+      <tr><td><kbd>Ctrl+Shift+R</kbd></td><td>Rename the session. The name shows on its row and pane header.</td></tr>
+      <tr><td><kbd>Ctrl+Shift+K</kbd></td><td>End the session. Skiff asks first. The pane's menu has <span class="path">End session…</span> too.</td></tr>
+      <tr><td><kbd>Ctrl+Shift+J</kbd></td><td>Go to the next session that waits for approval. The top bar counts them under <span class="path">Waiting</span> and <span class="path">Unread</span>.</td></tr>
+      <tr><td><kbd>Ctrl+Shift+B</kbd></td><td>Back to the last session.</td></tr>
+      <tr><td><kbd>Ctrl+Shift+P</kbd></td><td>The palette: every command, session and worktree by name.</td></tr>
+    </table>
+    <p class="ug-note">A bell on a row means the agent waits for you. A flag means it finished a turn while you were elsewhere. Skiff reads both from the agent's screen. It installs nothing in the agent.</p>
+  </section>
+
+  <section>
+    <h2>Create groups</h2>
+    <ol class="steps">
+      <li>Open the worktree's launch menu. Under <span class="path">NEW GROUP, THEN A SESSION PER PANE</span>, click a layout: <span class="path">2 side by side</span>, <span class="path">2 stacked</span>, <span class="path">1 left, 2 right</span>, <span class="path">1 over 2</span>, <span class="path">3 side by side</span> or <span class="path">2 by 2</span>.</li>
+      <li>The group opens with empty panes. Each empty pane offers the same start choices. Pick one for each pane.</li>
+      <li>Or split from a pane: right-click it and click <span class="path">Add pane right…</span> (<kbd>Ctrl+Shift+D</kbd>) or <span class="path">Add pane below…</span> (<kbd>Ctrl+Shift+S</kbd>). Pick a shell or an agent. The new session starts in the same worktree, and the two panes become a group.</li>
+      <li>The group gets a row in the side panel with the names of its sessions under it. Click the row to show the group. Right-click it to <span class="path">Rename</span>, set a <span class="path">Group theme…</span>, <span class="path">Ungroup</span>, or <span class="path">Kill all sessions…</span>.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Group sessions</h2>
+    <p class="lead">Sessions that already run can join a group.</p>
+    <ol class="steps">
+      <li>Hold <kbd>Ctrl</kbd> (<kbd>⌘</kbd> on macOS) and click the session rows. A bar at the bottom of the side panel counts them.</li>
+      <li>Click <span class="path">New group</span>, or press <kbd>Enter</kbd>. The sessions open side by side as one group. When one of them is a whole group, the button reads <span class="path">Add to</span> and the group's name, and the others join it.</li>
+      <li>Hold <kbd>Shift</kbd> and click to select every row between two rows.</li>
+      <li>Or drag. Drop a session row on another session to make a group of the two. Drop it on a group row to join that group. Drop it on a row of its own group to trade places. Drop it on the worktree row to leave the group.</li>
+      <li>To take one session out, click the <span class="path">×</span> at the right of its pane header, or press <kbd>Ctrl+Shift+W</kbd>. The session keeps running.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-group-select.webp"><img src="../../../shots/guide-group-select.webp" width="1600" height="900" loading="lazy" alt="Two session rows selected under the checkout-form worktree of harbor. A bar at the bottom of the side panel reads 2 selected. Enter to group them, with a New group button and a Clear button."></a>
+      <figcaption>Two sessions selected with Ctrl+click. New group puts them side by side.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Tile sessions</h2>
+    <ol class="steps">
+      <li>A group holds up to four panes. Drag the line between two panes to change their sizes.</li>
+      <li>Drag a pane by its header onto an edge of another pane to move it there. The target lights up before you drop.</li>
+      <li>Move the keys between panes with <kbd>Ctrl+Shift+Alt+Left</kbd>, <kbd>Right</kbd>, <kbd>Up</kbd> or <kbd>Down</kbd>, or click a pane. The focused pane has a frame in its project's color.</li>
+      <li>The buttons at the right of a pane header maximize the pane, enter focus mode, and take the session out of the group. See <a href="../focus-mode-and-mission-control/">chapter 5</a>.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-tile.webp"><img src="../../../shots/guide-tile.webp" width="1600" height="900" loading="lazy" alt="A group named triage in the 1 left, 2 right layout. Claude Code works in the left pane. Codex waits for approval in the top right pane with a bell. Grok Build finished in the bottom right pane with a flag. The side panel lists the three sessions under the group row."></a>
+      <figcaption>Three sessions in one group: 1 left, 2 right. The bell and the flag mark the panes that need a look.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Theme projects and sessions</h2>
+    <p class="lead">Themes cascade: the app theme, then a project theme, then a session theme. A lower level replaces the one above it. Skiff ships 34 themes.</p>
+    <ol class="steps">
+      <li>For a project: open the project menu, click <span class="path">Appearance</span>, then <span class="path">Project theme…</span>. Or press <kbd>Ctrl+Shift+X</kbd> with the project row current. The side panel, the top bar and every pane of the project without a theme of its own take it.</li>
+      <li>For a session: right-click its pane or its row and click <span class="path">Session theme…</span>, or press <kbd>Ctrl+Shift+X</kbd> on the row. Only that pane changes.</li>
+      <li>For a group: right-click the group row and click <span class="path">Group theme…</span>. Every session in the group takes it.</li>
+      <li>In the picker, type a name or a color in the search field, or click a color swatch. Click a card to apply it and close. The first card, <span class="path">Same as app</span> or <span class="path">Same as project</span>, removes the theme at this level.</li>
+      <li>The app theme is in <span class="path">Settings › Appearance</span>. See <a href="../settings/">chapter 9</a>.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-theme-picker.webp"><img src="../../../shots/guide-theme-picker.webp" width="1600" height="900" loading="lazy" alt="The Project theme: harbor picker. A search field, a row of color swatches, and a grid of theme cards, each with a small terminal preview, the theme name and its color family. The first card reads Same as app. The Ember card is marked Active."></a>
+      <figcaption>Project theme: harbor. Each card previews the theme. Ember is active.</figcaption>
+    </figure>
+    <p class="ug-note">The same <span class="path">Appearance</span> menu sets the project's <span class="path">Color…</span> (<kbd>Ctrl+Shift+I</kbd>), its <span class="path">Initials…</span>, an icon file, and a background image behind its panes.</p>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../projects-and-fleets/">← Projects, fleets and the first start</a>
+    <a class="next" href="../side-panel-diffs-and-files/">Next: Side panel, diffs and files →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

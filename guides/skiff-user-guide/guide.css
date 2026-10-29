@@ -1,0 +1,26 @@
+/* Styles for the Skiff user guide pages only. site.css stays as it is. */
+.ug .lead { margin-bottom: 20px; }
+.ug h3 { margin: 32px 0 12px; color: var(--text); font-size: 16px; font-weight: 600; }
+.ug h3:first-of-type { margin-top: 0; }
+.ug .steps { margin-bottom: 20px; }
+.ug .steps li { line-height: 1.55; }
+.ug kbd { padding: 1px 6px; border: 1px solid var(--rule-strong); background: var(--bg-panel); color: var(--text); font: 12px var(--mono); white-space: nowrap; }
+.ug .path { color: var(--text); font-weight: 500; }
+.ug-fig { margin: 24px 0 32px; max-width: 960px; }
+.ug-fig figcaption { margin-top: 10px; font-size: 13px; color: var(--text-dim); text-wrap: pretty; }
+.ug-note { max-width: 640px; margin: 0 0 24px; padding: 10px 14px; border-left: 3px solid var(--rule-strong); background: var(--bg-panel); color: var(--text-3); font-size: 14px; }
+.ug-keys { width: 100%; max-width: 640px; border-collapse: collapse; border: 1px solid var(--rule); background: var(--bg-panel); font-size: 14px; }
+.ug-keys td { padding: 8px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.ug-keys td:first-child { width: 36%; white-space: nowrap; }
+.ug-toc { max-width: 640px; margin: 0; padding-left: 1.4em; font-size: 16px; }
+.ug-toc li { margin: 0 0 10px; padding-left: 4px; }
+.ug-toc li span { display: block; font-size: 14px; color: var(--text-3); }
+.ug-nav { max-width: 960px; margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 16px; font-size: 14px; }
+.ug-nav a { color: var(--text-3); }
+.ug-nav a:hover { color: var(--text); }
+.ug-nav .next { text-align: right; }
+.ug-ph { max-width: 960px; margin: 24px 0 32px; padding: 32px 16px; border: 1px dashed var(--rule-strong); color: var(--text-dim); font: 13px var(--mono); text-align: center; }
+@media (max-width: 720px) {
+  .ug-nav { flex-direction: column; }
+  .ug-nav .next { text-align: left; }
+}
