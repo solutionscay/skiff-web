@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=81a943ed">
+<link rel="stylesheet" href="site.css?v=cd16bebc">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Skiff","description":"A minimalist desktop workspace for coding agents such as Claude Code, Codex and Gemini CLI.","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS","license":"https://opensource.org/licenses/MIT","url":"https://skiff.solutionscay.com/","downloadUrl":"https://skiff.solutionscay.com/download/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"}}
@@ -58,116 +58,64 @@
     <div>
       <h1>A small workspace for coding agents.</h1>
       <p>Skiff keeps agent sessions organized across projects and Git worktrees.</p>
-      <p>Editing and previews stay in the apps you already use.</p>
-      <div class="get" id="get">
+      <div class="get">
         <a class="btn main" href="download/">Download</a>
         <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
       </div>
-      <div class="ver"><span id="ver">Latest release</span> · Linux x86_64 · macOS Apple Silicon · MIT license</div>
     </div>
     <img class="mascot" src="skiff.png" width="200" height="200" alt="Skiff mascot: a small boat with a robot at the helm">
   </div>
 
-  <div class="shot"><video src="shots/skiff-image-drops.mp4" poster="shots/skiff-image-drops-poster.webp" width="1600" height="900" muted loop playsinline controls preload="metadata" aria-label="The Skiff image drops promo: images dropped on a Claude Code session become paths in its prompt. Each image goes to the library. Another session opens the library and inserts an image's path into its own prompt."></video></div>
-  <p class="caption"><span class="tag">Image drops</span>Drop or paste images on any pane, and Skiff types their paths. All sessions share one library. From it you insert, pin or copy the path of an image.</p>
-  <div class="agents" aria-label="Agents Skiff comes with">
-    <span class="label">Agents</span>
-    <a href="claude-code/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="#d97757" stroke-width="2" stroke-linecap="round"><path d="M8 1.5v13M1.5 8h13M3.4 3.4l9.2 9.2M12.6 3.4l-9.2 9.2"/></g></svg>claude</a>
-    <a href="codex/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5l5.6 3.25v6.5L8 14.5l-5.6-3.25v-6.5z" fill="none" stroke="#10a37f" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.8" fill="#10a37f"/></svg>codex</a>
-    <a href="gemini-cli/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="#8ab4f8"/></svg>gemini</a>
-    <a href="grok-cli/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" fill="none" stroke="#e6e8eb" stroke-width="1.8"/><path d="M3.2 12.8L12.8 3.2" stroke="#e6e8eb" stroke-width="1.8" stroke-linecap="round"/></svg>grok</a>
-    <a href="opencode/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M5.5 2.5H2.5v11h3M10.5 2.5h3v11h-3" fill="none" stroke="#e0c07e" stroke-width="1.8" stroke-linecap="square"/></svg>opencode</a>
-    <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5v13M3 3.5c1.5 1.5 3.5 1.5 5 0 1.5 1.5 3.5 1.5 5 0" fill="none" stroke="#c3a6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>hermes</span>
-    <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M9.6 1.8a6.4 6.4 0 1 0 4.6 8.6 5 5 0 0 1-4.6-8.6z" fill="#66d9e8"/></svg>kimi</span>
-    <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2.5 4l4 4-4 4M8 12.5h5.5" fill="none" stroke="#9aa3ae" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>shell</span>
-    <span class="more"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" fill="none" stroke="#9aa3ae" stroke-width="1.6"/><path d="M4.5 6.5l2 1.5-2 1.5" fill="none" stroke="#9aa3ae" stroke-width="1.4"/></svg>+ your own</span>
-  </div>
+  <div class="shot"><img src="shots/v1.7.1-fleet-skipper.webp" width="1600" height="900" alt="Skiff v1.7.1 on Linux: the platform fleet Skipper in the center pane starts one task in each project of its fleet. Its row is first under the PLATFORM head in the sidebar. The Ledger panel, filtered to platform, shows the hand-off and its four tasks."></div>
+  <p class="caption"><span class="tag">v1.7.1</span>A fleet Skipper starts one task in each project of its fleet. The Ledger on the right tracks them.</p>
 
-  <div class="wall">
-    <figure>
-      <a class="shot" href="shots/v1.7.1-images-library.webp"><img src="shots/v1.7.1-images-library.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.1 on Linux: a Claude Code pane in the atlas project with the Images library open under its header. A search for &quot;atlas&quot; shows 3 of 5 images. The chart image reads &quot;Inserted&quot;, and its path is in the pane's input line."></a>
-      <figcaption><span class="tag">v1.7.1</span>Images. Drop or paste an image on a pane, and Skiff types its path. The library keeps each image. Search it, pin an image or insert its path into a pane.</figcaption>
-    </figure>
-    <figure>
-      <a class="shot" href="shots/v1.7.1-fleet-skipper.webp"><img src="shots/v1.7.1-fleet-skipper.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.1 on Linux: the platform fleet Skipper in the center pane starts one task in each project of its fleet. Its row is first under the PLATFORM head in the sidebar. The Ledger panel, filtered to platform, shows the hand-off and its four tasks."></a>
-      <figcaption><span class="tag">v1.7.1</span>Fleet Skippers. A fleet has its own Skipper for all its projects. Skipper hands it work, and the Ledger shows the tasks in each project.</figcaption>
-    </figure>
-    <figure>
-      <div class="shot"><video src="shots/skiff-v2-hosts.mp4" poster="shots/skiff-v2-hosts-poster.webp" width="1600" height="900" muted loop playsinline controls preload="metadata" aria-label="The Skiff v2 promo, not released: add a server in Settings › Hosts, Skiff sets itself up there over SSH, then you drive agents on the server from this computer"></video></div>
-      <figcaption><span class="tag">Skiff v2</span>Skiff v2 is in the works. It is not released. In v2 you add a server in Settings › Hosts, and Skiff sets itself up there over SSH. Agents run on the server. You drive them from this computer.</figcaption>
-    </figure>
-  </div>
-  <p class="more-shots"><a href="gallery/">All screenshots and videos, by version</a></p>
-
-  <section id="how">
-    <h2>How it works</h2>
-    <p class="lead">Add a project (a Git repository), make worktrees in it, and start agent or shell sessions in each worktree. Sessions sit side by side in named groups. Close the window and the agents keep running. New to this? Read <a href="guides/run-coding-agents-in-parallel/">how to run coding agents in parallel</a>. All articles are in <a href="guides/">Guides</a>.</p>
-    <div class="grid">
-      <div class="cell">
-        <h3>Sessions outlive the window</h3>
-        <p>A daemon, <code>skiffd</code>, owns every terminal. Close the window and the agents keep working. Open it again and each terminal shows its last screen. An update moves <code>skiffd</code> to the new version and keeps your sessions running. See <a href="guides/keep-agent-sessions-running/">keeping agent sessions running</a>.</p>
-      </div>
-      <div class="cell">
-        <h3>See what needs a look</h3>
-        <p>Each session shows when it waits for you, works or finishes. A finished session gets an unread flag until you go to it.</p>
-      </div>
-      <div class="cell">
-        <h3>Projects and worktrees</h3>
-        <p>Sessions sit under the project and worktree they run in. If an agent goes to work in another worktree, the sidebar shows it there too. Start sessions from the project's ⋯ menu or with a right-click on the project. Read the <a href="guides/git-worktrees-for-coding-agents/">worktree guide</a>.</p>
-      </div>
-      <div class="cell">
-        <h3>Groups and layouts</h3>
-        <p>Put related sessions in a named group and split them side by side. Drag a pane by its header to move it.</p>
-      </div>
-      <div class="cell">
-        <h3>Themes as location cues</h3>
-        <p>Give each project, group and session its own terminal theme. One look tells you where you are.</p>
-      </div>
-      <div class="cell">
-        <h3>Changes, not an editor</h3>
-        <p>Each worktree lists its changed files. Select one to see its diff. A double-click opens the file in the app you pick under Settings › Open with.</p>
-      </div>
+  <section id="agents">
+    <h2>Agents</h2>
+    <div class="agents" aria-label="Agents Skiff comes with">
+      <a href="claude-code/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g stroke="#d97757" stroke-width="2" stroke-linecap="round"><path d="M8 1.5v13M1.5 8h13M3.4 3.4l9.2 9.2M12.6 3.4l-9.2 9.2"/></g></svg>claude</a>
+      <a href="codex/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5l5.6 3.25v6.5L8 14.5l-5.6-3.25v-6.5z" fill="none" stroke="#10a37f" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.8" fill="#10a37f"/></svg>codex</a>
+      <a href="gemini-cli/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="#8ab4f8"/></svg>gemini</a>
+      <a href="grok-cli/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" fill="none" stroke="#e6e8eb" stroke-width="1.8"/><path d="M3.2 12.8L12.8 3.2" stroke="#e6e8eb" stroke-width="1.8" stroke-linecap="round"/></svg>grok</a>
+      <a href="opencode/"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M5.5 2.5H2.5v11h3M10.5 2.5h3v11h-3" fill="none" stroke="#e0c07e" stroke-width="1.8" stroke-linecap="square"/></svg>opencode</a>
+      <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5v13M3 3.5c1.5 1.5 3.5 1.5 5 0 1.5 1.5 3.5 1.5 5 0" fill="none" stroke="#c3a6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>hermes</span>
+      <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M9.6 1.8a6.4 6.4 0 1 0 4.6 8.6 5 5 0 0 1-4.6-8.6z" fill="#66d9e8"/></svg>kimi</span>
+      <span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2.5 4l4 4-4 4M8 12.5h5.5" fill="none" stroke="#9aa3ae" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>shell</span>
+      <span class="more"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" fill="none" stroke="#9aa3ae" stroke-width="1.6"/><path d="M4.5 6.5l2 1.5-2 1.5" fill="none" stroke="#9aa3ae" stroke-width="1.4"/></svg>+ your own</span>
     </div>
   </section>
 
-  <section>
-    <h2>The Skiff agent</h2>
-    <p class="lead">The Skiff agent is optional. Turn it on in Settings › Skiff agent. Then one agent session, Skipper by default, runs in its own folder, <code>~/skiff-agent</code>. It sends tasks to sessions in your projects, records them in a SQLite ledger and reports the results to you. The Ledger panel beside its pane sorts the work into Working, Open and Finished. Work moves to Finished when all its tasks are done and reported, or when you tell Skipper to close it. Ctrl+Alt+Shift+L folds the panel to a rail. <code>skiff watch</code> tells Skipper when a session ends a turn, exits or restarts. Its row sits at the top of the side panel. Ctrl+Shift+L shows its pane, and <code>skiff skipper</code> attaches to it from any terminal, an SSH login included. Give it a theme, and while its pane is on screen the side panel and top bar take that theme too.</p>
-    <p class="lead">A project or a fleet can have its own Skipper. Turn them on in Settings › Skiff agent › Project and fleet Skippers. Then select Start project Skipper in the project menu, or Start fleet Skipper in the fleet menu. Skipper hands work to them, and each one changes only its own rows in the Ledger. A project has one Skipper at a time, so a fleet Skipper takes over the project Skippers in its fleet. Hide projects in the fleet menu keeps only the fleet Skipper, the sessions that wait and the session on screen under the fleet head. Show projects brings the rest back. See the <a href="https://github.com/solutionscay/skiff/wiki/Skiff-agent">Skiff agent page</a> on the wiki.</p>
-    <a class="shot" href="shots/v1.7.0.webp"><img src="shots/v1.7.0.webp" width="1600" height="900" loading="lazy" alt="Skiff v1.7.0 on Linux: the atlas project's own Skipper, in the center pane, takes a hand-off from the main Skipper and starts two task panes. The Ledger panel on the right shows the hand-off and its two tasks. The projects sidebar is on the left, with the project Skipper first in the atlas block."></a>
-    <p class="caption"><span class="tag">v1.7.0</span>Project Skippers. A project has its own Skipper. The main Skipper hands it work, and the Ledger shows the hand-off and its tasks.</p>
-  </section>
-
-  <section id="highlights">
-    <h2>Highlights</h2>
+  <section id="small">
+    <h2>Small on purpose</h2>
+    <p class="lead">Skiff has no plugins and no automations. It is made for the keyboard, and F1 shows every key.</p>
     <div class="grid two">
       <div class="cell">
         <h3>Inspectable and self-contained</h3>
-        <p>Skiff is open source under the MIT license. The window, the daemon and the CLI come in one package and run on your computer. There is no account and no service. On its own, Skiff uses the network for one thing: the check for updates on GitHub. Its settings are one file you can read, <code>~/.config/skiff/projects.toml</code>. The Skiff agent's ledger is a SQLite file, and <code>skiff ls</code> lists the sessions from any terminal.</p>
+        <p>Open source under the MIT license. The window, the daemon and the CLI come in one package and run on your computer. There is no account and no service. Settings are one file, <code>~/.config/skiff/projects.toml</code>. The one network call Skiff makes on its own is the update check on GitHub.</p>
       </div>
       <div class="cell">
         <h3>Respects your configs</h3>
-        <p>Skiff does not change your agents. It adds no hooks or plugins to them and writes nothing in an agent's own folder, such as <code>~/.claude</code> or <code>~/.codex</code>. It starts the agent's command in a terminal and leaves the rest to the agent.</p>
+        <p>Skiff adds no hooks or plugins to your agents and writes nothing in their folders, such as <code>~/.claude</code> or <code>~/.codex</code>. It starts the agent's command and leaves the rest to the agent.</p>
       </div>
       <div class="cell">
-        <h3>Small on purpose</h3>
-        <p>Skiff has no plugins and no automations. The keyboard and the mouse do the same things, and F1 shows every key. The Linux <code>.deb</code> is 7.6 MB to download and 16 MB installed, as dpkg reports for v1.7.10. The macOS <code>.dmg</code> is 9.1 MB. On a Linux machine with 19 sessions open, <code>skiffd</code>, the daemon that holds them, used 34 MB of memory, as ps reports it.</p>
+        <h3>Small package, small daemon</h3>
+        <p>The Linux <code>.deb</code> is 7.6 MB to download and 16 MB installed, as dpkg reports for v1.7.10. The macOS <code>.dmg</code> is 9.1 MB. With 19 sessions open, <code>skiffd</code> used 34 MB of memory, as ps reports on one Linux machine.</p>
       </div>
       <div class="cell">
         <h3>Works with your apps</h3>
-        <p>Settings › Open with names the app for each kind of file: diffs, text files, Markdown, HTML and images. A changed file's diff shows in the Peek, a panel over the terminals, through your diff tool. The default is <code>git diff</code>. A double-click opens a file in your editor. Markdown and HTML open in a viewer you name, or in the Peek.</p>
+        <p>Settings › Open with names the app for diffs, text files, Markdown, HTML and images. Diffs show in the Peek through your diff tool, <code>git diff</code> by default. Files open in your editor. Markdown and HTML open in a viewer you name, or in the Peek.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>Install</h2>
-    <p class="lead">Skiff ships as <code>.deb</code>, <code>.rpm</code> and AppImage for Linux x86_64, and as a signed <code>.dmg</code> for macOS on Apple Silicon. <a href="download/">Go to the downloads</a>.</p>
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="lead">Add a project, a Git repository, and start agent or shell sessions in its worktrees. Sessions sit side by side in named groups. Each one shows when it waits for you, works or is done. A daemon, <code>skiffd</code>, owns every terminal, so the agents keep running when you close the window.</p>
+    <p class="lead">Admiral, the Skiff agent, sends tasks to sessions in your projects, or to the Skipper of a project or fleet. The Ledger records each task and its result.</p>
   </section>
 
   <section id="guide">
     <h2>User guide</h2>
-    <p class="lead">The user guide covers setup, Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces and Settings. Every step is a click or a key.</p>
+    <p class="lead">The user guide covers setup, Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces and Settings.</p>
     <div class="get"><a class="btn main" href="guides/skiff-user-guide/">Read the user guide</a></div>
   </section>
 </main>
@@ -184,12 +132,5 @@
   </div>
 </footer>
 
-<script>
-// Show the version of the latest release.
-fetch("https://api.github.com/repos/solutionscay/skiff/releases/latest")
-  .then((r) => (r.ok ? r.json() : null))
-  .then((rel) => { if (rel) document.getElementById("ver").textContent = rel.tag_name; })
-  .catch(() => {});
-</script>
 </body>
 </html>
