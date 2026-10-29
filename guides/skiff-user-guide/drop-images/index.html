@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drop images | Skiff user guide</title>
+<meta name="description" content="How to give an agent an image in Skiff: drop or paste it on a pane, and find it again in the images library.">
+<meta property="og:title" content="Drop images">
+<meta property="og:description" content="How to give an agent an image in Skiff: drop or paste it on a pane, and find it again in the images library.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/drop-images/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/drop-images/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Drop images","description":"How to give an agent an image in Skiff: drop or paste it on a pane, and find it again in the images library.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/drop-images/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Drop images</h1>
+    <p>An agent can read an image when it has its path. Drop an image on a pane and Skiff types the path for you. Every image you drop or paste goes to one library on this computer, so any session can use it again.</p>
+    <div class="ver">Chapter 6 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Drop or paste</h2>
+    <ol class="steps">
+      <li>Drag a file from your file manager or another app over a pane. The pane shows a frame and a label: <em>Type the path</em>, or the number of paths.</li>
+      <li>Drop it. Skiff copies an image to the library and types the path of the copy into the pane, with a space after it. Other files keep their own path. Then type your prompt and press <kbd>Enter</kbd>.</li>
+      <li>Or paste with <kbd>Ctrl+Shift+V</kbd> (<kbd>⌘V</kbd> on macOS). Text pastes as text. An image on the clipboard is saved as a PNG named <em>Pasted image</em>, and its path is typed. Bare <kbd>Ctrl+V</kbd> stays with the terminal.</li>
+      <li>Drop several files at once. Each gets its own path.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-drop.webp"><img src="../../../shots/guide-drop.webp" width="1600" height="900" alt="Two files dragged over the Rate limit middleware pane. The pane body has a blue frame and a label that reads Type 2 paths."></a>
+      <figcaption>Files over a pane. The drop types their paths into the agent's prompt.</figcaption>
+    </figure>
+    <p class="ug-note">Skiff knows an image by its first bytes, not by its name. An image over 50 MB is not copied: Skiff types its own path. When Skiff starts Claude Code, it gives it read access to the library folder.</p>
+  </section>
+
+  <section>
+    <h2>The library</h2>
+    <ol class="steps">
+      <li>Point at a pane header. Its image button shows the newest image. Click it to open the library under the header. <span class="path">Images…</span> in the pane's right-click menu, in the <span class="path">Edit</span> menu and in the palette opens it too.</li>
+      <li>Pinned images come first under <span class="path">PINNED</span>, then the rest under <span class="path">RECENT</span>, newest first. Each row shows the image, its name, and the session that last got it. Type in the search field to filter the list.</li>
+      <li>Point at a row for its actions. <span class="path">Insert</span> (<kbd>I</kbd>) types the path into the focused pane. <span class="path">Pin</span> (<kbd>P</kbd>) keeps the image when Skiff flushes the library. <span class="path">Copy path</span> (<kbd>C</kbd>) copies it. <span class="path">×</span> (<kbd>Delete</kbd>) deletes the file.</li>
+      <li>Click a row, or press <kbd>Enter</kbd>, to open the image in the app from <span class="path">Settings › Open with › Images</span>. <kbd>Up</kbd> and <kbd>Down</kbd> move the lit row. <kbd>Esc</kbd> closes the library.</li>
+      <li>Drag an image from the library onto any pane to insert its path there.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-images-library.webp"><img src="../../../shots/guide-images-library.webp" width="1600" height="900" loading="lazy" alt="The Images library open under the header of the Rate limit middleware pane. A search field, then PINNED with two rows and RECENT with three. The first row, error-page-mock.png, shows the actions Insert, Unpin, Copy path and a delete button. Each row names the project and the session that last used the image."></a>
+      <figcaption>The library under a pane header. Insert types the path into the focused pane.</figcaption>
+    </figure>
+    <p class="ug-note">The library is the <span class="path">cache</span> folder in the Skiff agent's folder. <span class="path">Settings › Images</span> shows it as a gallery, and <span class="path">Settings › Disk use</span> flushes it. See <a href="../settings/">chapter 9</a>.</p>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../focus-mode-and-mission-control/">← Focus mode, maximize and Mission control</a>
+    <a class="next" href="../ledger/">Next: The Ledger and result files →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

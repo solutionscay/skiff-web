@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings | Skiff user guide</title>
+<meta name="description" content="The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.">
+<meta property="og:title" content="Settings">
+<meta property="og:description" content="The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/settings/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/settings/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Settings","description":"The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/settings/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Settings</h1>
+    <p>Settings opens over the window, with its sections in a list on the left. Chapter 1 covered Skippers and Task types. This chapter covers the rest, in the order the list shows them: Agents, Appearance, Open with, Images, Disk use and skiffd activity.</p>
+    <div class="ver">Chapter 9 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Agents</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Agents</span>. Each row is one agent: its switch, its name, its command and its status.</li>
+      <li>Click the switch to turn an agent on or off. An agent that is on shows in every launch menu. A switch is off and grey when the command is not on your PATH.</li>
+      <li>To run an agent with other options, click its <span class="path">COMMAND</span> cell and type the command. An empty cell uses the default shown in grey.</li>
+      <li>To add your own agent, type a name in <span class="path">New agent name</span> and its command, then click <span class="path">Add agent</span>.</li>
+      <li>Click <span class="path">−</span> at the right of a row to remove the agent. An agent that Admiral or a task type uses shows that in <span class="path">STATUS</span> and stays. <span class="path">Restore defaults</span> brings back a removed built-in agent.</li>
+      <li>Under <span class="path">AGENT NAMES</span>, the two lists are the words Skiff joins into the names of new sessions, such as <em>First Mate Pelican</em>. Edit a list and click away to save it.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-agents.webp"><img src="../../../shots/guide-settings-agents.webp" width="1600" height="900" alt="Settings, Agents. Rows for claude, codex, gemini, grok, opencode, hermes and kimi, each with a switch, its command and a status: installed, or not on PATH for kimi. claude reads installed, Admiral plus 3. A last row adds a new agent. Under the table, AGENT NAMES lists titles such as Captain and First Mate, and names such as Anchovy and Barnacle."></a>
+      <figcaption>Settings › Agents. The switch turns an agent on. The status says who uses it.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Open with</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Open with</span>. Each row names what Skiff hands to another program: <span class="path">Diffs</span>, <span class="path">Text files</span>, <span class="path">Markdown</span>, <span class="path">HTML</span> and <span class="path">Images</span>.</li>
+      <li>Type a command in the <span class="path">COMMAND</span> cell and press <kbd>Enter</kbd>. Write <span class="path">{path}</span> where the file goes. An empty cell uses the system's default app. The <a href="https://github.com/solutionscay/skiff/wiki/Open-with">Open with page</a> lists commands for common apps on Linux and macOS.</li>
+      <li>Set <span class="path">OPENS IN</span> for text, Markdown and HTML. <span class="path">External app</span> waits for Enter in the peek. <span class="path">Peek</span> runs the command inside the peek at once, for terminal tools. Diffs always use the peek. Images always use an app.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-open-with.webp"><img src="../../../shots/guide-settings-open-with.webp" width="1600" height="900" loading="lazy" alt="Settings, Open with. Rows: Diffs with git diff color always and Peek; Text files with gnome-text-editor and External app; Markdown with typora and External app; HTML and Images with default app."></a>
+      <figcaption>Settings › Open with. One command per kind of file, and where it opens.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Themes and how to manage them</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Appearance</span>. The cards are the app theme: the side panel, the bars and every pane without a project or session theme. Click a card to apply it.</li>
+      <li>Type a name or a color in <span class="path">Find by name or color</span>, or click a swatch, to filter the cards. <span class="path">All</span> clears the filter. The line under the field counts the themes shown.</li>
+      <li>Click the import button at the right of the swatches, <span class="path">Import themes…</span>, to add theme files. Skiff reads the foot TOML format and Superset's JSON.</li>
+      <li>Click the folder button, <span class="path">Open theme folder</span>, to see the theme files. Drop files in it, come back to Skiff, and the list reads them.</li>
+      <li>On Linux, the <span class="path">Menu</span> row picks the window's menu: <span class="path">Auto</span>, <span class="path">Header bar</span> or <span class="path">Menu bar</span>. A change shows the next time Skiff opens.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-appearance.webp"><img src="../../../shots/guide-settings-appearance.webp" width="1600" height="900" loading="lazy" alt="Settings, Appearance. A Menu row with Auto, Header bar and Menu bar. A search field, color swatches, an import button and a folder button. A grid of theme cards: Ultraviolet, Default, Neon Tropic, Moonlight, Ember, Lagoon, Violet Pulse, Manila Brief and more, each with a terminal preview and a color family."></a>
+      <figcaption>Settings › Appearance: the app theme. The two buttons at the right import themes and open the theme folder.</figcaption>
+    </figure>
+    <p class="ug-note">A project theme or a session theme replaces the app theme in its scope. See <a href="../sessions-and-groups/">chapter 3</a>.</p>
+  </section>
+
+  <section>
+    <h2>skiffd activity</h2>
+    <p class="lead">skiffd is the daemon that owns every session. This page lists what it runs, also sessions that no project shows.</p>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › skiffd activity</span>. The band at the top shows the daemon's version, how long it has run, its session count and its memory.</li>
+      <li>Each row is one session: its state, name, program, project and worktree, folder, output so far and age. A row with no project in Skiff is marked.</li>
+      <li>Click a column head to sort by it. Click again to reverse.</li>
+      <li>Click <span class="path">Reveal</span> to close Settings and show that session. A closed project opens again for it.</li>
+      <li>To end sessions, click their rows. <kbd>Shift</kbd>+click selects a range, <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) adds or drops one row, <kbd>Ctrl+A</kbd> selects all. Then click <span class="path">Sink…</span>. The <span class="path">Abandon Ship</span> dialog names the sessions. Confirm to kill them.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-activity.webp"><img src="../../../shots/guide-settings-activity.webp" width="1600" height="900" loading="lazy" alt="Settings, skiffd activity. A band reads skiffd 1.7.10, Up 3d, 6 sessions, Memory 49.0 MB, and a Sink button. A table with the columns STATE, SESSION, PROGRAM, WORKSPACE, FOLDER, OUT, AGE and ACTIONS lists six sessions, each with a Reveal button."></a>
+      <figcaption>Settings › skiffd activity: every session the daemon runs, with Reveal and Sink.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Storage usage</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Disk use</span>. The table counts the Skiff agent's folder: <span class="path">Images</span>, with <span class="path">Pinned</span> under it; <span class="path">Results</span>, with a row for each Skipper and <span class="path">Closed work</span>; <span class="path">Logs</span>; <span class="path">Other</span>; and <span class="path">Total</span>.</li>
+      <li>Click <span class="path">Flush images</span> to remove every image that is not pinned.</li>
+      <li>Click <span class="path">Flush done work…</span> to remove the result files of closed work. The dialog shows the counts first. Open and working work stays, and so do the ledger and the instruction files.</li>
+      <li><span class="path">Auto flush</span> removes images older than 30 days when Skiff starts. Click the switch to turn it off or on. Pinned images stay.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-disk.webp"><img src="../../../shots/guide-settings-disk.webp" width="1600" height="900" loading="lazy" alt="Settings, Disk use. A table with TYPE, FILES, SIZE and FOLDER: Images 5 files 1.4 MB with a Flush images button, Pinned, Results, atlas Skipper, Closed work with a Flush done work button, Logs, Other and Total 126 files 6.1 MB. Under it, Auto flush, 30 days, with its switch on."></a>
+      <figcaption>Settings › Disk use. The two flush buttons free space. Auto flush ages out images.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Gallery</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Images</span>, or click <span class="path">Edit › Settings › Images…</span>. The page shows the image library as a gallery: <span class="path">PINNED</span> first, then <span class="path">RECENT</span>, newest first.</li>
+      <li>Type in the search field to filter by file name, session or project.</li>
+      <li>Click an image to select it. <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) selects more. The count at the right of the search field says how many.</li>
+      <li>The buttons act on the selection. <span class="path">Open</span> opens the image in its app. <span class="path">Insert into</span> and the session name types the path into the focused pane. <span class="path">Pin</span> or <span class="path">Unpin</span> keeps or releases it. <span class="path">Copy path</span> copies it. <span class="path">Delete</span> removes the file.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-images.webp"><img src="../../../shots/guide-settings-images.webp" width="1600" height="900" loading="lazy" alt="Settings, Images. A search field with the count 5 and 1 selected, then the buttons Open, Insert into Rate limit middleware, Unpin, Copy path and Delete. Under PINNED, two images with one selected. Under RECENT, three images. Each image shows its name, time, project and session."></a>
+      <figcaption>Settings › Images: the library as a gallery. Select images, then open, insert, pin, copy or delete them.</figcaption>
+    </figure>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../workspaces/">← Workspaces</a>
+    <a class="next" href="../">Skiff user guide →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

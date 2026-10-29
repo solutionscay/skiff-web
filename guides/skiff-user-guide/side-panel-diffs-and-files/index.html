@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Side panel, diffs and files | Skiff user guide</title>
+<meta name="description" content="How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.">
+<meta property="og:title" content="Side panel, diffs and files">
+<meta property="og:description" content="How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/side-panel-diffs-and-files/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/side-panel-diffs-and-files/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Side panel, diffs and files","description":"How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/side-panel-diffs-and-files/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Side panel, diffs and files</h1>
+    <p>The side panel is one tree: Admiral, then each project with its worktrees, groups and sessions. Under each worktree, two sections can show: Changes and Files. A change opens its diff over the panes. A file opens in the app you chose.</p>
+    <div class="ver">Chapter 4 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Side panel</h2>
+    <ol class="steps">
+      <li>Click a project row or a fleet head to fold or open it. A folded row shows how many sessions under it wait, work or have unread output.</li>
+      <li>Click a session row to show its pane. Click a group row to show the group.</li>
+      <li>Move through the rows with <kbd>Ctrl+Shift+Up</kbd> and <kbd>Ctrl+Shift+Down</kbd>. Each row opens as you land on it. <kbd>Ctrl+Shift+Left</kbd> jumps to the project row. <kbd>Ctrl+Shift+Right</kbd> goes back to the session on screen. <kbd>Ctrl+Shift+1</kbd> to <kbd>9</kbd> go to the project with that number, counted down the panel. On macOS these are <kbd>⌘+Option+1</kbd> to <kbd>9</kbd>.</li>
+      <li>To show or hide <span class="path">Changes</span> for a project, open the project menu, click <span class="path">Sidebar</span>, then <span class="path">Changes</span>, or press <kbd>Ctrl+Shift+G</kbd>. <span class="path">Files</span> works the same, with <kbd>Ctrl+Shift+H</kbd>. A plain folder shows Files by default. A Git project shows Changes.</li>
+      <li>Press <kbd>F6</kbd> to move the keys between the side panel and the terminal.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-side-panel.webp"><img src="../../../shots/guide-side-panel.webp" width="1600" height="900" alt="The side panel with the atlas project open. Under the rate-limits worktree: the review group with two sessions, a Changes section with limits.rs, plans.rs and rate_limits.rs and their line counts, and a Files section with the folders src, tests and docs open to src/middleware. Two panes show Claude Code and Codex."></a>
+      <figcaption>Changes and Files under the rate-limits worktree. Each change shows its added and removed lines.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Diffs</h2>
+    <ol class="steps">
+      <li>Click the <span class="path">Changes</span> row under a worktree to open the list. The count at its right is the number of changed files.</li>
+      <li>Click a file. Its diff opens in the peek, over the panes. The peek is not a session. The agents keep running under it.</li>
+      <li>Press <kbd>Enter</kbd> to give the keys to the diff, to scroll it. Press <kbd>Esc</kbd>, or any key after the diff ends, to close the peek. The row stays current. Press <kbd>Enter</kbd> on it to see the diff again.</li>
+      <li>To see every change of the worktree in one diff, click the <span class="path">Changes</span> row and press <kbd>Enter</kbd>, or right-click the worktree row and click <span class="path">Review all changes</span>.</li>
+      <li>Press <kbd>Shift+Enter</kbd> on a change, or double-click it, to open the file itself in the app set for it.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-diff.webp"><img src="../../../shots/guide-diff.webp" width="1600" height="900" loading="lazy" alt="The peek shows the diff of src/middleware/limits.rs over the panes. Removed lines are red and added lines are green. The header reads DIFF, the file name and the branch rate-limits, with an Esc button at the right. The last line reads Press any key to close. In the side panel, limits.rs is the current row under Changes."></a>
+      <figcaption>A diff in the peek. Esc closes it. The sessions under it keep running.</figcaption>
+    </figure>
+    <p class="ug-note">The diff comes from the command in <span class="path">Settings › Open with › Diffs</span>. The default is git. The <a href="https://github.com/solutionscay/skiff/wiki/Open-with">Open with page</a> lists other diff tools.</p>
+  </section>
+
+  <section>
+    <h2>File browse</h2>
+    <ol class="steps">
+      <li>Click the <span class="path">Files</span> row under a worktree to open the tree of its folder.</li>
+      <li>Click a folder, or press <kbd>Space</kbd> on it, to open or close it.</li>
+      <li>Click a file. The peek shows a card with the app that opens it: <em>Open in gnome-text-editor</em>, for example. Press <kbd>Enter</kbd> or click the card to open the file in that app. A double-click on the row opens it at once.</li>
+      <li>A terminal tool, such as a pager or an editor set to <span class="path">Peek</span> in <span class="path">Settings › Open with</span>, runs inside the peek instead. The peek closes when the tool quits. <kbd>Ctrl+Shift+W</kbd> closes it too.</li>
+      <li>Right-click the <span class="path">Files</span> row for <span class="path">Refresh</span> and <span class="path">Show in file manager</span>. On a file row, <kbd>Ctrl+Shift+Z</kbd> shows the file in the file manager and <kbd>Ctrl+Shift+Y</kbd> copies its path.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-file-browse.webp"><img src="../../../shots/guide-file-browse.webp" width="1600" height="900" loading="lazy" alt="README.md is the current row in the Files section of the rate-limits worktree. The peek over the panes shows a card: an Enter keycap and the text Open in gnome-text-editor. The header reads FILE README.md and the worktree path."></a>
+      <figcaption>A file selected in Files. Enter opens it in the app from Settings › Open with.</figcaption>
+    </figure>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../sessions-and-groups/">← Sessions, groups, tiles and themes</a>
+    <a class="next" href="../focus-mode-and-mission-control/">Next: Focus mode, maximize and Mission control →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

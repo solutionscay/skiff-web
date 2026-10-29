@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workspaces | Skiff user guide</title>
+<meta name="description" content="How to show only some projects and fleets in Skiff with a workspace: new, edit, save, save as, open and close.">
+<meta property="og:title" content="Workspaces">
+<meta property="og:description" content="How to show only some projects and fleets in Skiff with a workspace: new, edit, save, save as, open and close.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/workspaces/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/workspaces/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Workspaces","description":"How to show only some projects and fleets in Skiff with a workspace: new, edit, save, save as, open and close.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/workspaces/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Workspaces</h1>
+    <p>A workspace is a file that names some projects and fleets. While one is open, the side panel shows only those, and the Ledger shows only their work. A workspace changes what you see. It never changes a project, a fleet, a session or the ledger.</p>
+    <div class="ver">Chapter 8 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>New workspace</h2>
+    <ol class="steps">
+      <li>Click <span class="path">File › New workspace…</span>. The status bar item at the bottom of the window opens the same menu.</li>
+      <li>The <span class="path">Edit workspace</span> dialog opens. Type a <span class="path">Name</span>.</li>
+      <li>Tick the fleets and projects to show. A ticked fleet brings every project in it, now and later. Tick single projects to show them alone. <span class="path">Select all</span> ticks everything.</li>
+      <li>Click <span class="path">Apply</span>. The panel shows the picked projects. The status bar reads the workspace's name and <em>Edited</em>, because the file is not saved yet.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-workspace.webp"><img src="../../../shots/guide-workspace.webp" width="1600" height="900" alt="The Edit workspace dialog. The Name field reads Platform work. A note says the workspace shows these projects and fleets and changes no project, fleet or session. Checkboxes: Select all, devbox unticked, the platform fleet ticked with atlas and harbor ticked under it. Buttons: Cancel and Apply. The status bar reads Untitled."></a>
+      <figcaption>Edit workspace. A ticked fleet brings its projects. Apply shows the selection; Save keeps it.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Edit a workspace</h2>
+    <ol class="steps">
+      <li>Click <span class="path">File › Edit workspace…</span>. Change the name or the ticks and click <span class="path">Apply</span>.</li>
+      <li>Or use the project menu. <span class="path">Remove from workspace</span> takes a project out. While a workspace is open, the <span class="path">+</span> on the <span class="path">PROJECTS</span> head reads <em>Add to workspace</em> and lists the projects and fleets that are not in it.</li>
+      <li>A project or fleet named in the file but not open in Skiff shows under <span class="path">Missing</span> in the dialog. Pick <span class="path">Keep, unresolved</span>, <span class="path">Remove from workspace</span>, or another project to use in its place.</li>
+      <li>The folds you make in the panel are part of the workspace too. They go to the file with the next save.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Save and save as</h2>
+    <ol class="steps">
+      <li>Click <span class="path">File › Save workspace</span>. The first save asks for a file. Skiff saves a <span class="path">.skiffw</span> file, named after the workspace.</li>
+      <li>Click <span class="path">File › Save workspace as…</span> to save a copy under another name. The copy becomes the open workspace.</li>
+      <li>The status bar item shows the state: <em>Edited</em> after a change, <em>Saving…</em> during a save, nothing when the file matches.</li>
+      <li>If the file changed on disk, the item reads <em>Changed on disk</em>. Click it and pick <span class="path">Reload from disk</span> or <span class="path">Keep current</span>. Skiff never reloads by itself.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Open and close</h2>
+    <ol class="steps">
+      <li>Click <span class="path">File › Open workspace…</span> and pick a <span class="path">.skiffw</span> file. <span class="path">File › Open recent workspace…</span> lists the last ones.</li>
+      <li>Click <span class="path">File › Close workspace</span> to show all projects again. The status bar item calls it <span class="path">Close workspace: All projects</span>.</li>
+      <li>Every way out of an edited workspace asks first: <span class="path">Save</span>, <span class="path">Don't Save</span> or <span class="path">Cancel</span>. Don't Save drops only the changes to the view.</li>
+      <li>While a workspace is open, the Ledger shows its projects' work and work with no project. <span class="path">View › Ledger: show all work</span> shows every row.</li>
+    </ol>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../ledger/">← The Ledger and result files</a>
+    <a class="next" href="../settings/">Next: Settings →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

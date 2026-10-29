@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up Admiral, Skippers and task types | Skiff user guide</title>
+<meta name="description" content="How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.">
+<meta property="og:title" content="Set up Admiral, Skippers and task types">
+<meta property="og:description" content="How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/set-up-admiral/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/set-up-admiral/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Set up Admiral, Skippers and task types","description":"How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/set-up-admiral/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Set up Admiral, Skippers and task types</h1>
+    <p>Admiral is the Skiff agent: one agent session in a folder of its own. It sends tasks to sessions in your projects, follows them, and reports back. A project or a fleet can have a Skipper of its own. This chapter sets them up before the first start.</p>
+    <div class="ver">Chapter 1 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Open Settings</h2>
+    <ol class="steps">
+      <li>Click the gear at the right of the top bar, or press <kbd>Ctrl+Shift+,</kbd>.</li>
+      <li>Click a section in the list on the left. <kbd>Ctrl+Shift+Up</kbd> and <kbd>Ctrl+Shift+Down</kbd> step through the sections.</li>
+      <li>Press <kbd>Esc</kbd> to close Settings.</li>
+    </ol>
+    <p class="ug-note">Every setting goes to one file, <span class="path">projects.toml</span>. Its path shows under the Settings title.</p>
+  </section>
+
+  <section>
+    <h2>Set Admiral</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Skippers</span>.</li>
+      <li><span class="path">Folder</span> shows where Admiral works. The default is <span class="path">skiff-agent</span> in your home folder. To use another folder, click <span class="path">Change…</span>. Skiff shows what the change does before it does it.</li>
+      <li><span class="path">Main</span> is Admiral's name. Leave it empty to keep Admiral, or type another name. The name shows on the row at the top of the side panel.</li>
+      <li><span class="path">Agent</span> picks the agent Admiral runs, from the agents that are on in <span class="path">Settings › Agents</span>. The field beside it takes a model name. Leave it empty for the agent's default. A change applies at the next start.</li>
+      <li><span class="path">Continue on restore</span> shows the line the agent gets after a restart of skiffd. Turn the switch on to continue the last conversation. Turn it off to start a new one.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-skippers.webp"><img src="../../../shots/guide-settings-skippers.webp" width="1600" height="900" alt="Skiff Settings, Skippers. Rows: Folder with Copy path, Show in file manager and Change; Main with the placeholder Admiral; Project/Fleet with the placeholder Skipper; Agent set to claude with the model claude-opus-5-5; Continue on restore, on. Under it, the Project and fleet Skippers agent row reads Same as Admiral, and an Instructions table lists AGENTS.md and a SKIPPER.md for the platform fleet and the projects devbox, atlas and harbor, each with a status and an Edit button."></a>
+      <figcaption>Settings › Skippers: Admiral's folder, name, agent and model, the project and fleet Skippers' agent, and the instruction files.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Set the Skippers</h2>
+    <p class="lead">A project Skipper runs in one project. A fleet Skipper runs in every project of a fleet. Both take their name and agent from the same page.</p>
+    <ol class="steps">
+      <li>In <span class="path">Settings › Skippers</span>, <span class="path">Project/Fleet</span> is the word every project and fleet Skipper uses. The default is Skipper. A project session is named <span class="path">atlas Skipper</span>, a fleet session <span class="path">platform Skipper</span>.</li>
+      <li>Under <span class="path">PROJECT AND FLEET SKIPPERS</span>, <span class="path">Agent</span> picks the agent and model they run. <span class="path">Same as Admiral</span> takes Admiral's.</li>
+      <li>Under <span class="path">INSTRUCTIONS</span>, each row is one file. <span class="path">AGENTS.md</span> is the base every Skipper reads. Each fleet and each open project has a <span class="path">SKIPPER.md</span> with its own section.</li>
+      <li>Click <span class="path">Edit</span> to open a file in the app you set for text files. If the file does not exist yet, Skiff writes it from its template first.</li>
+      <li>The <span class="path">STATUS</span> column reads <em>none</em>, <em>template</em> or <em>edited</em>. <em>template changed</em> means Skiff has a newer template than your edited copy. <span class="path">Reset…</span> writes the template again and keeps your file as a backup.</li>
+    </ol>
+    <p class="ug-note">A setting change never starts or stops a Skipper. A running Skipper reads its files at its next start.</p>
+  </section>
+
+  <section>
+    <h2>Set task types</h2>
+    <p class="lead">A task type names the agent and the model Admiral starts for one kind of task, and a file of instructions for it. Admiral picks the type. Skiff reads no task text.</p>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Task types</span>.</li>
+      <li>In the last row, type a name in <span class="path">New task type</span>: lowercase letters, digits and hyphens, such as <span class="path">code-review</span>.</li>
+      <li>Pick the <span class="path">AGENT</span>. Type a <span class="path">MODEL</span>, or leave it empty for the agent's default. An agent that takes its model in its command shows <em>set by agent</em>.</li>
+      <li>Click <span class="path">Add task type</span>.</li>
+      <li>To give the type instructions, click <span class="path">Edit</span> in its row. Skiff makes the file in the <span class="path">types</span> folder and opens it. The <span class="path">INSTRUCTIONS</span> cell shows the file's size, or <em>none</em>.</li>
+      <li>To change a row, click a cell and type. To remove a type, click <span class="path">−</span> at its right. The instruction file stays.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-task-types.webp"><img src="../../../shots/guide-settings-task-types.webp" width="1600" height="900" loading="lazy" alt="Skiff Settings, Task types. A table with the columns TYPE, AGENT, MODEL and INSTRUCTIONS lists coding and design on claude with claude-opus-5-5, copy-editing on claude with claude-sonnet-5-5, code-review on codex with gpt-6.1-sol, web-research on gemini and x-research on grok. Each row has an Edit button and a remove button. The last row is New task type with an Add task type button."></a>
+      <figcaption>Settings › Task types. Each row is one kind of task with its agent, model and instruction file.</figcaption>
+    </figure>
+    <p class="ug-note">Some agents cannot take an instruction file. Gemini and Hermes are two of them. Keep their types without instructions.</p>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../">← Skiff user guide</a>
+    <a class="next" href="../projects-and-fleets/">Next: Projects, fleets and the first start →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

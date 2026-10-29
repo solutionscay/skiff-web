@@ -63,11 +63,53 @@ PAGES = [
          desc="Skiff is a free, open-source desktop app that runs OpenCode next to Claude Code, Codex and other agents on Linux and macOS. Sessions sit in Git worktrees, flag when they need approval, and keep running after you close the window.",
          og_desc="A free, open-source desktop app for OpenCode and other coding agents. Sessions in Git worktrees, approval and finished flags, and sessions that keep running after you close the window."),
     dict(path="guides/", title="Skiff guides: running coding agents",
-         desc="Guides to running Claude Code, Codex and other coding agents: Git worktrees, parallel sessions and sessions that keep running.",
+         desc="The Skiff user guide, and guides to running Claude Code, Codex and other coding agents: Git worktrees, parallel sessions and sessions that keep running.",
          ld={"@context": "https://schema.org", "@type": "CollectionPage", "name": "Skiff guides", "url": SITE + "guides/",
              "publisher": PUBLISHER, "mainEntity": {"@type": "ItemList", "itemListElement": [
                  {"@type": "ListItem", "position": i + 1, "url": SITE + "guides/" + slug + "/"} for i, slug in enumerate(
-                     ["run-coding-agents-in-parallel", "keep-agent-sessions-running", "git-worktrees-for-coding-agents"])]}}),
+                     ["skiff-user-guide", "run-coding-agents-in-parallel", "keep-agent-sessions-running", "git-worktrees-for-coding-agents"])]}}),
+    dict(path="guides/skiff-user-guide/", title="Skiff user guide | Skiff", og_title="Skiff user guide", css="guides/skiff-user-guide/guide.css",
+         desc="How to set up Skiff and run coding agents in it: Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces and Settings. Every step is a click or a key.",
+         ld={"@context": "https://schema.org", "@type": "CollectionPage", "name": "Skiff user guide", "url": SITE + "guides/skiff-user-guide/",
+             "publisher": PUBLISHER, "mainEntity": {"@type": "ItemList", "itemListElement": [
+                 {"@type": "ListItem", "position": i + 1, "url": SITE + "guides/skiff-user-guide/" + slug + "/"} for i, slug in enumerate(
+                     ["set-up-admiral", "projects-and-fleets", "sessions-and-groups", "side-panel-diffs-and-files", "focus-mode-and-mission-control", "drop-images", "ledger", "workspaces", "settings"])]}}),
+    dict(path="guides/skiff-user-guide/set-up-admiral/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Set up Admiral, Skippers and task types | Skiff user guide", og_title="Set up Admiral, Skippers and task types",
+         desc="How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.",
+         ld=article("guides/skiff-user-guide/set-up-admiral/", "Set up Admiral, Skippers and task types", "How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/projects-and-fleets/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Projects, fleets and the first start | Skiff user guide", og_title="Projects, fleets and the first start",
+         desc="How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.",
+         ld=article("guides/skiff-user-guide/projects-and-fleets/", "Projects, fleets and the first start", "How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/sessions-and-groups/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Sessions, groups, tiles and themes | Skiff user guide", og_title="Sessions, groups, tiles and themes",
+         desc="How to start agent sessions in Skiff, put them side by side in groups, lay out the panes, and give projects and sessions their own theme.",
+         ld=article("guides/skiff-user-guide/sessions-and-groups/", "Sessions, groups, tiles and themes", "How to start agent sessions in Skiff, put them side by side in groups, lay out the panes, and give projects and sessions their own theme.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/side-panel-diffs-and-files/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Side panel, diffs and files | Skiff user guide", og_title="Side panel, diffs and files",
+         desc="How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.",
+         ld=article("guides/skiff-user-guide/side-panel-diffs-and-files/", "Side panel, diffs and files", "How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/focus-mode-and-mission-control/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Focus mode, maximize and Mission control | Skiff user guide", og_title="Focus mode, maximize and Mission control",
+         desc="How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.",
+         ld=article("guides/skiff-user-guide/focus-mode-and-mission-control/", "Focus mode, maximize and Mission control", "How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/drop-images/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Drop images | Skiff user guide", og_title="Drop images",
+         desc="How to give an agent an image in Skiff: drop or paste it on a pane, and find it again in the images library.",
+         ld=article("guides/skiff-user-guide/drop-images/", "Drop images", "How to give an agent an image in Skiff: drop or paste it on a pane, and find it again in the images library.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/ledger/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="The Ledger and result files | Skiff user guide", og_title="The Ledger and result files",
+         desc="How to follow the tasks Admiral and the Skippers run in the Ledger panel, and open the result files they write.",
+         ld=article("guides/skiff-user-guide/ledger/", "The Ledger and result files", "How to follow the tasks Admiral and the Skippers run in the Ledger panel, and open the result files they write.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/workspaces/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Workspaces | Skiff user guide", og_title="Workspaces",
+         desc="How to show only some projects and fleets in Skiff with a workspace: new, edit, save, save as, open and close.",
+         ld=article("guides/skiff-user-guide/workspaces/", "Workspaces", "How to show only some projects and fleets in Skiff with a workspace: new, edit, save, save as, open and close.", "2026-10-29")),
+    dict(path="guides/skiff-user-guide/settings/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Settings | Skiff user guide", og_title="Settings",
+         desc="The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.",
+         ld=article("guides/skiff-user-guide/settings/", "Settings", "The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.", "2026-10-29")),
     dict(path="guides/git-worktrees-for-coding-agents/", type="article",
          title="Git worktrees for coding agents: a practical guide | Skiff",
          og_title="Git worktrees for coding agents: a practical guide",
@@ -90,10 +132,16 @@ PAGES = [
 def a(s):
     return html.escape(s, quote=False).replace('"', "&quot;")
 
+def filehash(rel):
+    return hashlib.sha1(open(os.path.join(ROOT, rel), "rb").read()).hexdigest()[:8]
+
 def head(p, up, css):
     og_title = p.get("og_title", p["title"])
     og_desc = p.get("og_desc", p["desc"])
     url = SITE + p["path"]
+    extra = ""
+    if p.get("css"):
+        extra = f'<link rel="stylesheet" href="{up}{p["css"]}?v={filehash(p["css"])}">\n'
     ld = ""
     if p.get("ld"):
         ld = '<script type="application/ld+json">\n' + json.dumps(p["ld"], separators=(",", ":"), ensure_ascii=False) + "\n</script>\n"
@@ -120,7 +168,7 @@ def head(p, up, css):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{up}site.css?v={css}">
-<script src="https://analytics.ahrefs.com/analytics.js" data-key="{ANALYTICS}" async></script>
+{extra}<script src="https://analytics.ahrefs.com/analytics.js" data-key="{ANALYTICS}" async></script>
 {ld}</head>
 """
 

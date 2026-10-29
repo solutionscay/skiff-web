@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects, fleets and the first start | Skiff user guide</title>
+<meta name="description" content="How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.">
+<meta property="og:title" content="Projects, fleets and the first start">
+<meta property="og:description" content="How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/projects-and-fleets/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=3">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: a minimalist desktop workspace for coding agents">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/projects-and-fleets/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=bb2e8186">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Projects, fleets and the first start","description":"How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/projects-and-fleets/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Projects, fleets and the first start</h1>
+    <p>A project is a folder: a Git repository or a plain folder. Projects sit in the side panel on the left. A fleet is a named set of projects with one head in the panel. Admiral and the Skippers work across them.</p>
+    <div class="ver">Chapter 2 of 9 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>Add projects</h2>
+    <ol class="steps">
+      <li>On first start, click <span class="path">Add project</span> in the middle of the window. Later, point at the <span class="path">PROJECTS</span> head in the side panel and click its <span class="path">+</span>, or press <kbd>Ctrl+Shift+O</kbd>.</li>
+      <li>Pick the folder in the file dialog.</li>
+      <li>The project appears in the panel with its name, its initials and a color. A Git repository lists its worktrees under it. A plain folder lists its files.</li>
+      <li>The main area reads <em>atlas is ready</em>, with a button for a shell and for each agent. Click one to start a session in the main worktree, or make a worktree first.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-welcome.webp"><img src="../../../shots/guide-welcome.webp" width="1600" height="900" alt="Skiff on first start. The side panel shows the Admiral row and an empty PROJECTS head. The main area reads Add your first project, with an Add project button and an Admiral button."></a>
+      <figcaption>First start: no project yet. Add project opens the folder dialog. Admiral starts the Skiff agent without a project.</figcaption>
+    </figure>
+    <h3>Make a worktree</h3>
+    <ol class="steps">
+      <li>Point at the project row and click its <span class="path">⋯</span>, or right-click the row.</li>
+      <li>Click <span class="path">New worktree…</span>, or press <kbd>Ctrl+Shift+N</kbd> with the row current.</li>
+      <li>Type a branch name and click <span class="path">Create</span>. Git makes the branch and checks it out in its own folder next to the project. The worktree appears as a row under the project.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-project-menu.webp"><img src="../../../shots/guide-project-menu.webp" width="1600" height="900" loading="lazy" alt="The project menu of atlas, open over the side panel. Items: New session, New worktree with Ctrl+Shift+N, Start project Skipper, Show in file manager, Copy path, Appearance, Sidebar, Add to fleet, Close project and Remove project. The panel shows devbox, atlas with the worktrees main and rate-limits, and harbor."></a>
+      <figcaption>The project menu. It starts sessions and worktrees, starts the project Skipper, and sets the look and the fleet of the project.</figcaption>
+    </figure>
+    <p class="ug-note"><span class="path">Close project</span> takes a project out of the panel and keeps its settings. <span class="path">File › Open closed project…</span> brings it back. <span class="path">Remove project…</span> drops it from the settings. Both leave the folder on disk.</p>
+  </section>
+
+  <section>
+    <h2>Create fleets</h2>
+    <ol class="steps">
+      <li>Open the project menu and click <span class="path">Add to fleet…</span>.</li>
+      <li>Type a fleet name, or pick one from the list under the field. Click <span class="path">Set fleet</span>.</li>
+      <li>The project moves under a head with the fleet's name. Do the same for the other projects of the fleet. On a project that has a fleet, the item reads <span class="path">Move to fleet…</span>, and <span class="path">No fleet: back under Projects</span> takes it out.</li>
+      <li>Or drag one project row onto the middle of another. Skiff makes a fleet of the two and asks for its name under the head. Drag a project onto a fleet head to add it there, or onto the <span class="path">PROJECTS</span> head to take it out.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-fleet-dialog.webp"><img src="../../../shots/guide-fleet-dialog.webp" width="1600" height="900" loading="lazy" alt="The Fleet for harbor dialog. The text reads: Projects with the same fleet go under one fleet head in the side panel. Pick a fleet or type a new name. The field holds platform. Buttons: Cancel and Set fleet."></a>
+      <figcaption>Add to fleet…: type a new name or pick a fleet that exists.</figcaption>
+    </figure>
+    <h3>The fleet head</h3>
+    <ol class="steps">
+      <li>Click the head to fold or open the fleet. Point at it to see its <span class="path">+</span>, which adds a project to the fleet, and its <span class="path">⋯</span>, which opens the fleet menu. A right-click opens the menu too.</li>
+      <li><span class="path">Hide projects</span> keeps only the fleet Skipper, the sessions that wait, and the session on screen under the head. The head counts the hidden sessions. Click the item again, or the count, to show them.</li>
+      <li><span class="path">Rename fleet…</span> renames it. <span class="path">Remove fleet</span> keeps the projects and takes them out of the fleet.</li>
+      <li>Drag a fleet head to move the whole fleet before or after another fleet.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-fleets.webp"><img src="../../../shots/guide-fleets.webp" width="1600" height="900" loading="lazy" alt="The side panel with devbox under PROJECTS and a PLATFORM fleet head with atlas and harbor under it. The fleet menu is open: Start fleet Skipper, Hide projects, Rename fleet and Remove fleet."></a>
+      <figcaption>The platform fleet holds atlas and harbor. Its menu starts the fleet Skipper, hides the projects, renames or removes the fleet.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Start Admiral and the Skippers</h2>
+    <h3>Admiral</h3>
+    <ol class="steps">
+      <li>Click the <span class="path">Admiral</span> row at the top of the side panel, or press <kbd>Ctrl+Shift+L</kbd>. The row reads <em>start claude</em>, or the agent you set, while nothing runs.</li>
+      <li>Admiral starts in its folder and its pane fills the main area. The Ledger panel opens at the right of the pane.</li>
+      <li>Type what you want done, as you would with any agent. Name the project: "In atlas, add per-key rate limits to the public API." Admiral starts sessions, follows them, and tells you when they finish.</li>
+      <li>Press <kbd>Ctrl+Shift+L</kbd> at any time to come back to Admiral's pane.</li>
+    </ol>
+    <h3>Project Skippers</h3>
+    <ol class="steps">
+      <li>Open the project menu and click <span class="path">Start project Skipper</span>.</li>
+      <li>The Skipper starts in the project folder. Its row reads <em>Skipper</em>, first in the project's block, with the count of the tasks it owns. Its pane header reads <em>Skipper · atlas</em>.</li>
+      <li>While it runs, the menu has <span class="path">Open project Skipper</span> and <span class="path">Stop project Skipper…</span>. Stop asks first. The sessions it started keep running.</li>
+      <li>Admiral starts a project Skipper by itself when it hands a task to a project with none.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-admiral.webp"><img src="../../../shots/guide-admiral.webp" width="1600" height="900" loading="lazy" alt="Skiff with the atlas project Skipper on screen. The pane header reads Skipper, atlas. The pane shows the hand-off from Admiral and two skiff new commands that started a coding task and a code-review task. The Ledger panel at the right is filtered to atlas and lists the hand-off with its two tasks under Working. In the side panel, the Admiral row is at the top and the Skipper row is first under atlas."></a>
+      <figcaption>The atlas Skipper took a hand-off from Admiral and started two sessions. The Ledger beside it shows only atlas work.</figcaption>
+    </figure>
+    <h3>Fleet Skippers</h3>
+    <ol class="steps">
+      <li>Open the fleet menu and click <span class="path">Start fleet Skipper</span>.</li>
+      <li>The fleet Skipper is the first row under its head. It sends tasks to any project of the fleet. While it runs, no project of the fleet has a project Skipper. If one was running, Skiff asks once, then the fleet Skipper takes over its tasks.</li>
+      <li>While it runs, the menu has <span class="path">Open fleet Skipper</span> and <span class="path">Stop fleet Skipper…</span>.</li>
+    </ol>
+    <p class="ug-note">A teal icon on the Admiral row means the watcher runs: it tells Admiral when a session ends its turn, and sends you a desktop notification when a session waits for approval. A red icon means no watcher runs. The row's menu then has <span class="path">Start watcher</span> and <span class="path">Open watch log</span>.</p>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../set-up-admiral/">← Set up Admiral, Skippers and task types</a>
+    <a class="next" href="../sessions-and-groups/">Next: Sessions, groups, tiles and themes →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>
