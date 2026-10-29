@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=25914849">
+<link rel="stylesheet" href="site.css?v=81a943ed">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Skiff","description":"A minimalist desktop workspace for coding agents such as Claude Code, Codex and Gemini CLI.","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS","license":"https://opensource.org/licenses/MIT","url":"https://skiff.solutionscay.com/","downloadUrl":"https://skiff.solutionscay.com/download/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"}}
@@ -138,19 +138,37 @@
     <p class="caption"><span class="tag">v1.7.0</span>Project Skippers. A project has its own Skipper. The main Skipper hands it work, and the Ledger shows the hand-off and its tasks.</p>
   </section>
 
-  <section>
-    <h2>Images for your agents</h2>
-    <p class="lead">Drop an image or a file from another app onto a pane, and Skiff types its path into the pane. Ctrl+Shift+V (⌘V on macOS) does the same with an image or a file list on the clipboard. Ctrl+V stays with the terminal. Skiff keeps a copy of each image in one library. The pane header shows the newest image. Click it to open the library. There you can search by name, session or project, pin an image, or insert its path into the focused pane. To put a path into a different pane, drag the thumbnail onto that pane. Settings › Images shows all the images. Settings › Disk use counts the files in the Skiff agent's folder, and Flush images there removes the images that are not pinned. See the <a href="https://github.com/solutionscay/skiff/wiki/Images">Images page</a> on the wiki.</p>
-  </section>
-
-  <section>
-    <h2>Small on purpose</h2>
-    <p class="lead">Skiff has no plugins, no automations and no hooks into agent configs. It writes nothing into an agent's setup. Settings live in one file, <code>projects.toml</code>. The keyboard and the mouse do the same things, and F1 shows every key.</p>
+  <section id="highlights">
+    <h2>Highlights</h2>
+    <div class="grid two">
+      <div class="cell">
+        <h3>Inspectable and self-contained</h3>
+        <p>Skiff is open source under the MIT license. The window, the daemon and the CLI come in one package and run on your computer. There is no account and no service. On its own, Skiff uses the network for one thing: the check for updates on GitHub. Its settings are one file you can read, <code>~/.config/skiff/projects.toml</code>. The Skiff agent's ledger is a SQLite file, and <code>skiff ls</code> lists the sessions from any terminal.</p>
+      </div>
+      <div class="cell">
+        <h3>Respects your configs</h3>
+        <p>Skiff does not change your agents. It adds no hooks or plugins to them and writes nothing in an agent's own folder, such as <code>~/.claude</code> or <code>~/.codex</code>. It starts the agent's command in a terminal and leaves the rest to the agent.</p>
+      </div>
+      <div class="cell">
+        <h3>Small on purpose</h3>
+        <p>Skiff has no plugins and no automations. The keyboard and the mouse do the same things, and F1 shows every key. The Linux <code>.deb</code> is 7.6 MB to download and 16 MB installed, as dpkg reports for v1.7.10. The macOS <code>.dmg</code> is 9.1 MB. On a Linux machine with 19 sessions open, <code>skiffd</code>, the daemon that holds them, used 34 MB of memory, as ps reports it.</p>
+      </div>
+      <div class="cell">
+        <h3>Works with your apps</h3>
+        <p>Settings › Open with names the app for each kind of file: diffs, text files, Markdown, HTML and images. A changed file's diff shows in the Peek, a panel over the terminals, through your diff tool. The default is <code>git diff</code>. A double-click opens a file in your editor. Markdown and HTML open in a viewer you name, or in the Peek.</p>
+      </div>
+    </div>
   </section>
 
   <section>
     <h2>Install</h2>
     <p class="lead">Skiff ships as <code>.deb</code>, <code>.rpm</code> and AppImage for Linux x86_64, and as a signed <code>.dmg</code> for macOS on Apple Silicon. <a href="download/">Go to the downloads</a>.</p>
+  </section>
+
+  <section id="guide">
+    <h2>User guide</h2>
+    <p class="lead">The user guide covers setup, Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces and Settings. Every step is a click or a key.</p>
+    <div class="get"><a class="btn main" href="guides/skiff-user-guide/">Read the user guide</a></div>
   </section>
 </main>
 
