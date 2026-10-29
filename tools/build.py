@@ -34,7 +34,7 @@ def article(path, headline, description, published, modified=None):
 # og_title and og_desc default to title and desc.
 PAGES = [
     dict(path="", title="Skiff: a desktop workspace for Claude Code, Codex and more",
-         desc="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Skiff keeps sessions organized by project and Git worktree, and they keep running when you close the window.",
+         desc="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.",
          ld=APP),
     dict(path="download/", title="Download Skiff", desc="Download Skiff for Linux x86_64 (.deb, .rpm, AppImage) and macOS on Apple Silicon (.dmg). Free and open source under the MIT license.",
          og_desc="Skiff for Linux x86_64 (.deb, .rpm, AppImage) and macOS on Apple Silicon (.dmg).", ld=APP),
