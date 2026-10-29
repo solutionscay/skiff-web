@@ -92,7 +92,7 @@ PAGES = [
          ld=article("guides/skiff-user-guide/side-panel-diffs-and-files/", "Side panel, diffs and files", "How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.", "2026-10-29")),
     dict(path="guides/skiff-user-guide/focus-mode-and-mission-control/", type="article", css="guides/skiff-user-guide/guide.css",
          title="Focus mode, maximize and Mission control | Skiff user guide", og_title="Focus mode, maximize and Mission control",
-         desc="How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.",
+         desc="How to hide the chrome with focus mode, fill the window with one pane, and see the whole agent hierarchy as a graph in Mission control.",
          ld=article("guides/skiff-user-guide/focus-mode-and-mission-control/", "Focus mode, maximize and Mission control", "How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.", "2026-10-29")),
     dict(path="guides/skiff-user-guide/drop-images/", type="article", css="guides/skiff-user-guide/guide.css",
          title="Drop images | Skiff user guide", og_title="Drop images",

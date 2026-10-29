@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Focus mode, maximize and Mission control | Skiff user guide</title>
-<meta name="description" content="How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.">
+<meta name="description" content="How to hide the chrome with focus mode, fill the window with one pane, and see the whole agent hierarchy as a graph in Mission control.">
 <meta property="og:title" content="Focus mode, maximize and Mission control">
-<meta property="og:description" content="How to hide the chrome with focus mode, fill the window with one pane, and see every session's screen in Mission control.">
+<meta property="og:description" content="How to hide the chrome with focus mode, fill the window with one pane, and see the whole agent hierarchy as a graph in Mission control.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Skiff">
 <meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/focus-mode-and-mission-control/">
@@ -57,7 +57,7 @@
 <main class="wrap ug">
   <div class="page-head">
     <h1>Focus mode, maximize and Mission control</h1>
-    <p>Three views for different moments. Focus mode hides everything but the panes. Maximize fills the window with one pane. Mission control shows the screen of every session at once.</p>
+    <p>Three views for different moments. Focus mode hides everything but the panes. Maximize fills the window with one pane. Mission control draws the whole agent hierarchy as a graph.</p>
     <div class="ver">Chapter 5 of 9 · <a href="../">Skiff user guide</a></div>
   </div>
 
@@ -93,16 +93,22 @@
 
   <section>
     <h2>Mission control</h2>
-    <p class="lead">Mission control is a board over the whole window with the screen of every session. It shows which agents work, wait or are done, and takes you to one of them. It is read-only: keys do not go to the sessions.</p>
+    <p class="lead">Mission control is a canvas over the whole window with the agent hierarchy as a graph: Admiral at the top, the fleet and project Skippers under it, each project a cluster of session cards, and strings between them for the hand-offs and tasks in the ledger. It shows who works, who waits and who gave what to whom, and takes you to one of them. It is read-only: keys do not go to the sessions.</p>
     <ol class="steps">
-      <li>Press <kbd>Ctrl+Shift+A</kbd>, or click <span class="path">View › Mission control</span>.</li>
-      <li>The board has one lane per fleet, in the order of the side panel. Projects in no fleet share a lane named <span class="path">Projects</span>. Each screen shows the last lines above the agent's input box, in the session's theme. The screens update every second.</li>
-      <li>Click <span class="path">Running</span> or <span class="path">All</span> at the right of the search cell, or press <kbd>Ctrl+Shift+E</kbd>. Running shows only the sessions that work or wait. Skiff remembers the choice.</li>
-      <li>Press <kbd>Ctrl+Shift+P</kbd> to search the board by project, branch, agent, title or state.</li>
-      <li>Use the arrows to light a screen: <kbd>Up</kbd> and <kbd>Down</kbd> in a lane, <kbd>Left</kbd> and <kbd>Right</kbd> across lanes. Press <kbd>Enter</kbd>, or click a screen, to go to that session. <kbd>Ctrl+Shift+Enter</kbd> goes to it maximized, and again comes back to the board.</li>
-      <li>Press <kbd>Ctrl+Shift+A</kbd> or <kbd>Esc</kbd> to close. With text in the search, the first <kbd>Esc</kbd> clears it.</li>
+      <li>Press <kbd>Ctrl+Shift+A</kbd>, or click <span class="path">View › Mission control</span>. The graph opens fitted to the window, then closer on the session you came from.</li>
+      <li>A card is one session: the state mark, the agent, the title, and its ledger task with the task's uid. A Skipper's card counts its panes that work, wait and are open. The time in its head says how long the session has been in its state.</li>
+      <li>A string from Admiral to a Skipper is a hand-off, with its title on the string. A Skipper to a pane is a task. A string takes the child's state color: blue with marching dashes while it works, amber while it waits, grey when it is done.</li>
+      <li>Click <span class="path">Running</span> or <span class="path">All</span> at the right of the search cell, or press <kbd>Ctrl+Shift+E</kbd>. Running dims every card that does not work or wait, and folds a project with nothing running to one card. Skiff remembers the choice.</li>
+      <li>Drag empty space or use the wheel to pan, <kbd>Ctrl+wheel</kbd> to zoom, <kbd>Home</kbd> to fit. Drag a card or a cluster by its head to move it; Skiff keeps the move. Click the chevron in a cluster head to fold it.</li>
+      <li>The panel under the canvas shows the lit card: the last lines of its screen, its task, owner, state and result. <kbd>Ctrl+Alt+Shift+L</kbd> folds it to a rail.</li>
+      <li>Use the arrows to light a card: <kbd>Up</kbd> the parent, <kbd>Down</kbd> the first child, <kbd>Left</kbd> and <kbd>Right</kbd> the cards beside it. <kbd>Ctrl+Shift+J</kbd> lights the next waiting card. Press <kbd>Enter</kbd>, or click a card, to go to that session. <kbd>Ctrl+Shift+Enter</kbd> goes to it maximized, and again comes back to the board.</li>
+      <li>Press <kbd>Ctrl+Shift+P</kbd> to search the cards by project, agent, title, task or state. Press <kbd>Ctrl+Shift+A</kbd> or <kbd>Esc</kbd> to close. With text in the search, the first <kbd>Esc</kbd> clears it.</li>
     </ol>
-    <p class="ug-note">Mission control is being redesigned. This chapter has no screenshot of it yet. The <a href="https://github.com/solutionscay/skiff/wiki/Mission-control">wiki page</a> lists every key and mouse action.</p>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-mission-control.webp"><img src="../../../shots/guide-mission-control.webp" width="1600" height="900" loading="lazy" alt="Mission control in the Running view. Admiral at the top. Under it a Web fleet frame with its Skipper and two project clusters, storefront and checkout, an api project with its own Skipper, a docs project and a folded Other. Strings run from Admiral to the Skippers with the hand-off titles Release 1.8 and Rate limits on /v2/send, and from the Skippers to their task cards. One card, Commodore Doubloon in checkout, is amber: it waits for an approval. The panel under the canvas shows its screen and its task."></a>
+      <figcaption>Mission control, Running. The amber card waits for the person; the panel shows what it asks.</figcaption>
+    </figure>
+    <p class="ug-note">A waiting card out of view shows as an amber square at the edge of the canvas. Click it to bring the card into view. The <a href="https://github.com/solutionscay/skiff/wiki/Mission-control">wiki page</a> lists every key and mouse action.</p>
   </section>
 
   <nav class="ug-nav">
