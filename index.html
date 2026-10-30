@@ -105,8 +105,12 @@
 
   <section id="small">
     <h2>Small on purpose</h2>
-    <p class="lead">Skiff has no plugins and no automations. It is made for the keyboard, and F1 shows every key.</p>
+    <p class="lead">Skiff is one small package with one small daemon. It runs on your computer, needs no account and adds nothing to your agents.</p>
     <div class="grid two">
+      <div class="cell">
+        <h3>Small package, small daemon</h3>
+        <p>The Linux <code>.deb</code> is 7.6 MB to download and 16 MB installed, as dpkg reports for v1.7.10. The macOS <code>.dmg</code> is 9.1 MB. With 19 sessions open, <code>skiffd</code> used 34 MB of memory, as ps reports on one Linux machine.</p>
+      </div>
       <div class="cell">
         <h3>Inspectable and self-contained</h3>
         <p>Open source under the MIT license. The window, the daemon and the CLI come in one package and run on your computer. There is no account and no service. Settings are one file, <code>~/.config/skiff/projects.toml</code>. The one network call Skiff makes on its own is the update check on GitHub.</p>
@@ -114,10 +118,6 @@
       <div class="cell">
         <h3>Respects your configs</h3>
         <p>Skiff adds no hooks or plugins to your agents and writes nothing in their folders, such as <code>~/.claude</code> or <code>~/.codex</code>. It starts the agent's command and leaves the rest to the agent.</p>
-      </div>
-      <div class="cell">
-        <h3>Small package, small daemon</h3>
-        <p>The Linux <code>.deb</code> is 7.6 MB to download and 16 MB installed, as dpkg reports for v1.7.10. The macOS <code>.dmg</code> is 9.1 MB. With 19 sessions open, <code>skiffd</code> used 34 MB of memory, as ps reports on one Linux machine.</p>
       </div>
       <div class="cell">
         <h3>Works with your apps</h3>
