@@ -17,7 +17,7 @@ PUBLISHER = {"@type": "Organization", "name": "Solutions Cay LLC", "url": "https
 
 APP = {
     "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Skiff",
-    "description": "A minimalist desktop workspace for coding agents such as Claude Code, Codex and Gemini CLI.",
+    "description": "The multi-agent coding terminal. Run Claude Code, Codex and other agents in parallel on Linux and macOS. They send each other tasks and report back.",
     "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS",
     "license": "https://opensource.org/licenses/MIT", "url": SITE, "downloadUrl": SITE + "download/",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": PUBLISHER,
