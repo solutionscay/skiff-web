@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Skiff: a desktop workspace for Claude Code, Codex and more</title>
-<meta name="description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.">
-<meta property="og:title" content="Skiff: a desktop workspace for Claude Code, Codex and more">
-<meta property="og:description" content="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.">
+<title>Skiff: the multi-agent coding terminal for Claude Code, Codex and more</title>
+<meta name="description" content="A terminal for coding agents on Linux and macOS. Run Claude Code, Codex, Gemini CLI and more in parallel across projects and Git worktrees. Your agents send each other tasks: Admiral hands work to agents and project Skippers and collects the results.">
+<meta property="og:title" content="Skiff: the multi-agent coding terminal for Claude Code, Codex and more">
+<meta property="og:description" content="A terminal for coding agents on Linux and macOS. Run Claude Code, Codex, Gemini CLI and more in parallel across projects and Git worktrees. Your agents send each other tasks: Admiral hands work to agents and project Skippers and collects the results.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Skiff">
 <meta property="og:url" content="https://skiff.solutionscay.com/">
@@ -56,8 +56,8 @@
 <main class="wrap">
   <div class="hero">
     <div>
-      <h1>A small workspace for coding agents.</h1>
-      <p>Run Claude Code, Codex and other agents in Skiff in place of your terminal. Each session stays with its project and worktree, and Skiff shows which agent waits for you.</p>
+      <h1>The multi-agent coding terminal.</h1>
+      <p>Code with Claude Code, Codex and other agents in parallel, each in its own project or Git worktree. Your agents send each other tasks and report back.</p>
       <div class="get">
         <a class="btn main" href="download/">Download</a>
         <a class="btn" href="https://github.com/solutionscay/skiff">Source on GitHub</a>
@@ -70,11 +70,22 @@
   <p class="caption"><span class="tag">v1.8.0</span>Admiral hands three tasks to the Skippers. Mission control shows the whole crew as a graph: the strings follow the ledger.</p>
   <p class="caption"><a href="gallery/">All screenshots and videos, by version</a></p>
 
-  <section id="when">
-    <h2>When to use it</h2>
-    <p class="lead">Skiff is a terminal app for coding agents. Each session is a full terminal: you type to the agent, and the agent reads and edits your code, as in any other terminal.</p>
-    <p class="lead">Use Skiff when you run more than one agent at a time, on two projects or on two branches of one project. Each project and worktree gets its own sessions. A session shows when its agent waits for you, so you do not check each tab. The agents keep running when you close the window.</p>
-    <p class="lead">With one agent in one folder, your usual terminal is enough.</p>
+  <section id="what">
+    <h2>What you get</h2>
+    <div class="grid">
+      <div class="cell">
+        <h3>A terminal for your agents</h3>
+        <p>Each pane is a real terminal. You code with Claude Code, Codex or Gemini in it, as you do today, and run your shell next to them. Skiff takes the place of your terminal app.</p>
+      </div>
+      <div class="cell">
+        <h3>Agents in parallel</h3>
+        <p>Run one agent per task, across projects and worktrees, side by side. Each pane shows if its agent works, waits for you or is done. The agents keep running when you close the window.</p>
+      </div>
+      <div class="cell">
+        <h3>Agents that talk to each other</h3>
+        <p>Give Admiral one prompt. It splits the work, hands tasks to other agents and project Skippers, and collects their results in the Ledger. Any agent can do the same with the <code>skiff</code> command.</p>
+      </div>
+    </div>
   </section>
 
   <section id="agents">

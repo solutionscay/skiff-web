@@ -33,8 +33,8 @@ def article(path, headline, description, published, modified=None):
 # path: the folder under the site root ("" is the home page).
 # og_title and og_desc default to title and desc.
 PAGES = [
-    dict(path="", title="Skiff: a desktop workspace for Claude Code, Codex and more",
-         desc="Run Claude Code, Codex, Gemini CLI and other coding agents side by side on Linux and macOS. Admiral, the built-in coordinator, hands tasks to agents and project Skippers, and sessions keep running when you close the window.",
+    dict(path="", title="Skiff: the multi-agent coding terminal for Claude Code, Codex and more",
+         desc="A terminal for coding agents on Linux and macOS. Run Claude Code, Codex, Gemini CLI and more in parallel across projects and Git worktrees. Your agents send each other tasks: Admiral hands work to agents and project Skippers and collects the results.",
          ld=APP),
     dict(path="download/", title="Download Skiff", desc="Download Skiff for Linux x86_64 (.deb, .rpm, AppImage) and macOS on Apple Silicon (.dmg). Free and open source under the MIT license.",
          og_desc="Skiff for Linux x86_64 (.deb, .rpm, AppImage) and macOS on Apple Silicon (.dmg).", ld=APP),
