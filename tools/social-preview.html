@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Source of social-preview.png (1280x640, the og:image of every page and the
+     GitHub social preview). Edit the text here, then run:
+
+         python3 tools/social-preview.py
+
+     The left panel is tools/social-preview-mascot.png: the idle pose on the
+     bg-deep colour, 560x640, kept from the first render. Colours and fonts follow
+     site.css. Text stays inside GitHub's 40px safe margin. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body { display: flex; background: #0f1216; color: #e6e8eb; font-family: "IBM Plex Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .mascot { width: 560px; height: 640px; background: #0b0e12; border-right: 1px solid #232a33; }
+  .mascot img { display: block; }
+  .copy { flex: 1; padding: 0 40px 24px 72px; display: flex; flex-direction: column; }
+  .text { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 8px; }
+  .rule { width: 56px; height: 7px; background: #b69cff; margin-bottom: 42px; }
+  .mark { font-family: "Lilita One", sans-serif; font-weight: 400; font-size: 112px; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; color: #e6e8eb; margin-bottom: 36px; }
+  h1 { font-size: 44px; line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; color: #e6e8eb; margin-bottom: 22px; }
+  p { font-size: 26px; line-height: 1.45; font-weight: 400; color: #9aa3ae; }
+  .foot { height: 62px; border-top: 1px solid #232a33; display: flex; align-items: center; gap: 12px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 21px; color: #9aa3ae; }
+  .foot i { width: 9px; height: 9px; background: #b69cff; }
+</style>
+</head>
+<body>
+<div class="mascot"><img src="social-preview-mascot.png" alt="" width="560" height="640"></div>
+<div class="copy">
+  <div class="text">
+    <div class="rule"></div>
+    <div class="mark">Skiff</div>
+    <h1>The multi-agent<br>coding terminal.</h1>
+    <p>Agents in parallel, across projects and worktrees.<br>They send each other tasks.</p>
+  </div>
+  <div class="foot"><i></i>Linux · macOS · Open source</div>
+</div>
+</body>
+</html>
