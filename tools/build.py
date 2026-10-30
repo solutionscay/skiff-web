@@ -216,14 +216,24 @@ def render(p, old, css):
     body = re.sub(r"<footer>.*?</footer>", lambda m: footer(up), body, count=1, flags=re.S)
     return head(p, up, css) + body
 
-def lastmod(rel, changed):
-    if changed:
-        return datetime.date.today().isoformat()
-    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-    return out or datetime.date.today().isoformat()
+def main_of(text):
+    m = re.search(r"<main\b.*?</main>", text, flags=re.S)
+    return m.group(0) if m else text
 
-def dirty(rel):
-    return subprocess.run(["git", "diff", "--quiet", "HEAD", "--", rel], cwd=ROOT).returncode != 0
+def git(*args):
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True).stdout
+
+# The sitemap date is the last commit that changed the page's <main>.
+# Head, bar and footer restamps (CSS key, og:image) are not content changes.
+def lastmod(rel, text):
+    today = datetime.date.today().isoformat()
+    log = [l.split() for l in git("log", "--format=%H %cs", "--", rel).splitlines()]
+    if not log or main_of(git("show", f"{log[0][0]}:{rel}")) != main_of(text):
+        return today
+    for (_, date), (older, _) in zip(log, log[1:]):
+        if main_of(git("show", f"{older}:{rel}")) != main_of(text):
+            return date
+    return log[-1][1]
 
 def main():
     check = "--check" in sys.argv
@@ -238,7 +248,7 @@ def main():
             stale.append(rel)
             if not check:
                 open(f, "w", encoding="utf-8").write(new)
-        urls.append((SITE + p["path"], lastmod(rel, new != old or dirty(rel))))
+        urls.append((SITE + p["path"], lastmod(rel, new)))
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls)
     sm += "</urlset>\n"
