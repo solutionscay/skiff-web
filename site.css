@@ -52,6 +52,17 @@ code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
 .hero h1 { margin: 0 0 16px; color: var(--text); font-size: clamp(32px, 5vw, 48px); line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
 .hero p { margin: 0 0 8px; max-width: 38em; font-size: 17px; text-wrap: pretty; }
 .hero .mascot { width: 200px; height: 200px; }
+/* The crew: Admiral and five Skippers, from tools/crew.mjs. The blink and
+   glance are the app's (apps/desktop/src/styles/skippers.css). */
+.crew { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+.crew .skipper-face { width: 44px; height: 44px; line-height: 0; }
+.crew svg { display: block; width: 100%; height: 100%; }
+.skipper-face .sk-eyes { transform-box: fill-box; transform-origin: center; animation: var(--blink-anim, sk-blink) var(--blink, 5s) var(--blink-delay, 0s) infinite steps(1, end); }
+.skipper-face .sk-look { animation: sk-glance var(--glance, 16s) var(--glance-delay, 0s) infinite steps(1, end); }
+@keyframes sk-blink { 0% { transform: scaleY(1); } 97.4% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
+@keyframes sk-blink2 { 0% { transform: scaleY(1); } 93.6% { transform: scaleY(0.1); } 95.4% { transform: scaleY(1); } 97.4% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
+@keyframes sk-glance { 0% { transform: translateX(0); } 93% { transform: translateX(var(--glance-dx, 1px)); } 98% { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .skipper-face :is(.sk-eyes, .sk-look) { animation: none; } }
 .get { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .btn { height: var(--row); padding: 0 18px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule-strong); background: var(--bg-raised); color: var(--text); font: 600 14px var(--font); text-decoration: none; }
 .btn:hover { background: color-mix(in srgb, var(--accent) 22%, var(--bg-raised)); }
