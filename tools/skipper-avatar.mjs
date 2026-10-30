@@ -1,4 +1,4 @@
-// Copied from apps/desktop/src/appearance/skipperAvatar.ts in the skiff repo (9dafcc2), types stripped. Do not redraw the faces here.
+// Copied from apps/desktop/src/appearance/skipperAvatar.ts in the skiff repo (1c54879), types stripped. Do not redraw the faces here.
 /**
  * A Skipper's avatar: a flat body with two eye marks, fixed by its name.
  * `seed` picks another one for Shuffle. Returns an SVG on a 32×32 grid with
@@ -9,7 +9,8 @@
  * readable on a pale color. The eyes sit on a visor in the Skiff black, the
  * mascot's visor color, which follows the eye style and the face's tilt.
  *
- * The eyes live: they blink, and now and then glance aside, in CSS
+ * The faces live: the eyes blink, and now and then the head turns (the face
+ * leans, the visor and the eyes slide aside, the eyes further), in CSS
  * (styles/skippers.css). Each face carries its own rhythm as variables on
  * its root, from the same hash, so no two faces blink in step.
  */
@@ -51,12 +52,22 @@ function hash(text) {
   return h >>> 0;
 }
 
-/** The face's rhythm: a blink every 4 to 7 s, a double blink for one face in five, a glance every 12 to 20 s, each at its own phase. */
+/**
+ * The face's rhythm: a blink every 4 to 7 s, a double blink for one face in
+ * five, and a head turn every 10 to 18 s. The turns go one way, the other
+ * way, then up, so a cycle holds three; `--dir` picks the first side. Each
+ * at its own phase.
+ */
 function rhythm(h) {
   const blink = 4 + ((h >>> 16) % 31) / 10;
-  const glance = 12 + ((h >>> 21) % 9);
-  return `--blink:${blink}s;--blink-delay:-${((h >>> 4) % 70) / 10}s;--blink-anim:${(h >>> 25) % 5 ? "sk-blink" : "sk-blink2"};`
-    + `--glance:${glance}s;--glance-delay:-${(h >>> 9) % 200 / 10}s;--glance-dx:${(h >>> 29) & 1 ? 1 : -1}px`;
+  const turn = 3 * (10 + ((h >>> 21) % 9));
+  // The delays count from the page clock, not from when this face was drawn: a
+  // row drawn again (the Admiral's, on every state change) picks up its
+  // rhythm where it was, instead of starting over and never reaching a turn.
+  const now = performance.now() / 1000;
+  const phase = (period, offset) => (-((now + offset) % period)).toFixed(2);
+  return `--blink:${blink}s;--blink-delay:${phase(blink, ((h >>> 4) % 70) / 10)}s;--blink-anim:${(h >>> 25) % 5 ? "sk-blink" : "sk-blink2"};`
+    + `--face-turn:${turn}s;--face-turn-delay:${phase(turn, (h >>> 9) % turn)}s;--dir:${(h >>> 29) & 1 ? 1 : -1}`;
 }
 
 export function skipperAvatar(name, seed = 0) {
@@ -68,8 +79,24 @@ export function skipperAvatar(name, seed = 0) {
   const gap = 4.5 + ((h >>> 10) % 3);
   const look = ((h >>> 12) % 3) - 1;
   const at = (s) => `<g transform="translate(${16 + look + s * gap} ${y})">${draw(s)}</g>`;
-  return `<svg viewBox="0 0 32 32" aria-hidden="true" style="${rhythm(h)}"><g transform="rotate(${tilt} 16 16)"><path d="${d}" style="fill:${FILL};stroke:${FILL}" stroke-width="3" stroke-linejoin="round"/>${visor(16 + look, y, gap, eye)}<g class="sk-look"><g class="sk-eyes" fill="#fff">${at(-1)}${at(1)}</g></g></g></svg>`;
+  return `<svg viewBox="0 0 32 32" aria-hidden="true" style="${rhythm(h)}"><g class="sk-turn"><g transform="rotate(${tilt} 16 16)"><path d="${d}" style="fill:${FILL};stroke:${FILL}" stroke-width="3" stroke-linejoin="round"/><g class="sk-front">${visor(16 + look, y, gap, eye)}<g class="sk-look"><g class="sk-eyes" fill="#fff">${at(-1)}${at(1)}</g></g></g></g></g></svg>`;
 }
 
-/** The Admiral: one fixed avatar, a bicorne hat with level eyes, in the --pc color as the others are. */
-export const ADMIRAL_AVATAR = `<svg viewBox="0 0 32 32" aria-hidden="true" style="${rhythm(hash("Admiral"))}"><path d="M3 22c3-9 8-13 13-13s10 4 13 13c-4-2-8.5-3-13-3s-9 1-13 3z" style="fill:${FILL};stroke:${FILL}" stroke-width="3" stroke-linejoin="round"/><rect x="8.8" y="12.4" width="14.4" height="7.8" rx="3.5" fill="${VISOR}"/><g class="sk-look"><g class="sk-eyes" fill="#fff"><rect x="10.4" y="14" width="3.2" height="4.6" rx="1.6"/><rect x="18.4" y="14" width="3.2" height="4.6" rx="1.6"/></g></g></svg>`;
+/**
+ * The Admiral: the Skiff mascot's head, filling the grid as the crew's bodies
+ * do. A wide rounded-square white head; the Skiff-black visor across most of
+ * its front, with two tall white eyes set wide, which blink and turn as the
+ * crew's do; a sailor cap sitting low and wide: a white crown and a band in
+ * the --pc color with a gold button, straight on the head, as on the mascot. A thin Skiff-black
+ * edge keeps the white on a light theme.
+ */
+const EDGE = `stroke="${VISOR}" stroke-width="1.6" stroke-linejoin="round"`;
+export const admiralAvatar = () => `<svg viewBox="0 0 32 32" aria-hidden="true" style="${rhythm(hash("Admiral"))}"><g class="sk-turn">`
+  + `<rect x="2.4" y="10.6" width="27.2" height="19.4" rx="8" fill="#fff" ${EDGE}/>`
+  // The cap's crown and band stay back in a turn; the front, on one centerline,
+  // moves as one: the button, the visor and the eyes. No brim, as on the mascot.
+  + `<g class="sk-cap"><path d="M4.6 9.4C5.4 4.6 10 2 16 2s10.6 2.6 11.4 7.4z" fill="#fff" ${EDGE}/>`
+  + `<rect x="4.2" y="8" width="23.6" height="4.4" rx="1.8" style="fill:${FILL}" ${EDGE}/></g>`
+  + `<g class="sk-front"><circle cx="16" cy="8.2" r="1.9" fill="#f4c430" ${EDGE}/>`
+  + `<rect x="5.6" y="15.2" width="20.8" height="11.6" rx="4.8" fill="${VISOR}"/>`
+  + `<g class="sk-look"><g class="sk-eyes" fill="#fff"><rect x="9.2" y="17.6" width="3.4" height="6.6" rx="1.7"/><rect x="19.4" y="17.6" width="3.4" height="6.6" rx="1.7"/></g></g></g></g></svg>`;

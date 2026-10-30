@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// The crew row: Admiral and five Skippers, each in a theme's main color
+// The crew row: Admiral (the mascot head) and five Skippers, each in a theme's main color
 // (crates/skiff-core/themes in the skiff repo). Writes the faces between the
 // <!-- crew --> markers in index.html and tools/social-preview.html. With a
 // path, it also writes the README banner there (docs/crew.svg in skiff):
@@ -10,27 +10,50 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { skipperAvatar, ADMIRAL_AVATAR } from "./skipper-avatar.mjs";
+import { skipperAvatar, admiralAvatar } from "./skipper-avatar.mjs";
+
+// rhythm() reads the page clock; at 0 the phases stay the same on every run.
+performance.now = () => 0;
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 const CREW = [
-  ["Admiral", "#b06cff"], // Nebula
+  ["Admiral", "#8eb4ff"], // Blue Note, as the mascot's cap band
   ["atlas", "#4fd4ff"],   // Adriatic
   ["harbor", "#34d07c"],  // Emerald
   ["devbox", "#ffcf3f"],  // Macaw
   ["skiff", "#ff7f2a"],   // Afterburner
   ["tide", "#ff52b0"],    // Flamingo
 ];
-const face = (name) => (name === "Admiral" ? ADMIRAL_AVATAR : skipperAvatar(name));
+const face = (name) => (name === "Admiral" ? admiralAvatar() : skipperAvatar(name));
 
-// The blink and glance from apps/desktop/src/styles/skippers.css.
+// The blink and the head turn from apps/desktop/src/styles/skippers.css.
 const BLINK = `.skipper-face .sk-eyes { transform-box: fill-box; transform-origin: center; animation: var(--blink-anim, sk-blink) var(--blink, 5s) var(--blink-delay, 0s) infinite steps(1, end); }
-.skipper-face .sk-look { animation: sk-glance var(--glance, 16s) var(--glance-delay, 0s) infinite steps(1, end); }
+.skipper-face :is(.sk-turn, .sk-cap, .sk-front) { animation-duration: var(--face-turn, 42s); animation-delay: var(--face-turn-delay, 0s); animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.skipper-face .sk-turn { transform-origin: 16px 16px; animation-name: sk-lean; }
+.skipper-face .sk-cap { transform-box: fill-box; transform-origin: center; animation-name: sk-capslide; }
+.skipper-face .sk-front { transform-box: fill-box; transform-origin: center; animation-name: sk-slide; }
 @keyframes sk-blink { 0% { transform: scaleY(1); } 97.4% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
 @keyframes sk-blink2 { 0% { transform: scaleY(1); } 93.6% { transform: scaleY(0.1); } 95.4% { transform: scaleY(1); } 97.4% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
-@keyframes sk-glance { 0% { transform: translateX(0); } 93% { transform: translateX(var(--glance-dx, 1px)); } 98% { transform: translateX(0); } }
-@media (prefers-reduced-motion: reduce) { .skipper-face :is(.sk-eyes, .sk-look) { animation: none; } }`;
+/* the three turns, at 30 %, 63 % and 96 % of the cycle: 0.6 % in, 2.9 % held, 0.6 % back */
+@keyframes sk-lean {
+  0%, 30%, 34.1%, 63%, 67.1%, 100% { transform: translate(0, 0) scaleX(1); }
+  30.6%, 33.5% { transform: translate(calc(var(--dir, 1) * 0.45px), 0) scaleX(0.97); }
+  63.6%, 66.5% { transform: translate(calc(var(--dir, 1) * -0.45px), 0) scaleX(0.97); }
+}
+@keyframes sk-capslide {
+  0%, 30%, 34.1%, 63%, 67.1%, 95%, 99.1%, 100% { transform: translate(0, 0) scaleX(1); }
+  30.6%, 33.5% { transform: translate(calc(var(--dir, 1) * 0.5px), 0) scaleX(0.97); }
+  63.6%, 66.5% { transform: translate(calc(var(--dir, 1) * -0.5px), 0) scaleX(0.97); }
+  95.6%, 98.5% { transform: translate(0, -0.5px) scaleX(1); }
+}
+@keyframes sk-slide {
+  0%, 30%, 34.1%, 63%, 67.1%, 95%, 99.1%, 100% { transform: translate(0, 0) scaleX(1); }
+  30.6%, 33.5% { transform: translate(calc(var(--dir, 1) * 1.5px), 0) scaleX(0.92); }
+  63.6%, 66.5% { transform: translate(calc(var(--dir, 1) * -1.5px), 0) scaleX(0.92); }
+  95.6%, 98.5% { transform: translate(0, -1px) scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) { .skipper-face :is(.sk-eyes, .sk-look, .sk-front, .sk-cap, .sk-turn) { animation: none; } }`;
 
 const LABEL = "The Skiff crew: Admiral and five Skippers";
 const row = (indent) =>
