@@ -6,11 +6,13 @@
 //
 //     node tools/crew.mjs [../skiff/docs/crew.svg]
 //
-// The faces come from skipper-avatar.mjs, a copy of the app's generator.
+// The faces come from skipper-avatar.mjs, a copy of the app's generator, in
+// the app's default finish (plush). Its filters and gradients go in once,
+// before the row, as the app puts them once per document.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { skipperAvatar, admiralAvatar } from "./skipper-avatar.mjs";
+import { skipperAvatar, admiralAvatar, finishDefs, DEFAULT_FINISH } from "./skipper-avatar.mjs";
 
 // rhythm() reads the page clock; at 0 the phases stay the same on every run.
 performance.now = () => 0;
@@ -25,7 +27,8 @@ const CREW = [
   ["skiff", "#ff7f2a"],   // Afterburner
   ["tide", "#ff52b0"],    // Flamingo
 ];
-const face = (name) => (name === "Admiral" ? admiralAvatar() : skipperAvatar(name));
+const FINISH = DEFAULT_FINISH;
+const face = (name) => (name === "Admiral" ? admiralAvatar(FINISH) : skipperAvatar(name, 0, FINISH));
 
 // The blink and the head turn from apps/desktop/src/styles/skippers.css.
 const BLINK = `.skipper-face .sk-eyes { transform-box: fill-box; transform-origin: center; animation: var(--blink-anim, sk-blink) var(--blink, 5s) var(--blink-delay, 0s) infinite steps(1, end); }
@@ -57,7 +60,7 @@ const BLINK = `.skipper-face .sk-eyes { transform-box: fill-box; transform-origi
 
 const LABEL = "The Skiff crew: Admiral and five Skippers";
 const row = (indent) =>
-  `<div class="crew" role="img" aria-label="${LABEL}">\n`
+  `${finishDefs().replace(/\n/g, "")}\n${indent}<div class="crew" role="img" aria-label="${LABEL}">\n`
   + CREW.map(([n, c]) => `${indent}  <span class="skipper-face" style="--pc:${c}">${face(n)}</span>\n`).join("")
   + `${indent}</div>`;
 
@@ -83,6 +86,7 @@ function banner(file) {
 <style>
 ${BLINK}
 </style>
+${FINISH === "flat" ? "" : finishDefs().replace(/^<svg[^>]*>|<\/svg>$/g, "")}
 <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="#0f1216" stroke="#232a33"/>
 <path transform="translate(48 ${H / 2 + 35})" fill="#e6e8eb" d="${mark}"/>
 ${faces}
