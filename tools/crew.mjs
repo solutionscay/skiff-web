@@ -29,6 +29,12 @@ const CREW = [
 ];
 const FINISH = DEFAULT_FINISH;
 const face = (name) => (name === "Admiral" ? admiralAvatar(FINISH) : skipperAvatar(name, 0, FINISH));
+// On the site, Admiral is the plush-cap avatar as an image (44 px, with a 2x file), centered in its
+// slot. The banner and the social preview keep the app's generated face.
+const ADMIRAL_ALT = "Admiral, the Skiff agent: a white plush head with a teal cap band and a gold button";
+const siteFace = (name) => (name === "Admiral"
+  ? `<img src="shots/admiral-avatar-44.webp" srcset="shots/admiral-avatar-44.webp 1x, shots/admiral-avatar-88.webp 2x" width="44" height="44" alt="${ADMIRAL_ALT}">`
+  : face(name));
 
 // The blink and the head turn from apps/desktop/src/styles/skippers.css.
 const BLINK = `.skipper-face .sk-eyes { transform-box: fill-box; transform-origin: center; animation: var(--blink-anim, sk-blink) var(--blink, 5s) var(--blink-delay, 0s) infinite steps(1, end); }
@@ -59,17 +65,17 @@ const BLINK = `.skipper-face .sk-eyes { transform-box: fill-box; transform-origi
 @media (prefers-reduced-motion: reduce) { .skipper-face :is(.sk-eyes, .sk-look, .sk-front, .sk-cap, .sk-turn) { animation: none; } }`;
 
 const LABEL = "The Skiff crew: Admiral and five Skippers";
-const row = (indent) =>
+const row = (indent, faceOf = face) =>
   `${finishDefs().replace(/\n/g, "")}\n${indent}<div class="crew" role="img" aria-label="${LABEL}">\n`
-  + CREW.map(([n, c]) => `${indent}  <span class="skipper-face" style="--pc:${c}">${face(n)}</span>\n`).join("")
+  + CREW.map(([n, c]) => `${indent}  <span class="skipper-face" style="--pc:${c}">${faceOf(n)}</span>\n`).join("")
   + `${indent}</div>`;
 
-function splice(rel, indent) {
+function splice(rel, indent, faceOf = face) {
   const f = path.join(ROOT, rel);
   const old = fs.readFileSync(f, "utf8");
   const re = /<!-- crew -->[\s\S]*?<!-- \/crew -->/;
   if (!re.test(old)) throw new Error(`no <!-- crew --> markers in ${rel}`);
-  const out = old.replace(re, `<!-- crew -->\n${indent}${row(indent)}\n${indent}<!-- /crew -->`);
+  const out = old.replace(re, `<!-- crew -->\n${indent}${row(indent, faceOf)}\n${indent}<!-- /crew -->`);
   if (out !== old) { fs.writeFileSync(f, out); console.log(`wrote: ${rel}`); }
 }
 
@@ -96,6 +102,6 @@ ${faces}
   console.log(`wrote: ${file}`);
 }
 
-splice("index.html", "      ");
+splice("index.html", "      ", siteFace);
 splice("tools/social-preview.html", "    ");
 if (process.argv[2]) banner(path.resolve(process.argv[2]));
