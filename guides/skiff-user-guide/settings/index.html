@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Settings","description":"The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/settings/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Settings","description":"The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.","datePublished":"2026-10-29","dateModified":"2026-11-02","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/settings/"}
 </script>
 </head>
 <body>
@@ -57,7 +57,7 @@
 <main class="wrap ug">
   <div class="page-head">
     <h1>Settings</h1>
-    <p>Settings opens over the window, with its sections in a list on the left. Chapter 1 covered Skippers and Task types. This chapter covers the rest, in the order the list shows them: Agents, Appearance, Open with, Images, Disk use and skiffd activity.</p>
+    <p>Settings opens over the window, with its sections in a list on the left. Chapter 1 covered Skippers and Task types. This chapter covers Agents, Appearance, Language, Open with, Images, Disk use and skiffd activity. The Hosts page is not part of this guide.</p>
     <div class="ver">Chapter 9 of 9 · <a href="../">Skiff user guide</a></div>
   </div>
 
@@ -97,6 +97,7 @@
       <li>Type a name or a color in <span class="path">Find by name or color</span>, or click a swatch, to filter the cards. <span class="path">All</span> clears the filter. The line under the field counts the themes shown.</li>
       <li>Click the import button at the right of the swatches, <span class="path">Import themes…</span>, to add theme files. Skiff reads the foot TOML format and Superset's JSON.</li>
       <li>Click the folder button, <span class="path">Open theme folder</span>, to see the theme files. Drop files in it, come back to Skiff, and the list reads them.</li>
+      <li>The <span class="path">Avatar finish</span> row sets the finish of every Skipper face: Flat, Gummy or Plush. A strip of sample faces shows it.</li>
       <li>On Linux, the <span class="path">Menu</span> row picks the window's menu: <span class="path">Auto</span>, <span class="path">Header bar</span> or <span class="path">Menu bar</span>. A change shows the next time Skiff opens.</li>
     </ol>
     <figure class="ug-fig">
@@ -104,6 +105,14 @@
       <figcaption>Settings › Appearance: the app theme. The two buttons at the right import themes and open the theme folder.</figcaption>
     </figure>
     <p class="ug-note">A project theme or a session theme replaces the app theme in its scope. See <a href="../sessions-and-groups/">chapter 3</a>.</p>
+  </section>
+
+  <section>
+    <h2>Language</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Language</span>. The table lists <span class="path">Auto</span> and each language Skiff has words for: English, Spanish and Simplified Chinese.</li>
+      <li>Click a row. The window shows the language the next time it opens. This guide uses the English names.</li>
+    </ol>
   </section>
 
   <section>
@@ -125,9 +134,11 @@
   <section>
     <h2>Storage usage</h2>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Disk use</span>. The table counts the Skiff agent's folder: <span class="path">Images</span>, with <span class="path">Pinned</span> under it; <span class="path">Results</span>, with a row for each Skipper and <span class="path">Closed work</span>; <span class="path">Logs</span>; <span class="path">Other</span>; and <span class="path">Total</span>.</li>
-      <li>Click <span class="path">Flush images</span> to remove every image that is not pinned.</li>
-      <li>Click <span class="path">Flush done work…</span> to remove the result files of closed work. The dialog shows the counts first. Open and working work stays, and so do the ledger and the instruction files.</li>
+      <li>Open <span class="path">Settings › Disk use</span>. The table shows the Skiff agent's folder as a tree. The columns are <span class="path">NAME</span>, <span class="path">SIZE</span>, <span class="path">CAN FLUSH</span> and <span class="path">STATE</span>. Click the chevron on a row, or press <kbd>Space</kbd>, to open a folder.</li>
+      <li>The <span class="path">STATE</span> column says why a file stays or can go: <span class="path">In use</span>, <span class="path">Held</span>, <span class="path">Protected</span> or <span class="path">Stale</span>. Open and working work stays, and so do pinned images, the ledger and the instruction files.</li>
+      <li>A row with something to remove has a <span class="path">Flush…</span> button. The dialog lists what goes and what stays, with the counts, before it removes anything.</li>
+      <li>Click a file row to open the file as <span class="path">Open with</span> says. The button at the right of a folder row shows the folder in the file manager.</li>
+      <li>At the foot, <span class="path">Flush now…</span> runs the same dialog for the whole folder.</li>
       <li><span class="path">Auto flush</span> removes images older than 30 days when Skiff starts. Click the switch to turn it off or on. Pinned images stay.</li>
     </ol>
     <figure class="ug-fig">

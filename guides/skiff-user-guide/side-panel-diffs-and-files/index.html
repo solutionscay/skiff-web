@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Side panel, diffs and files","description":"How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/side-panel-diffs-and-files/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Side panel, diffs and files","description":"How to read the Skiff side panel, review a change in the peek, and browse and open the files of a worktree.","datePublished":"2026-10-29","dateModified":"2026-11-02","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/side-panel-diffs-and-files/"}
 </script>
 </head>
 <body>
@@ -57,7 +57,7 @@
 <main class="wrap ug">
   <div class="page-head">
     <h1>Side panel, diffs and files</h1>
-    <p>The side panel is one tree: Admiral, then each project with its worktrees, groups and sessions. Under each worktree, two sections can show: Changes and Files. A change opens its diff over the panes. A file opens in the app you chose.</p>
+    <p>The side panel is one tree: Admiral, then each project with its worktrees, groups and sessions. Each fleet, and the projects in no fleet, sit in a box of their own. A second view lists the Skippers. Under each worktree, two sections can show: Changes and Files. A change opens its diff over the panes. A file opens in the app you chose.</p>
     <div class="ver">Chapter 4 of 9 · <a href="../">Skiff user guide</a></div>
   </div>
 
@@ -66,9 +66,10 @@
     <ol class="steps">
       <li>Click a project row or a fleet head to fold or open it. A folded row shows how many sessions under it wait, work or have unread output.</li>
       <li>Click a session row to show its pane. Click a group row to show the group.</li>
-      <li>Move through the rows with <kbd>Ctrl+Shift+Up</kbd> and <kbd>Ctrl+Shift+Down</kbd>. Each row opens as you land on it. <kbd>Ctrl+Shift+Left</kbd> jumps to the project row. <kbd>Ctrl+Shift+Right</kbd> goes back to the session on screen. <kbd>Ctrl+Shift+1</kbd> to <kbd>9</kbd> go to the project with that number, counted down the panel. On macOS these are <kbd>⌘+Option+1</kbd> to <kbd>9</kbd>.</li>
+      <li>Move through the rows with <kbd>Ctrl+Shift+Up</kbd> and <kbd>Ctrl+Shift+Down</kbd>. Each row opens as you land on it. <kbd>Ctrl+Shift+Left</kbd> jumps to the project row. <kbd>Ctrl+Shift+Right</kbd> goes back to the session on screen. <kbd>Ctrl+Shift+1</kbd> to <kbd>9</kbd> go to the project with that number, counted down the panel. A folded fleet does not count. The key shows the project's Skipper, or its first pane when it has no Skipper. On macOS these are <kbd>⌘+Option+1</kbd> to <kbd>9</kbd>.</li>
       <li>To show or hide <span class="path">Changes</span> for a project, open the project menu, click <span class="path">Sidebar</span>, then <span class="path">Changes</span>, or press <kbd>Ctrl+Shift+G</kbd>. <span class="path">Files</span> works the same, with <kbd>Ctrl+Shift+H</kbd>. A plain folder shows Files by default. A Git project shows Changes.</li>
       <li>Press <kbd>F6</kbd> to move the keys between the side panel and the terminal.</li>
+      <li>Click <span class="path">Skippers</span> at the top of the panel, or press <kbd>Ctrl+Shift+Alt+S</kbd>, to see the Skippers view. Click <span class="path">Tree</span> to go back. The view lists Admiral, then each fleet Skipper and project Skipper, in the order of the tree. A row has the Skipper's face, its project or fleet, the time of its last output and the latest line of its work. Click a row to show its pane. The count on the tab says how many Skippers wait. <kbd>Ctrl+Shift+1</kbd> to <kbd>9</kbd> open the Skipper with that number in this view.</li>
     </ol>
     <figure class="ug-fig">
       <a class="shot" href="../../../shots/guide-side-panel.webp"><img src="../../../shots/guide-side-panel.webp" width="1600" height="900" alt="The side panel with the atlas project open. Under the rate-limits worktree: the review group with two sessions, a Changes section with limits.rs, plans.rs and rate_limits.rs and their line counts, and a Files section with the folders src, tests and docs open to src/middleware. Two panes show Claude Code and Codex."></a>

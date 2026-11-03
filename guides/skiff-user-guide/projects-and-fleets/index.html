@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Projects, fleets and the first start","description":"How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/projects-and-fleets/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Projects, fleets and the first start","description":"How to add projects to Skiff, make worktrees, put projects in fleets, and start Admiral, project Skippers and fleet Skippers.","datePublished":"2026-10-29","dateModified":"2026-11-02","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/projects-and-fleets/"}
 </script>
 </head>
 <body>
@@ -64,13 +64,13 @@
   <section>
     <h2>Add projects</h2>
     <ol class="steps">
-      <li>On first start, click <span class="path">Add project</span> in the middle of the window. Later, point at the <span class="path">PROJECTS</span> head in the side panel and click its <span class="path">+</span>, or press <kbd>Ctrl+Shift+O</kbd>.</li>
+      <li>On first start, click <span class="path">Add project</span> in the middle of the window. The Admiral button sits beside it. If no agent is on your PATH, that button reads <span class="path">Agent settings…</span> and the window says <em>No agent is on PATH</em>. Later, point at the <span class="path">PROJECTS</span> head in the side panel and click its <span class="path">+</span>, or press <kbd>Ctrl+Shift+O</kbd>.</li>
       <li>Pick the folder in the file dialog.</li>
       <li>The project appears in the panel with its name, its initials and a color. A Git repository lists its worktrees under it. A plain folder lists its files.</li>
       <li>The main area reads <em>atlas is ready</em>, with a button for a shell and for each agent. Click one to start a session in the main worktree, or make a worktree first.</li>
     </ol>
     <figure class="ug-fig">
-      <a class="shot" href="../../../shots/guide-welcome.webp"><img src="../../../shots/guide-welcome.webp" width="1600" height="900" alt="Skiff on first start. The side panel shows the Admiral row and an empty PROJECTS head. The main area reads Add your first project, with an Add project button and an Admiral button."></a>
+      <a class="shot" href="../../../shots/guide-welcome.webp"><img src="../../../shots/guide-welcome.webp" width="1600" height="900" alt="Skiff on first start. The side panel shows the Admiral row and an empty PROJECTS head. The main area reads Add your first project, with an Add project button and an Admiral button, and a line under them: Admiral starts and tracks agents for you."></a>
       <figcaption>First start: no project yet. Add project opens the folder dialog. Admiral starts the Skiff agent without a project.</figcaption>
     </figure>
     <h3>Make a worktree</h3>
@@ -123,7 +123,7 @@
     <h3>Project Skippers</h3>
     <ol class="steps">
       <li>Open the project menu and click <span class="path">Start project Skipper</span>.</li>
-      <li>The Skipper starts in the project folder. Its row reads <em>Skipper</em>, first in the project's block, with the count of the tasks it owns. Its pane header reads <em>Skipper · atlas</em>.</li>
+      <li>The Skipper starts in the project folder. Its row reads <em>Skipper</em>, with its face. It is the first row of the project, in line with the worktrees. It shows the count of the tasks it owns. Its pane header reads <em>Skipper · atlas</em>.</li>
       <li>While it runs, the menu has <span class="path">Open project Skipper</span> and <span class="path">Stop project Skipper…</span>. Stop asks first. The sessions it started keep running.</li>
       <li>Admiral starts a project Skipper by itself when it hands a task to a project with none.</li>
     </ol>
@@ -137,6 +137,7 @@
       <li>The fleet Skipper is the first row under its head. It sends tasks to any project of the fleet. While it runs, no project of the fleet has a project Skipper. If one was running, Skiff asks once, then the fleet Skipper takes over its tasks.</li>
       <li>While it runs, the menu has <span class="path">Open fleet Skipper</span> and <span class="path">Stop fleet Skipper…</span>.</li>
     </ol>
+    <p class="ug-note">The side panel steps down in size by rank: the Admiral row is the largest, a fleet Skipper's row is smaller, and a project Skipper's row is the smallest. Each fleet, and the projects in no fleet, sit in a box of their own.</p>
     <p class="ug-note">A teal icon on the Admiral row means the watcher runs: it tells Admiral when a session ends its turn, and sends you a desktop notification when a session waits for approval. A red icon means no watcher runs. The row's menu then has <span class="path">Start watcher</span> and <span class="path">Open watch log</span>.</p>
   </section>
 
