@@ -37,5 +37,13 @@ jobs:
           PREV=$(gh api "repos/${{ github.repository }}/pages/builds?per_page=20" \
             --jq "[.[] | select(.status == \"built\") | .commit] | (index(\"${SHA:-$GITHUB_SHA}\") // -1) as \$i | if \$i >= 0 then .[\$i + 1] else .[0] end // empty")
           if [ -z "$PREV" ]; then PREV="${SHA:-$GITHUB_SHA}~1"; fi
+          # The first deploy with the key sends every URL: the key and this
+          # workflow change no sitemap date, so the changed list would be short.
+          KEY=$(ls | grep -E '^[0-9a-f]{32}\.txt$' | head -n 1)
+          if ! git cat-file -e "$PREV:$KEY" 2>/dev/null; then
+            echo "$PREV has no $KEY: first deploy with IndexNow, sending every URL"
+            python3 tools/indexnow.py --all --wait
+            exit 0
+          fi
           echo "Changes since $PREV"
           python3 tools/indexnow.py --since "$PREV" --wait
