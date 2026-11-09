@@ -204,6 +204,7 @@ def footer(up):
     <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
     <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
     <a href="{up}support/">Support</a>
+    <a href="{up}gallery/">Screenshots</a>
     <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
   </div>
 </footer>"""
