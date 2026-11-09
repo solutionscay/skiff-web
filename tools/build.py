@@ -4,6 +4,7 @@ and sitemap.xml. Page bodies stay hand-written.
 
     python3 tools/build.py          rewrite the pages and the sitemap
     python3 tools/build.py --check  exit 1 if a page or the sitemap is stale
+    python3 tools/indexnow.py --all  send every URL to IndexNow (CI sends changes after each deploy)
 
 To add a page, write its <main> into <path>/index.html and add it to PAGES.
 A file without <body> is taken as the <main> alone and gets the full frame.
