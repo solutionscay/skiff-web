@@ -30,6 +30,18 @@ def article(path, headline, description, published, modified=None):
         "author": PUBLISHER, "mainEntityOfPage": SITE + path,
     }
 
+def webpage(path, name, description, kind="WebPage"):
+    """A plain page about the app, with its place under the home page."""
+    return {
+        "@context": "https://schema.org", "@type": kind, "name": name, "description": description,
+        "url": SITE + path, "about": {"@type": "SoftwareApplication", "name": "Skiff", "url": SITE},
+        "publisher": PUBLISHER,
+        "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Skiff", "item": SITE},
+            {"@type": "ListItem", "position": 2, "name": name, "item": SITE + path},
+        ]},
+    }
+
 # path: the folder under the site root ("" is the home page).
 # og_title and og_desc default to title and desc.
 PAGES = [
@@ -129,6 +141,12 @@ PAGES = [
          desc="How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.",
          ld=article("guides/keep-agent-sessions-running/", "Keep coding agent sessions running after you close the terminal", "How to keep Claude Code, Codex and other agents running when the terminal closes: tmux, non-interactive modes, what a reboot ends, and how to resume.", "2026-10-06", "2026-10-26")),
 ]
+
+# The pages without their own JSON-LD: the agent pages, the gallery and support.
+for _p in PAGES:
+    if "ld" not in _p and _p["path"] in ("gallery/", "support/", "claude-code/", "codex/", "gemini-cli/", "grok-cli/", "opencode/"):
+        _p["ld"] = webpage(_p["path"], _p.get("og_title", _p["title"]), _p["desc"],
+                           "ContactPage" if _p["path"] == "support/" else "WebPage")
 
 def a(s):
     return html.escape(s, quote=False).replace('"', "&quot;")
