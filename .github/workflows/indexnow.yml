@@ -1,0 +1,41 @@
+# After each GitHub Pages deploy, send the pages that changed to IndexNow.
+# The deploy is GitHub's own "pages build and deployment" run (legacy Pages from main).
+name: IndexNow
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Send every URL in sitemap.xml"
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  pages: read
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          fetch-depth: 0
+      - name: Send the changed URLs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          ALL: ${{ inputs.all }}
+        run: |
+          if [ "$ALL" = "true" ]; then
+            python3 tools/indexnow.py --all --wait
+            exit 0
+          fi
+          # The commit of the deploy before this one, from the Pages build list.
+          PREV=$(gh api "repos/${{ github.repository }}/pages/builds?per_page=20" \
+            --jq "[.[] | select(.status == \"built\") | .commit] | (index(\"${SHA:-$GITHUB_SHA}\") // -1) as \$i | if \$i >= 0 then .[\$i + 1] else .[0] end // empty")
+          if [ -z "$PREV" ]; then PREV="${SHA:-$GITHUB_SHA}~1"; fi
+          echo "Changes since $PREV"
+          python3 tools/indexnow.py --since "$PREV" --wait
