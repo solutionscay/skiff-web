@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settings | Skiff user guide</title>
-<meta name="description" content="The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.">
+<meta name="description" content="The Skiff Settings pages: Agents, Sessions, Disk use, Images, Appearance and themes, Open with, and Hosts over SSH.">
 <meta property="og:title" content="Settings">
-<meta property="og:description" content="The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.">
+<meta property="og:description" content="The Skiff Settings pages: Agents, Sessions, Disk use, Images, Appearance and themes, Open with, and Hosts over SSH.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Skiff">
 <meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/settings/">
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"Settings","description":"The Skiff Settings pages: Agents, Open with, themes and how to manage them, skiffd activity, disk use and the image gallery.","datePublished":"2026-10-29","dateModified":"2026-10-29","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/settings/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Settings","description":"The Skiff Settings pages: Agents, Sessions, Disk use, Images, Appearance and themes, Open with, and Hosts over SSH.","datePublished":"2026-10-29","dateModified":"2026-11-09","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/settings/"}
 </script>
 </head>
 <body>
@@ -57,48 +57,82 @@
 <main class="wrap ug">
   <div class="page-head">
     <h1>Settings</h1>
-    <p>Settings opens over the window, with its sections in a list on the left. Chapter 1 covered Skippers and Task types. This chapter covers Agents, Appearance, Language, Open with, Images, Disk use and skiffd activity. The Hosts page is not part of this guide.</p>
+    <p>Settings opens over the window. The list on the left has two groups. The first group has the name of the Host that the window shows, and holds Agents, Skippers, Task types, Sessions, Disk use and Images. The <span class="path">App</span> group holds Appearance, Open with and Hosts. A row shows a count where Skiff has one, such as the agents that are on. Chapter 1 covered Skippers and Task types. This chapter covers the other seven pages, as of Skiff 2.2.</p>
     <div class="ver">Chapter 9 of 9 · <a href="../">Skiff user guide</a></div>
   </div>
 
   <section>
     <h2>Agents</h2>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Agents</span>. Each row is one agent: its switch, its name, its command and its status.</li>
-      <li>Click the switch to turn an agent on or off. An agent that is on shows in every launch menu. A switch is off and grey when the command is not on your PATH.</li>
-      <li>To run an agent with other options, click its <span class="path">COMMAND</span> cell and type the command. An empty cell uses the default shown in grey.</li>
-      <li>To add your own agent, type a name in <span class="path">New agent name</span> and its command, then click <span class="path">Add agent</span>.</li>
-      <li>Click <span class="path">−</span> at the right of a row to remove the agent. An agent that Admiral or a task type uses shows that in <span class="path">STATUS</span> and stays. <span class="path">Restore defaults</span> brings back a removed built-in agent.</li>
-      <li>Under <span class="path">AGENT NAMES</span>, the two lists are the words Skiff joins into the names of new sessions, such as <em>First Mate Pelican</em>. Edit a list and click away to save it.</li>
+      <li>Open <span class="path">Settings › Agents</span>. Each row is one agent: its switch, its name, its program, its flags and its status.</li>
+      <li>Click the switch to turn an agent on or off. An agent that is on shows in every launch menu. <span class="path">STATUS</span> reads <span class="path">Installed</span>, or <span class="path">Not found</span> when the Host has no program for it.</li>
+      <li>The <span class="path">PROGRAM</span> cell shows the program the Host found. Click it to pick another. <span class="path">Choose…</span> opens a folder, and <span class="path">Show programs</span> lists the programs in it. On a remote Host, the folder is on that Host.</li>
+      <li>Click the <span class="path">FLAGS</span> cell to pick <span class="path">Ask for approvals</span> or <span class="path">Skip approvals</span>. Flags set by hand show as <span class="path">Other flags</span>.</li>
+      <li>Click <span class="path">Add agent…</span> to add your own agent. <span class="path">Restore defaults</span> brings back a removed built-in agent.</li>
+      <li>Under <span class="path">Agent titles</span> and <span class="path">Agent names</span> are the words Skiff joins into the names of new sessions, such as <em>First Mate Pelican</em>.</li>
     </ol>
     <figure class="ug-fig">
       <a class="shot" href="../../../shots/guide-settings-agents.webp"><img src="../../../shots/guide-settings-agents.webp" width="1600" height="900" alt="Settings, Agents. Rows for claude, codex, gemini, grok, opencode, hermes and kimi, each with a switch, its command and a status: installed, or not on PATH for kimi. claude reads installed, Admiral plus 3. A last row adds a new agent. Under the table, AGENT NAMES lists titles such as Captain and First Mate, and names such as Anchovy and Barnacle."></a>
-      <figcaption>Settings › Agents. The switch turns an agent on. The status says who uses it.</figcaption>
+      <figcaption>Settings › Agents. The switch turns an agent on. The status says if the Host has it.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Open with</h2>
+    <h2>Sessions</h2>
+    <p class="lead">skiffd is the daemon that owns every session. This page lists what it runs on the shown Host, also sessions that no project shows.</p>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Open with</span>. Each row names what Skiff hands to another program: <span class="path">Diffs</span>, <span class="path">Text files</span>, <span class="path">Markdown</span>, <span class="path">HTML</span> and <span class="path">Images</span>.</li>
-      <li>Type a command in the <span class="path">COMMAND</span> cell and press <kbd>Enter</kbd>. Write <span class="path">{path}</span> where the file goes. An empty cell uses the system's default app. The <a href="https://github.com/solutionscay/skiff/wiki/Open-with">Open with page</a> lists commands for common apps on Linux and macOS.</li>
-      <li>Set <span class="path">OPENS IN</span> for text, Markdown and HTML. <span class="path">External app</span> waits for Enter in the peek. <span class="path">Peek</span> runs the command inside the peek at once, for terminal tools. Diffs always use the peek. Images always use an app.</li>
+      <li>Open <span class="path">Settings › Sessions</span>. The band at the top shows how long skiffd has run and its memory.</li>
+      <li>Each row is one session. The columns are <span class="path">STATE</span>, <span class="path">SESSION</span>, <span class="path">PROGRAM</span>, <span class="path">WORKSPACE</span>, <span class="path">FOLDER</span>, <span class="path">OUT</span>, <span class="path">AGE</span> and <span class="path">ACTIONS</span>. A row with no project in Skiff is marked.</li>
+      <li>Click a column head to sort by it. Click again to reverse.</li>
+      <li>Click <span class="path">Reveal</span> to close Settings and show that session. A closed project opens again for it.</li>
+      <li>To end sessions, click their rows. <kbd>Shift</kbd>+click selects a range, <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) adds or drops one row, <kbd>Ctrl+A</kbd> selects all. Then click <span class="path">Sink…</span> or <span class="path">Sink Selected…</span>. The <span class="path">Abandon Ship</span> dialog names the sessions. Confirm to kill them.</li>
     </ol>
     <figure class="ug-fig">
-      <a class="shot" href="../../../shots/guide-settings-open-with.webp"><img src="../../../shots/guide-settings-open-with.webp" width="1600" height="900" loading="lazy" alt="Settings, Open with. Rows: Diffs with git diff color always and Peek; Text files with gnome-text-editor and External app; Markdown with typora and External app; HTML and Images with default app."></a>
-      <figcaption>Settings › Open with. One command per kind of file, and where it opens.</figcaption>
+      <a class="shot" href="../../../shots/guide-settings-activity.webp"><img src="../../../shots/guide-settings-activity.webp" width="1600" height="900" loading="lazy" alt="Settings, skiffd activity. A band reads skiffd 1.7.10, Up 3d, 6 sessions, Memory 49.0 MB, and a Sink button. A table with the columns STATE, SESSION, PROGRAM, WORKSPACE, FOLDER, OUT, AGE and ACTIONS lists six sessions, each with a Reveal button."></a>
+      <figcaption>Settings › Sessions: every session the daemon runs, with Reveal and Sink.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Themes and how to manage them</h2>
+    <h2>Disk use</h2>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Appearance</span>. The cards are the app theme: the side panel, the bars and every pane without a project or session theme. Click a card to apply it.</li>
-      <li>Type a name or a color in <span class="path">Find by name or color</span>, or click a swatch, to filter the cards. <span class="path">All</span> clears the filter. The line under the field counts the themes shown.</li>
-      <li>Click the import button at the right of the swatches, <span class="path">Import themes…</span>, to add theme files. Skiff reads the foot TOML format and Superset's JSON.</li>
-      <li>Click the folder button, <span class="path">Open theme folder</span>, to see the theme files. Drop files in it, come back to Skiff, and the list reads them.</li>
-      <li>The <span class="path">Avatar finish</span> row sets the finish of every Skipper face: Flat, Gummy or Plush. A strip of sample faces shows it.</li>
+      <li>Open <span class="path">Settings › Disk use</span>. The table shows the Skiff agent's folder as a tree. The columns are <span class="path">NAME</span>, <span class="path">SIZE</span>, <span class="path">CAN FLUSH</span> and <span class="path">STATE</span>. Click the chevron on a row, or press <kbd>Space</kbd>, to open a folder.</li>
+      <li>The <span class="path">STATE</span> column says why a file stays or can go: <span class="path">In use</span>, <span class="path">Held</span>, <span class="path">Protected</span> or <span class="path">Stale</span>. Open and working work stays, and so do pinned images, the ledger and the instruction files.</li>
+      <li>A row with something to remove has a <span class="path">Flush…</span> button. The dialog lists what goes and what stays, with the counts, before it removes anything.</li>
+      <li>Click a file row to open the file as <span class="path">Open with</span> says. The button at the right of a folder row shows the folder in the file manager.</li>
+      <li><span class="path">Auto flush</span> removes images older than 30 days when Skiff starts. Click the switch to turn it off or on. Pinned images stay.</li>
+      <li>The <span class="path">Folder</span> row names the Skiff agent's folder. Click <span class="path">Change…</span> to pick another folder. The dialog says what happens next: Skiff switches to a folder it already uses, copies the current folder there and checks the copy, or sets up a new folder.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-disk.webp"><img src="../../../shots/guide-settings-disk.webp" width="1600" height="900" loading="lazy" alt="Settings, Disk use. A table with TYPE, FILES, SIZE and FOLDER: Images 5 files 1.4 MB with a Flush images button, Pinned, Results, atlas Skipper, Closed work with a Flush done work button, Logs, Other and Total 126 files 6.1 MB. Under it, Auto flush, 30 days, with its switch on."></a>
+      <figcaption>Settings › Disk use. Flush frees space. Auto flush ages out images.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Images</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Images</span>, or click <span class="path">Edit › Settings › Images…</span>. The page shows the image library as a gallery: <span class="path">PINNED</span> first, then <span class="path">RECENT</span>, newest first.</li>
+      <li>Type in the search field to filter by file name, session or project.</li>
+      <li>Click an image to select it. <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) selects more. The count at the right of the search field says how many.</li>
+      <li>The buttons act on the selection. <span class="path">Open</span> opens the image in its app. <span class="path">Insert into</span> and the session name types the path into the focused pane. <span class="path">Pin</span> or <span class="path">Unpin</span> keeps or releases it. <span class="path">Delete</span> removes the file.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-settings-images.webp"><img src="../../../shots/guide-settings-images.webp" width="1600" height="900" loading="lazy" alt="Settings, Images. A search field with the count 5 and 1 selected, then the buttons Open, Insert into Rate limit middleware, Unpin, Copy path and Delete. Under PINNED, two images with one selected. Under RECENT, three images. Each image shows its name, time, project and session."></a>
+      <figcaption>Settings › Images: the library as a gallery. Select images, then open, insert, pin or delete them.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Appearance and themes</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Appearance</span>. The <span class="path">Language</span> row picks <span class="path">Auto</span>, which follows the system, or English, Spanish or Simplified Chinese. The window changes language on restart. This guide uses the English names.</li>
       <li>On Linux, the <span class="path">Menu</span> row picks the window's menu: <span class="path">Auto</span>, <span class="path">Header bar</span> or <span class="path">Menu bar</span>. A change shows the next time Skiff opens.</li>
+      <li>The <span class="path">Avatar finish</span> row sets the finish of every Skipper face: Flat, Gummy or Plush. A strip of sample faces shows it.</li>
+      <li>Under <span class="path">App theme</span>, the cards are the theme of the side panel, the bars and every pane without a project or session theme. Click a card to apply it. Skiff 2.2 added six quiet themes: Chart Room, Engine Room, Kelp, Morning Watch, Plumb Line and Sailcloth.</li>
+      <li>Type a name or a color in <span class="path">Find by name or color</span>, or click a swatch, to filter the cards. <span class="path">All</span> clears the filter. The line under the field counts the themes shown.</li>
+      <li>Click <span class="path">Import themes…</span> to add theme files. Skiff reads the foot TOML format and Superset's JSON.</li>
+      <li>Click <span class="path">Open theme folder</span> to see the theme files. Drop files in it, come back to Skiff, and the list reads them.</li>
     </ol>
     <figure class="ug-fig">
       <a class="shot" href="../../../shots/guide-settings-appearance.webp"><img src="../../../shots/guide-settings-appearance.webp" width="1600" height="900" loading="lazy" alt="Settings, Appearance. A Menu row with Auto, Header bar and Menu bar. A search field, color swatches, an import button and a folder button. A grid of theme cards: Ultraviolet, Default, Neon Tropic, Moonlight, Ember, Lagoon, Violet Pulse, Manila Brief and more, each with a terminal preview and a color family."></a>
@@ -108,57 +142,29 @@
   </section>
 
   <section>
-    <h2>Language</h2>
+    <h2>Open with</h2>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Language</span>. The table lists <span class="path">Auto</span> and each language Skiff has words for: English, Spanish and Simplified Chinese.</li>
-      <li>Click a row. The window shows the language the next time it opens. This guide uses the English names.</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>skiffd activity</h2>
-    <p class="lead">skiffd is the daemon that owns every session. This page lists what it runs, also sessions that no project shows.</p>
-    <ol class="steps">
-      <li>Open <span class="path">Settings › skiffd activity</span>. The band at the top shows the daemon's version, how long it has run, its session count and its memory.</li>
-      <li>Each row is one session: its state, name, program, project and worktree, folder, output so far and age. A row with no project in Skiff is marked.</li>
-      <li>Click a column head to sort by it. Click again to reverse.</li>
-      <li>Click <span class="path">Reveal</span> to close Settings and show that session. A closed project opens again for it.</li>
-      <li>To end sessions, click their rows. <kbd>Shift</kbd>+click selects a range, <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) adds or drops one row, <kbd>Ctrl+A</kbd> selects all. Then click <span class="path">Sink…</span>. The <span class="path">Abandon Ship</span> dialog names the sessions. Confirm to kill them.</li>
+      <li>Open <span class="path">Settings › Open with</span>. Each row names what Skiff hands to another program: <span class="path">Diffs</span>, <span class="path">Text files</span>, <span class="path">Markdown</span>, <span class="path">HTML</span> and <span class="path">Images</span>.</li>
+      <li>Click the <span class="path">OPENS WITH</span> cell. The list holds the default, the terminal tools and apps Skiff found on this computer, and <span class="path">Choose app…</span> for any other program.</li>
+      <li><span class="path">OPENS IN</span> follows the pick: <span class="path">In the peek</span> for a terminal tool, <span class="path">In its own window</span> for an app.</li>
+      <li>A command set by hand in <code>projects.toml</code> shows as it is. The <a href="https://github.com/solutionscay/skiff/wiki/Open-with">Open with page</a> lists commands for common apps on Linux and macOS.</li>
     </ol>
     <figure class="ug-fig">
-      <a class="shot" href="../../../shots/guide-settings-activity.webp"><img src="../../../shots/guide-settings-activity.webp" width="1600" height="900" loading="lazy" alt="Settings, skiffd activity. A band reads skiffd 1.7.10, Up 3d, 6 sessions, Memory 49.0 MB, and a Sink button. A table with the columns STATE, SESSION, PROGRAM, WORKSPACE, FOLDER, OUT, AGE and ACTIONS lists six sessions, each with a Reveal button."></a>
-      <figcaption>Settings › skiffd activity: every session the daemon runs, with Reveal and Sink.</figcaption>
+      <a class="shot" href="../../../shots/guide-settings-open-with.webp"><img src="../../../shots/guide-settings-open-with.webp" width="1600" height="900" loading="lazy" alt="Settings, Open with. Rows: Diffs with git diff color always and Peek; Text files with gnome-text-editor and External app; Markdown with typora and External app; HTML and Images with default app."></a>
+      <figcaption>Settings › Open with. One program per kind of file, and where it opens.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Storage usage</h2>
+    <h2>Hosts</h2>
+    <p class="lead">A Host is a computer that runs skiffd: this computer, or a server you reach over SSH. The window shows one Host at a time.</p>
     <ol class="steps">
-      <li>Open <span class="path">Settings › Disk use</span>. The table shows the Skiff agent's folder as a tree. The columns are <span class="path">NAME</span>, <span class="path">SIZE</span>, <span class="path">CAN FLUSH</span> and <span class="path">STATE</span>. Click the chevron on a row, or press <kbd>Space</kbd>, to open a folder.</li>
-      <li>The <span class="path">STATE</span> column says why a file stays or can go: <span class="path">In use</span>, <span class="path">Held</span>, <span class="path">Protected</span> or <span class="path">Stale</span>. Open and working work stays, and so do pinned images, the ledger and the instruction files.</li>
-      <li>A row with something to remove has a <span class="path">Flush…</span> button. The dialog lists what goes and what stays, with the counts, before it removes anything.</li>
-      <li>Click a file row to open the file as <span class="path">Open with</span> says. The button at the right of a folder row shows the folder in the file manager.</li>
-      <li>At the foot, <span class="path">Flush now…</span> runs the same dialog for the whole folder.</li>
-      <li><span class="path">Auto flush</span> removes images older than 30 days when Skiff starts. Click the switch to turn it off or on. Pinned images stay.</li>
+      <li>Open <span class="path">Settings › Hosts</span>. The columns are <span class="path">NAME</span>, <span class="path">SERVER</span>, <span class="path">SKIFF</span>, <span class="path">AUTO UPDATE</span> and <span class="path">STATE</span>. This computer is in the list too. <span class="path">Shown in this window</span> marks the Host the window shows.</li>
+      <li>Click <span class="path">Add SSH Host…</span>. The list offers the Hosts in your SSH config. <span class="path">Other server…</span> takes a server name, a user and a port. Click <span class="path">Connect</span>.</li>
+      <li>Skiff checks the Host and lists each step. A step that fails has a button that fixes it, such as <span class="path">Trust this key…</span>, <span class="path">Install key…</span> or <span class="path">Install Skiff…</span>. <span class="path">Show key file</span> shows your public key file in the file manager.</li>
+      <li>The <span class="path">AUTO UPDATE</span> switch updates Skiff on that Host on its own. A row shows <span class="path">Update…</span> when an update is available.</li>
+      <li>Click <span class="path">More</span> on a row for <span class="path">Check</span>, <span class="path">Edit…</span>, <span class="path">Rename…</span> and <span class="path">Remove…</span>. Sessions on a removed Host keep running. The remove dialog can also uninstall Skiff from it.</li>
     </ol>
-    <figure class="ug-fig">
-      <a class="shot" href="../../../shots/guide-settings-disk.webp"><img src="../../../shots/guide-settings-disk.webp" width="1600" height="900" loading="lazy" alt="Settings, Disk use. A table with TYPE, FILES, SIZE and FOLDER: Images 5 files 1.4 MB with a Flush images button, Pinned, Results, atlas Skipper, Closed work with a Flush done work button, Logs, Other and Total 126 files 6.1 MB. Under it, Auto flush, 30 days, with its switch on."></a>
-      <figcaption>Settings › Disk use. The two flush buttons free space. Auto flush ages out images.</figcaption>
-    </figure>
-  </section>
-
-  <section>
-    <h2>Gallery</h2>
-    <ol class="steps">
-      <li>Open <span class="path">Settings › Images</span>, or click <span class="path">Edit › Settings › Images…</span>. The page shows the image library as a gallery: <span class="path">PINNED</span> first, then <span class="path">RECENT</span>, newest first.</li>
-      <li>Type in the search field to filter by file name, session or project.</li>
-      <li>Click an image to select it. <kbd>Ctrl</kbd>+click (<kbd>⌘</kbd> on macOS) selects more. The count at the right of the search field says how many.</li>
-      <li>The buttons act on the selection. <span class="path">Open</span> opens the image in its app. <span class="path">Insert into</span> and the session name types the path into the focused pane. <span class="path">Pin</span> or <span class="path">Unpin</span> keeps or releases it. <span class="path">Copy path</span> copies it. <span class="path">Delete</span> removes the file.</li>
-    </ol>
-    <figure class="ug-fig">
-      <a class="shot" href="../../../shots/guide-settings-images.webp"><img src="../../../shots/guide-settings-images.webp" width="1600" height="900" loading="lazy" alt="Settings, Images. A search field with the count 5 and 1 selected, then the buttons Open, Insert into Rate limit middleware, Unpin, Copy path and Delete. Under PINNED, two images with one selected. Under RECENT, three images. Each image shows its name, time, project and session."></a>
-      <figcaption>Settings › Images: the library as a gallery. Select images, then open, insert, pin, copy or delete them.</figcaption>
-    </figure>
   </section>
 
   <nav class="ug-nav">
