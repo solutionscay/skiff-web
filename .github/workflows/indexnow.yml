@@ -1,10 +1,9 @@
 # After each GitHub Pages deploy, send the pages that changed to IndexNow.
-# The deploy is GitHub's own "pages build and deployment" run (legacy Pages from main).
+# page_build fires when the legacy Pages build from main finishes. (workflow_run on
+# GitHub's dynamic "pages build and deployment" run does not fire.)
 name: IndexNow
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  page_build:
   workflow_dispatch:
     inputs:
       all:
@@ -16,17 +15,17 @@ permissions:
   pages: read
 jobs:
   submit:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || github.event.build.status == 'built'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.build.commit || github.sha }}
           fetch-depth: 0
       - name: Send the changed URLs
         env:
           GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.event.workflow_run.head_sha }}
+          SHA: ${{ github.event.build.commit }}
           ALL: ${{ inputs.all }}
         run: |
           if [ "$ALL" = "true" ]; then

@@ -17,6 +17,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://skiff.solutionscay.com/"
 HOST = "skiff.solutionscay.com"
 ENDPOINT = "https://api.indexnow.org/indexnow"
+# Cloudflare answers 403 to the default Python-urllib agent.
+UA = {"User-Agent": "skiff-web-indexnow/1.0 (+https://skiff.solutionscay.com/)"}
 
 def key():
     for f in glob.glob(os.path.join(ROOT, "*.txt")):
@@ -46,15 +48,19 @@ def changed(rev, now):
 
 def wait_for(k, minutes=10):
     url = f"{SITE}{k}.txt"
+    last = "no answer"
     for _ in range(minutes * 4):
         try:
-            with urllib.request.urlopen(url, timeout=10) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=10) as r:
                 if r.read().decode().strip() == k:
                     return
-        except (urllib.error.URLError, TimeoutError):
-            pass
+                last = f"{r.status}, other text"
+        except urllib.error.HTTPError as e:
+            last = str(e.code)
+        except (urllib.error.URLError, TimeoutError) as e:
+            last = str(e)
         time.sleep(15)
-    sys.exit(f"indexnow: {url} did not answer with the key in {minutes} min")
+    sys.exit(f"indexnow: {url} did not answer with the key in {minutes} min (last: {last})")
 
 def main():
     ap = argparse.ArgumentParser()
@@ -79,7 +85,7 @@ def main():
     if a.wait:
         wait_for(k)
     body = json.dumps({"host": HOST, "key": k, "keyLocation": f"{SITE}{k}.txt", "urlList": urls}).encode()
-    req = urllib.request.Request(ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+    req = urllib.request.Request(ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8", **UA})
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             print(f"indexnow: {r.status}, {len(urls)} URLs sent")
