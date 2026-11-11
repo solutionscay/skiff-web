@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=2498d850">
+<link rel="stylesheet" href="site.css?v=043f13ab">
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Skiff","description":"The multi-agent coding terminal. Run Claude Code, Codex and other agents in parallel on Linux and macOS. They send each other tasks and report back.","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS","license":"https://opensource.org/licenses/MIT","url":"https://skiff.solutionscay.com/","downloadUrl":"https://skiff.solutionscay.com/download/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"}}
@@ -77,8 +77,15 @@
     <img class="mascot" src="skiff.png" width="200" height="200" alt="Skiff mascot: a small boat with a robot at the helm">
   </div>
 
-  <div class="shot"><img src="shots/v1.9.4-mission-control-hero.webp" width="1600" height="900" fetchpriority="high" alt="Skiff v1.9.4 on Linux: Mission control with made-up projects. Admiral's window is at the top left, with the Skiff mascot's head, and a line runs down from it to the Skipper windows of the Harbor and Driftwood fleets and of the tidepool-web project. Each Skipper has its own face and color. Under each Skipper, the projects hold a card for each session. Most cards are amber with a bell and wait for approval. In Harbor, one blue card works."></div>
-  <p class="caption"><span class="tag">v1.9.4</span>Mission control. Admiral is at the top left, each Skipper has its own window, and each project is a tree of session cards. Amber marks the agents that wait for you.</p>
+  <div class="shot hero-loop">
+    <video autoplay muted loop playsinline preload="metadata" poster="shots/skiff-hero-loop-poster.webp" width="1600" height="900" aria-label="Skiff v2.2.9 on Linux with made-up projects, switching between two views of one workspace. In the Skippers view, Admiral, with the Skiff mascot's head, is the selected row and fills the open pane. Its morning sweep lists the overnight results, hands dark mode for the settings page to the tidepool-web Skipper and asks one approval. The list below holds the Skippers of the Harbor and Driftwood fleets and of projects such as tidepool-web, each with its own face, and the Tasks panel lists the working, open and finished hand-offs. In Mission Control, a line runs down from Admiral's window to the Skipper windows, and under each Skipper the projects hold a card for each session. Blue cards work. Amber cards with a bell, in Driftwood and saltmarsh-ios, wait for approval.">
+      <source src="shots/skiff-hero-loop.webm" type="video/webm">
+      <source src="shots/skiff-hero-loop.mp4" type="video/mp4">
+    </video>
+    <img class="still" src="shots/skiff-hero-loop-poster.webp" width="1600" height="900" fetchpriority="high" alt="Skiff v2.2.9 on Linux with made-up projects, in the Skippers view. Admiral, with the Skiff mascot's head, is the selected row and fills the open pane. Its morning sweep lists the overnight results, hands dark mode for the settings page to the tidepool-web Skipper and asks one approval. The list below holds the Skippers of the Harbor and Driftwood fleets and of projects such as tidepool-web, each with its own face, and the Tasks panel lists the working, open and finished hand-offs.">
+    <script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){var v=document.querySelector(".hero-loop video");v.removeAttribute("autoplay");v.preload="none";v.pause()}</script>
+  </div>
+  <p class="caption"><span class="tag">v2.2.9</span>The Skippers view and Mission Control. Admiral hands work to each Skipper, and each project is a tree of session cards. Amber marks the agents that wait for you.</p>
   <p class="caption"><a href="gallery/">All screenshots and videos, by version</a></p>
 
   <section id="what">

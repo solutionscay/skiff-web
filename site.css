@@ -95,6 +95,9 @@ code { font-family: var(--mono); font-size: 0.88em; color: var(--text); }
 /* Screenshot: flush, framed by one rule. */
 .shot { border: 1px solid var(--rule-strong); background: var(--bg); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45); }
 .shot img, .shot video { display: block; width: 100%; height: auto; }
+/* Hero loop: the still shows only under reduced motion. It also loads the poster early. */
+.hero-loop .still { display: none; }
+@media (prefers-reduced-motion: reduce) { .hero-loop video { display: none; } .hero-loop .still { display: block; } }
 .caption { margin: 12px 0 0; font-size: 13px; color: var(--text-dim); }
 
 .gallery figure { margin: 0; min-width: 0; }
