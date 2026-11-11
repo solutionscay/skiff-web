@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schedules | Skiff user guide</title>
+<meta name="description" content="How to send a prompt to Admiral or a Skipper at set times with a Skiff schedule, and follow each run in the Ledger.">
+<meta property="og:title" content="Schedules">
+<meta property="og:description" content="How to send a prompt to Admiral or a Skipper at set times with a Skiff schedule, and follow each run in the Ledger.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Skiff">
+<meta property="og:url" content="https://skiff.solutionscay.com/guides/skiff-user-guide/schedules/">
+<meta property="og:image" content="https://skiff.solutionscay.com/social-preview.png?v=7">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Skiff: the multi-agent coding terminal">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://skiff.solutionscay.com/guides/skiff-user-guide/schedules/">
+<link rel="icon" href="../../../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../site.css?v=00f392c7">
+<link rel="stylesheet" href="../../../guides/skiff-user-guide/guide.css?v=bf780e4e">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="WBND0Nn9GdlmCPxIRT8H3Q" async></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Schedules","description":"How to send a prompt to Admiral or a Skipper at set times with a Skiff schedule, and follow each run in the Ledger.","datePublished":"2026-11-10","dateModified":"2026-11-10","author":{"@type":"Organization","name":"Solutions Cay LLC","url":"https://solutionscay.com/"},"mainEntityOfPage":"https://skiff.solutionscay.com/guides/skiff-user-guide/schedules/"}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../../../"><img src="../../../skiff.png" alt="">Skiff</a>
+    <nav aria-label="Main">
+      <a href="../../../download/">Download</a>
+      <a href="../../../guides/">Guides</a>
+      <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+      <a href="https://github.com/solutionscay/skiff">GitHub</a>
+      <a href="../../../support/">Support</a>
+      <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main">
+        <a href="../../../download/">Download</a>
+        <a href="../../../guides/">Guides</a>
+        <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+        <a href="https://github.com/solutionscay/skiff">GitHub</a>
+        <a href="../../../support/">Support</a>
+        <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap ug">
+  <div class="page-head">
+    <h1>Schedules</h1>
+    <p>A schedule sends a prompt to a Skipper at set times. The Skipper does the work or hands it on. skiffd starts each run, also while the app is closed. Each run is a row in the <a href="../ledger/">ledger</a>.</p>
+    <div class="ver">Chapter 10 of 10 · <a href="../">Skiff user guide</a></div>
+  </div>
+
+  <section>
+    <h2>What a schedule is</h2>
+    <p class="lead">A schedule has a name, a time (<span class="path">When</span>), a Skipper and a prompt.</p>
+    <ol class="steps">
+      <li><span class="path">When</span> is every day, weekdays, every week, every month, an interval, or a custom cron line. Times are in the local time of the computer that runs the schedule.</li>
+      <li>The run goes to Admiral, to a fleet Skipper or to a project Skipper, as a hand-off. When the Skipper does not run, Skiff starts it first.</li>
+      <li>The prompt is a Markdown file: <span class="path">schedules/&lt;uid&gt;.md</span> in the Skiff agent's folder, next to <span class="path">types/</span>. Skiff reads the file at each run, so a change counts from the next run. A first line <span class="path"># &lt;name&gt;</span> is the file's heading. It is not part of the prompt.</li>
+      <li>A schedule belongs to the computer that runs it. With the app on a Host, the Host's skiffd runs the Host's schedules.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Settings › Schedules</h2>
+    <ol class="steps">
+      <li>Open <span class="path">Settings › Schedules</span>. It is a page of the Host. Each row shows the schedule's state, name, When, target, next run and last run.</li>
+      <li>Click <span class="path">Add…</span> to open the edit page for a new schedule. A new schedule goes to Admiral.</li>
+      <li>Click <span class="path">Run now</span> to start a run now. The button is off while a run is open.</li>
+      <li>Click <span class="path">Pause</span> to stop the runs. <span class="path">Resume</span> starts them again from the next time.</li>
+      <li>Click <span class="path">Edit</span> to open the edit page. Click <span class="path">−</span> to delete the schedule. Skiff asks first. The runs stay in the ledger, and so does the prompt file.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-schedules-list.webp"><img src="../../../shots/guide-schedules-list.webp" width="1600" height="480" alt="Settings, Schedules, with an Add button in the head. Four rows with Name, When, Target, Next run and Last run: backlog-sweep, every day at 02:00, Admiral, succeeded. release-notes, every Mon, Thu at 09:00, Harbor Skipper, running, with Run now off. tide-check, every 2 h, 08:00–20:00, Mon–Fri, tidepool Skipper, failed. month-report, every month on day 1 at 06:00, Quarry Skipper, paused and dim. Each row has Run now, Pause or Resume, Edit and a minus button."></a>
+      <figcaption>Settings › Schedules: four schedules with their When, target, next run and last run. One is paused.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Edit a schedule</h2>
+    <p class="lead">The edit page has two bands. <span class="path">When</span> holds the name and the When sentence. <span class="path">Agent step</span> holds the Skipper and the prompt file. Each field saves when you leave it. A new schedule saves when its name and its When are valid.</p>
+    <ol class="steps">
+      <li>Type the name in the <span class="path">Name</span> row.</li>
+      <li>The <span class="path">When</span> row is a sentence, such as <em>Every week on Mon, Thu at 09:00</em>. Each value with a faint underline is a picker. Click it to open its menu. The first picker sets the rest of the sentence. The end column shows the next 3 runs.</li>
+      <li>Type the time as HH:MM. A bad time gets a red underline and an error line in the end column.</li>
+      <li>Click the <span class="path">Skipper</span> row to pick the Skipper that takes the run.</li>
+      <li>The <span class="path">Prompt</span> row shows the prompt file: a square, its size or <em>none</em>, and the file name. Click <span class="path">Edit</span> to open the file as <span class="path">Settings › Open with › Text files</span> says. When the file does not exist, Skiff makes it with the <span class="path"># &lt;name&gt;</span> line. A new schedule has no file until it saves.</li>
+      <li>Click <span class="path">Run now</span> to save the field you are in, start the run and go back to the list. When the run cannot start, the page stays open and shows the error.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-schedules-edit.webp"><img src="../../../shots/guide-schedules-edit.webp" width="1600" height="480" loading="lazy" alt="The edit page of release-notes, with Run now, Pause and Delete in the head. The When band: Name release-notes, and the sentence Every week on Mon, Thu at 09:00, with the next runs Nov 16, Nov 19 and Nov 23 at 09:00 in the end column. The Agent step band: Skipper Harbor Skipper, and Prompt 1.2 KB schedules/9a7b3f10.md with an Edit button."></a>
+      <figcaption>A schedule's edit page: the When sentence, the Skipper and the prompt file.</figcaption>
+    </figure>
+    <h3>When</h3>
+    <table class="ug-keys">
+      <tr><td>Every day</td><td>Every day at 01:30</td></tr>
+      <tr><td>Weekdays</td><td>Weekdays at 08:00</td></tr>
+      <tr><td>Every week</td><td>Every Mon, Thu at 09:00</td></tr>
+      <tr><td>Every month</td><td>Every month on day 1 at 06:00. The day is 1 to 28, so every month has that day.</td></tr>
+      <tr><td>An interval</td><td>Every 30 min, 09:00–18:00, Mon–Fri. The intervals are 5, 10, 15, 20 and 30 minutes, and 1, 2, 3, 4, 6, 8 and 12 hours. An interval runs all day, or between two whole hours. No run starts at the end hour.</td></tr>
+      <tr><td>Custom</td><td>Any 5-field cron line, such as <span class="path">0 9 1,15 * *</span>, and also <span class="path">@hourly</span>, <span class="path">@daily</span>, <span class="path">@weekly</span> and <span class="path">@monthly</span>. The page shows the cron line as a text field.</td></tr>
+    </table>
+    <h3>The Skipper picker</h3>
+    <p class="lead">The picker lists Admiral, then each fleet Skipper, then the Skipper of each project that is in no fleet, in the order of the tree. Each item shows the Skipper's face. The list has every Skipper, also those that do not run. A project in a fleet is not in the list, because its fleet's Skipper takes its work.</p>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-schedules-skipper-picker.webp"><img src="../../../shots/guide-schedules-skipper-picker.webp" width="1600" height="560" loading="lazy" alt="The Skipper picker open on the edit page of release-notes. Admiral comes first. Then the fleet Skippers, Harbor Skipper, which is selected, and Quarry Skipper. Then the project Skippers, tidepool Skipper and field-notes Skipper. Each item has the Skipper's face."></a>
+      <figcaption>The Skipper picker: Admiral, the fleet Skippers, then the project Skippers.</figcaption>
+    </figure>
+    <p class="ug-note">When a fleet Skipper or a project Skipper does not run, Skiff starts it, and its first message and the hand-off go in one turn. A run for a fleet Skipper fails, with the reason, when a project Skipper of that fleet runs. A run for a project Skipper goes to its fleet's Skipper when that Skipper runs.</p>
+  </section>
+
+  <section>
+    <h2>Runs</h2>
+    <ol class="steps">
+      <li>skiffd checks for due schedules every 30 seconds, also while the app is closed.</li>
+      <li>The run is a task row in the ledger, with the schedule's name as its title. The hand-off to the Skipper is a row under the run. The run closes with a result.</li>
+      <li>A schedule has at most one open run. When a run is still pending or working at the next time, Skiff skips that time and counts the skip.</li>
+      <li>When the Skipper's pane is working or waits for you, the run stays pending. Skiff sends it again every 30 seconds until the pane is idle.</li>
+      <li>When the computer sleeps, or skiffd does not run, at a run's time, that run does not happen. Skiff does not run it later. The schedule waits for its next time.</li>
+      <li>When the project, the fleet or the pane no longer exists, the run fails with that reason. The schedule stays active.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The Schedules tab in the Ledger</h2>
+    <ol class="steps">
+      <li>The Ledger panel has two tabs: <span class="path">Tasks</span> and <span class="path">Schedules</span>. Each tab shows its count. The project filter applies to both tabs.</li>
+      <li>The Schedules tab shows each schedule in two lines. The first line has a dot for the last run, the name, the next run and the last outcome. The second line has the When words and the Skipper, such as <em>Harbor Skipper</em>.</li>
+      <li>The dot is grey for succeeded, blue for running, red for failed, and hollow for no run yet or skipped. A paused schedule shows dim, with <em>paused</em> in place of the next run.</li>
+      <li>Click a schedule, or press <kbd>Enter</kbd>, to open its runs, newest first. Click a run to open its result. Click a hand-off to open the Skipper's pane while the hand-off is open, and its result after that. <kbd>←</kbd> or <kbd>Esc</kbd> goes back to the list.</li>
+    </ol>
+    <figure class="ug-fig">
+      <a class="shot" href="../../../shots/guide-schedules-ledger.webp"><img src="../../../shots/guide-schedules-ledger.webp" width="1600" height="820" loading="lazy" alt="The Harbor fleet Skipper's pane reads the hand-off release-notes: write the release notes for atlas-api and atlas-web, then starts a task for each project. At its right, the Ledger panel is on its Schedules tab with the Harbor filter. It shows release-notes, every Mon, Thu at 09:00, Harbor Skipper, and its runs newest first: Nov 12 running with its hand-off, Nov 9 succeeded, Nov 5 failed, Nov 2 succeeded."></a>
+      <figcaption>A fleet Skipper takes a scheduled hand-off. The Ledger's Schedules tab shows that schedule's runs.</figcaption>
+    </figure>
+    <p class="ug-note">The tab changes nothing. To add or change a schedule from a shell, use <span class="path">skiff schedule</span>. The <a href="https://github.com/solutionscay/skiff/wiki/Schedules">Schedules</a> wiki page lists its commands.</p>
+  </section>
+
+  <nav class="ug-nav">
+    <a href="../settings/">← Settings</a>
+    <a class="next" href="../">Skiff user guide →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Skiff · MIT license · © 2026 Solutions Cay LLC</span>
+    <a href="https://github.com/solutionscay/skiff">GitHub</a>
+    <a href="https://github.com/solutionscay/skiff/wiki">Wiki</a>
+    <a href="https://www.youtube.com/playlist?list=PLFZ-W0mLJPqY">YouTube</a>
+    <a href="https://github.com/solutionscay/skiff/issues">Issues</a>
+    <a href="../../../support/">Support</a>
+    <a href="../../../gallery/">Screenshots</a>
+    <a href="https://buy.stripe.com/6oU4gz5Ejb4hgsm9mRcZa04">Tip</a>
+  </div>
+</footer>
+</body>
+</html>

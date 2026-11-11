@@ -83,11 +83,11 @@ PAGES = [
                  {"@type": "ListItem", "position": i + 1, "url": SITE + "guides/" + slug + "/"} for i, slug in enumerate(
                      ["skiff-user-guide", "run-coding-agents-in-parallel", "keep-agent-sessions-running", "git-worktrees-for-coding-agents"])]}}),
     dict(path="guides/skiff-user-guide/", title="Skiff user guide | Skiff", og_title="Skiff user guide", css="guides/skiff-user-guide/guide.css",
-         desc="How to set up Skiff and run coding agents in it: Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces and Settings. Every step is a click or a key.",
+         desc="How to set up Skiff and run coding agents in it: Admiral and the Skippers, projects and fleets, sessions and groups, diffs and files, images, the Ledger, workspaces, Settings and schedules. Every step is a click or a key.",
          ld={"@context": "https://schema.org", "@type": "CollectionPage", "name": "Skiff user guide", "url": SITE + "guides/skiff-user-guide/",
              "publisher": PUBLISHER, "mainEntity": {"@type": "ItemList", "itemListElement": [
                  {"@type": "ListItem", "position": i + 1, "url": SITE + "guides/skiff-user-guide/" + slug + "/"} for i, slug in enumerate(
-                     ["set-up-admiral", "projects-and-fleets", "sessions-and-groups", "side-panel-diffs-and-files", "focus-mode-and-mission-control", "drop-images", "ledger", "workspaces", "settings"])]}}),
+                     ["set-up-admiral", "projects-and-fleets", "sessions-and-groups", "side-panel-diffs-and-files", "focus-mode-and-mission-control", "drop-images", "ledger", "workspaces", "settings", "schedules"])]}}),
     dict(path="guides/skiff-user-guide/set-up-admiral/", type="article", css="guides/skiff-user-guide/guide.css",
          title="Set up Admiral, Skippers and task types | Skiff user guide", og_title="Set up Admiral, Skippers and task types",
          desc="How to name the Skiff agent, pick its agent and model, set the project and fleet Skippers, and tell Admiral which agent runs each kind of task.",
@@ -124,6 +124,10 @@ PAGES = [
          title="Settings | Skiff user guide", og_title="Settings",
          desc="The Skiff Settings pages: Agents, Sessions, Disk use, Images, Appearance and themes, Open with, and Hosts over SSH.",
          ld=article("guides/skiff-user-guide/settings/", "Settings", "The Skiff Settings pages: Agents, Sessions, Disk use, Images, Appearance and themes, Open with, and Hosts over SSH.", "2026-10-29", "2026-11-09")),
+    dict(path="guides/skiff-user-guide/schedules/", type="article", css="guides/skiff-user-guide/guide.css",
+         title="Schedules | Skiff user guide", og_title="Schedules",
+         desc="How to send a prompt to Admiral or a Skipper at set times with a Skiff schedule, and follow each run in the Ledger.",
+         ld=article("guides/skiff-user-guide/schedules/", "Schedules", "How to send a prompt to Admiral or a Skipper at set times with a Skiff schedule, and follow each run in the Ledger.", "2026-11-10")),
     dict(path="guides/git-worktrees-for-coding-agents/", type="article",
          title="Git worktrees for coding agents: a practical guide | Skiff",
          og_title="Git worktrees for coding agents: a practical guide",
